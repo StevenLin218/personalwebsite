@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The W124 Journal | Steven Lin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
+        
+        body { 
+            background-color: #0a0a0a; 
+            color: #d1d5db; 
+            font-family: 'Inter', sans-serif; 
+        }
+        h1, h2, .serif { font-family: 'Playfair Display', serif; }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=2070&auto=format&fit=crop'); /* 建議替換為你愛車的實拍照 */
+            background-size: cover;
+            background-position: center;
+        }
+        .border-silver { border-color: #94a3b8; }
+        .text-silver { color: #cbd5e1; }
+    </style>
+</head>
+<body>
+
+    <header class="hero-bg h-screen flex flex-col justify-center items-center text-center px-6">
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-4">The Last Overbuilt Era</h1>
+        <p class="text-xl md:text-2xl text-silver italic mb-8 serif">1993 Mercedes-Benz W124 | 220 Petrol</p>
+        <div class="w-24 h-px bg-white/50"></div>
+    </header>
+
+    <section class="max-w-4xl mx-auto py-24 px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center text-white">規格與配置</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="border-l border-white/20 pl-4">
+                <p class="text-xs uppercase tracking-widest text-gray-500">Engine</p>
+                <p class="text-lg font-semibold text-silver">M111.960</p>
+            </div>
+            <div class="border-l border-white/20 pl-4">
+                <p class="text-xs uppercase tracking-widest text-gray-500">Transmission</p>
+                <p class="text-lg font-semibold text-silver">4-Speed Auto</p>
+            </div>
+            <div class="border-l border-white/20 pl-4">
+                <p class="text-xs uppercase tracking-widest text-gray-500">Year</p>
+                <p class="text-lg font-semibold text-silver">1993 (Late Facelift)</p>
+            </div>
+            <div class="border-l border-white/20 pl-4">
