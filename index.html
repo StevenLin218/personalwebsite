@@ -11,8 +11,7 @@
 BODY {
   background-color: #000011;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%23000011'/%3E%3Ccircle cx='23' cy='67' r='1' fill='white' opacity='0.9'/%3E%3Ccircle cx='89' cy='12' r='1.5' fill='white' opacity='0.7'/%3E%3Ccircle cx='156' cy='89' r='1' fill='%23aaaaff' opacity='0.8'/%3E%3Ccircle cx='234' cy='34' r='1' fill='white' opacity='0.6'/%3E%3Ccircle cx='312' cy='156' r='2' fill='%23ffff88' opacity='0.5'/%3E%3Ccircle cx='378' cy='23' r='1' fill='white' opacity='0.9'/%3E%3Ccircle cx='45' cy='189' r='1.5' fill='%23aaffaa' opacity='0.6'/%3E%3Ccircle cx='123' cy='267' r='1' fill='white' opacity='0.8'/%3E%3Ccircle cx='267' cy='189' r='1' fill='%23ffaaff' opacity='0.7'/%3E%3Ccircle cx='345' cy='267' r='1.5' fill='white' opacity='0.5'/%3E%3Ccircle cx='67' cy='345' r='1' fill='%23aaaaff' opacity='0.9'/%3E%3Ccircle cx='189' cy='345' r='1' fill='white' opacity='0.6'/%3E%3Ccircle cx='289' cy='378' r='2' fill='%23ffff88' opacity='0.4'/%3E%3Ccircle cx='367' cy='334' r='1' fill='white' opacity='0.8'/%3E%3Ccircle cx='12' cy='378' r='1.5' fill='%23aaffff' opacity='0.7'/%3E%3Ccircle cx='178' cy='145' r='1' fill='white' opacity='0.5'/%3E%3Ccircle cx='56' cy='256' r='1' fill='%23ffaaff' opacity='0.8'/%3E%3Ccircle cx='334' cy='78' r='1.5' fill='white' opacity='0.6'/%3E%3Ccircle cx='390' cy='189' r='1' fill='%23aaaaff' opacity='0.9'/%3E%3Ccircle cx='145' cy='390' r='1' fill='white' opacity='0.7'/%3E%3C/svg%3E");
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   font-family: 'VT323', 'Courier New', monospace;
   color: #00ff00;
   overflow-x: hidden;
@@ -20,314 +19,182 @@ BODY {
 
 .hit-counter {
   font-family: 'Press Start 2P', monospace;
-  font-size: 8px;
-  color: #ff0000;
-  background: #000;
-  border: 2px inset #666;
-  padding: 2px 6px;
-  letter-spacing: 2px;
+  font-size: 8px; color: #ff0000;
+  background: #000; border: 2px inset #666;
+  padding: 2px 6px; letter-spacing: 2px;
 }
 
 .main-title {
   font-family: 'Press Start 2P', monospace;
   font-size: clamp(9px, 2.2vw, 15px);
-  text-align: center;
-  padding: 8px 0;
-  letter-spacing: 2px;
-  line-height: 2;
+  text-align: center; padding: 8px 0;
+  letter-spacing: 2px; line-height: 2;
 }
 
 .title-rainbow {
   background: linear-gradient(90deg,#ff0000,#ff7700,#ffff00,#00ff00,#0000ff,#ff00ff,#ff0000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-size: 200%;
-  animation: rainbow-shift 3s linear infinite;
-  display: inline-block;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; background-size: 200%;
+  animation: rainbow-shift 3s linear infinite; display: inline-block;
 }
 
 @keyframes rainbow-shift { 0%{background-position:0%} 100%{background-position:200%} }
 
-.star1 { display:inline-block; animation: twinkle 0.8s step-end infinite; color: #ffff00; }
-.star2 { display:inline-block; animation: twinkle 1.3s step-end infinite 0.4s; color: #ff88ff; }
-.star3 { display:inline-block; animation: twinkle 0.6s step-end infinite 0.2s; color: #88ffff; }
+.star1 { display:inline-block; animation:twinkle 0.8s step-end infinite; color:#ffff00; }
+.star2 { display:inline-block; animation:twinkle 1.3s step-end infinite 0.4s; color:#ff88ff; }
+.star3 { display:inline-block; animation:twinkle 0.6s step-end infinite 0.2s; color:#88ffff; }
 @keyframes twinkle { 0%,100%{opacity:1} 50%{opacity:0} }
 
 HR.fancy {
-  border: none;
-  height: 4px;
-  background: linear-gradient(90deg,transparent,#ff00ff,#00ffff,#ffff00,#ff00ff,transparent);
-  margin: 4px 0;
+  border:none; height:4px;
+  background:linear-gradient(90deg,transparent,#ff00ff,#00ffff,#ffff00,#ff00ff,transparent);
+  margin:4px 0;
 }
-
-HR.plain { border: 1px solid #336633; margin: 4px 0; }
+HR.plain { border:1px solid #336633; margin:4px 0; }
 
 .monitor-outer {
-  background: #1c1c1c;
-  border: 6px outset #555;
-  border-radius: 18px 18px 12px 12px;
-  padding: 16px 20px 40px 20px;
-  position: relative;
-  box-shadow: 4px 4px 0 #000, 8px 8px 0 rgba(0,0,0,0.5);
-  margin: 0 auto;
-  max-width: 640px;
+  background:#1c1c1c; border:6px outset #555;
+  border-radius:18px 18px 12px 12px;
+  padding:16px 20px 40px 20px; position:relative;
+  box-shadow:4px 4px 0 #000,8px 8px 0 rgba(0,0,0,0.5);
+  margin:0 auto; max-width:640px;
 }
 
-.monitor-inner {
-  background: #111;
-  border: 4px inset #222;
-  border-radius: 8px;
-  padding: 3px;
-}
+.monitor-inner { background:#111; border:4px inset #222; border-radius:8px; padding:3px; }
 
 .screen {
-  background: #020802;
-  border-radius: 6px;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: 4/3;
+  background:#020802; border-radius:6px;
+  position:relative; overflow:hidden;
+  width:100%; aspect-ratio:4/3;
 }
 
 .screen::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(0deg,rgba(0,0,0,0.22) 0px,rgba(0,0,0,0.22) 1px,transparent 1px,transparent 3px);
-  pointer-events: none;
-  z-index: 20;
+  content:''; position:absolute; inset:0;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,0.22) 0px,rgba(0,0,0,0.22) 1px,transparent 1px,transparent 3px);
+  pointer-events:none; z-index:20;
 }
 
 .screen-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: saturate(0.65) contrast(1.05) brightness(0.85) sepia(0.2);
-  position: absolute;
-  inset: 0;
+  width:100%; height:100%; object-fit:cover; display:block;
+  filter:saturate(0.65) contrast(1.05) brightness(0.85) sepia(0.2);
+  position:absolute; inset:0;
 }
 
-#noise-canvas {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 10;
-  opacity: 0.5;
-}
+#noise-canvas { position:absolute; inset:0; pointer-events:none; z-index:10; opacity:0.5; }
 
 .no-signal {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #000;
-  z-index: 5;
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; background:#000; z-index:5;
 }
 
 .no-signal-bars { display:flex; width:90%; height:55%; margin-bottom:10px; }
 .no-signal-bars div { flex:1; height:100%; }
 
 .no-signal-text {
-  font-family: 'VT323', monospace;
-  color: #fff;
-  font-size: 24px;
-  letter-spacing: 6px;
-  animation: blink-anim 1s step-end infinite;
+  font-family:'VT323',monospace; color:#fff; font-size:24px;
+  letter-spacing:6px; animation:blink-anim 1s step-end infinite;
 }
 
-.no-signal-sub {
-  font-family: 'VT323', monospace;
-  color: #666;
-  font-size: 16px;
-  letter-spacing: 3px;
-  margin-top: 4px;
-}
+.no-signal-sub { font-family:'VT323',monospace; color:#666; font-size:16px; letter-spacing:3px; margin-top:4px; }
 
 @keyframes blink-anim { 0%,100%{opacity:1} 50%{opacity:0} }
 
 .osd-ts {
-  position: absolute; bottom:8px; right:10px;
-  font-family: 'VT323', monospace;
-  font-size: 14px;
-  color: rgba(255,210,0,0.9);
-  pointer-events: none;
-  z-index: 25;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 0 #000;
+  position:absolute; bottom:8px; right:10px;
+  font-family:'VT323',monospace; font-size:14px;
+  color:rgba(255,210,0,0.9); pointer-events:none; z-index:25;
+  letter-spacing:1px; text-shadow:1px 1px 0 #000;
 }
 
 .osd-cap {
-  position: absolute; bottom:8px; left:10px;
-  font-family: 'VT323', monospace;
-  font-size: 15px;
-  color: rgba(255,255,255,0.85);
-  pointer-events: none;
-  z-index: 25;
-  text-shadow: 1px 1px 0 #000;
-  max-width: 55%;
+  position:absolute; bottom:8px; left:10px;
+  font-family:'VT323',monospace; font-size:15px;
+  color:rgba(255,255,255,0.85); pointer-events:none; z-index:25;
+  text-shadow:1px 1px 0 #000; max-width:55%;
 }
 
 .osd-rec {
-  position: absolute; top:8px; left:10px;
-  font-family: 'VT323', monospace;
-  font-size: 13px;
-  color: rgba(0,255,65,0.8);
-  pointer-events: none;
-  z-index: 25;
+  position:absolute; top:8px; left:10px;
+  font-family:'VT323',monospace; font-size:13px;
+  color:rgba(0,255,65,0.8); pointer-events:none; z-index:25;
 }
 
 .monitor-base {
   width:60%; height:14px;
-  background: linear-gradient(180deg,#333,#222);
-  border: 2px outset #444;
-  margin: 0 auto;
-  border-radius: 0 0 6px 6px;
+  background:linear-gradient(180deg,#333,#222);
+  border:2px outset #444; margin:0 auto; border-radius:0 0 6px 6px;
 }
 
-.monitor-stand {
-  width:30%; height:8px;
-  background: #1a1a1a;
-  border: 2px outset #333;
-  margin: 0 auto;
-  border-radius: 0 0 4px 4px;
-}
-
+.monitor-stand { width:30%; height:8px; background:#1a1a1a; border:2px outset #333; margin:0 auto; border-radius:0 0 4px 4px; }
 .monitor-foot { display:flex; justify-content:center; gap:40px; }
-.monitor-foot-piece {
-  width:60px; height:6px;
-  background: #222;
-  border: 2px outset #333;
-  border-radius: 0 0 4px 4px;
-}
+.monitor-foot-piece { width:60px; height:6px; background:#222; border:2px outset #333; border-radius:0 0 4px 4px; }
 
-.monitor-led-row {
-  position: absolute; bottom:14px; right:22px;
-  display:flex; align-items:center; gap:5px;
-}
+.monitor-led-row { position:absolute; bottom:14px; right:22px; display:flex; align-items:center; gap:5px; }
 
 .led-dot {
-  width:7px; height:7px;
-  border-radius: 50%;
-  background: #00ff00;
-  box-shadow: 0 0 4px #00ff00;
-  animation: led-blink 2s ease-in-out infinite;
+  width:7px; height:7px; border-radius:50%; background:#00ff00;
+  box-shadow:0 0 4px #00ff00; animation:led-blink 2s ease-in-out infinite;
 }
 
 @keyframes led-blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
 .monitor-brand-tag {
-  position: absolute; bottom:14px; left:50%;
-  transform: translateX(-50%);
-  font-family: 'VT323', monospace;
-  font-size: 11px;
-  color: #555;
-  letter-spacing: 5px;
-  white-space: nowrap;
+  position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
+  font-family:'VT323',monospace; font-size:11px; color:#555; letter-spacing:5px; white-space:nowrap;
 }
 
 .nav-table { margin:6px auto 0; border-collapse:collapse; }
 .nav-btn-cell { padding:4px 8px; }
 
 .arrow-btn {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 12px;
-  background: #000033;
-  color: #00ffff;
-  border: 3px outset #0000aa;
-  padding: 6px 12px;
-  cursor: pointer;
-  letter-spacing: 1px;
+  font-family:'Press Start 2P',monospace; font-size:12px;
+  background:#000033; color:#00ffff; border:3px outset #0000aa;
+  padding:6px 12px; cursor:pointer; letter-spacing:1px;
 }
-
 .arrow-btn:hover { background:#000066; }
 .arrow-btn:active { border-style:inset; }
 .arrow-btn:disabled { color:#333; border-color:#222; cursor:default; background:#000; }
 
 .counter-cell {
-  font-family: 'VT323', monospace;
-  font-size: 22px;
-  color: #ffaa00;
-  text-align: center;
-  padding: 0 16px;
-  letter-spacing: 3px;
-  min-width: 90px;
+  font-family:'VT323',monospace; font-size:22px; color:#ffaa00;
+  text-align:center; padding:0 16px; letter-spacing:3px; min-width:90px;
 }
 
 .bottom-section { max-width:640px; margin:8px auto 0; }
 
-.ctrl-box {
-  background: #000022;
-  border: 2px inset #003300;
-  padding: 10px;
-}
+.ctrl-box { background:#000022; border:2px inset #003300; padding:10px; }
 
 .ctrl-title {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 7px;
-  color: #00ff00;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
-  border-bottom: 1px solid #003300;
-  padding-bottom: 6px;
+  font-family:'Press Start 2P',monospace; font-size:7px; color:#00ff00;
+  letter-spacing:2px; margin-bottom:8px; border-bottom:1px solid #003300; padding-bottom:6px;
 }
 
 .ctrl-btn {
-  font-family: 'VT323', monospace;
-  font-size: 16px;
-  background: #001100;
-  color: #00cc00;
-  border: 2px outset #006600;
-  padding: 4px 10px;
-  cursor: pointer;
-  margin: 3px;
-  letter-spacing: 1px;
-  display: inline-block;
-  white-space: nowrap;
+  font-family:'VT323',monospace; font-size:16px; background:#001100; color:#00cc00;
+  border:2px outset #006600; padding:4px 10px; cursor:pointer;
+  margin:3px; letter-spacing:1px; display:inline-block; white-space:nowrap;
 }
-
 .ctrl-btn:hover { background:#002200; color:#00ff00; }
 .ctrl-btn:active { border-style:inset; }
 .ctrl-btn.red { color:#ff4444; border-color:#660000; background:#110000; }
 .ctrl-btn.red:hover { background:#220000; color:#ff6666; }
 
-.music-box {
-  background: #110022;
-  border: 2px inset #330066;
-  padding: 10px;
-}
+/* ── MUSIC PLAYER ── */
+.music-box { background:#110022; border:2px inset #330066; padding:10px; }
 
 .music-title {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 7px;
-  color: #ff00ff;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
-  border-bottom: 1px solid #330033;
-  padding-bottom: 6px;
+  font-family:'Press Start 2P',monospace; font-size:7px; color:#ff00ff;
+  letter-spacing:2px; margin-bottom:8px; border-bottom:1px solid #330033; padding-bottom:6px;
 }
 
 .music-display {
-  background: #000;
-  border: 2px inset #444;
-  color: #00ff88;
-  font-family: 'VT323', monospace;
-  font-size: 14px;
-  padding: 4px 6px;
-  margin-bottom: 6px;
-  letter-spacing: 1px;
-  height: 28px;
-  overflow: hidden;
-  white-space: nowrap;
+  background:#000; border:2px inset #444; color:#00ff88;
+  font-family:'VT323',monospace; font-size:14px; padding:4px 6px;
+  margin-bottom:6px; letter-spacing:1px; height:28px; overflow:hidden; white-space:nowrap;
 }
 
 .music-scroll-text {
-  display: inline-block;
-  animation: mscroll 14s linear infinite;
-  padding-left: 100%;
+  display:inline-block; animation:mscroll 14s linear infinite; padding-left:100%;
 }
 
 @keyframes mscroll { 0%{transform:translateX(0)} 100%{transform:translateX(-100%)} }
@@ -335,322 +202,151 @@ HR.plain { border: 1px solid #336633; margin: 4px 0; }
 .music-controls { display:flex; gap:4px; margin-bottom:6px; flex-wrap:wrap; }
 
 .music-btn {
-  font-family: 'VT323', monospace;
-  font-size: 18px;
-  background: #1a0033;
-  color: #ff88ff;
-  border: 2px outset #660066;
-  padding: 2px 10px;
-  cursor: pointer;
-  min-width: 36px;
-  text-align: center;
+  font-family:'VT323',monospace; font-size:18px; background:#1a0033; color:#ff88ff;
+  border:2px outset #660066; padding:2px 10px; cursor:pointer; min-width:36px; text-align:center;
 }
-
 .music-btn:hover { background:#2a0044; color:#ffaaff; }
 .music-btn:active { border-style:inset; }
 
 .music-upload-label {
-  font-family: 'VT323', monospace;
-  font-size: 14px;
-  background: #110033;
-  color: #aa88ff;
-  border: 2px outset #440077;
-  padding: 3px 8px;
-  cursor: pointer;
-  display: inline-block;
-  letter-spacing: 1px;
+  font-family:'VT323',monospace; font-size:14px; background:#110033; color:#aa88ff;
+  border:2px outset #440077; padding:3px 8px; cursor:pointer; display:inline-block; letter-spacing:1px;
 }
-
 .music-upload-label:hover { background:#220044; color:#cc99ff; }
 
 .volume-row { display:flex; align-items:center; gap:6px; margin-top:4px; }
+.volume-label { font-family:'VT323',monospace; font-size:13px; color:#884488; letter-spacing:1px; white-space:nowrap; }
 
-.volume-label {
-  font-family: 'VT323', monospace;
-  font-size: 13px;
-  color: #884488;
-  letter-spacing: 1px;
-  white-space: nowrap;
-}
+.volume-slider { -webkit-appearance:none; appearance:none; width:70px; height:8px; background:#330033; border:1px inset #660066; outline:none; cursor:pointer; }
+.volume-slider::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; background:#ff00ff; cursor:pointer; }
 
-.volume-slider {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 70px; height:8px;
-  background: #330033;
-  border: 1px inset #660066;
-  outline: none;
-  cursor: pointer;
-}
+.music-status { font-family:'VT323',monospace; font-size:12px; color:#554455; margin-top:4px; letter-spacing:1px; word-break:break-all; }
 
-.volume-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width:14px; height:14px;
-  background: #ff00ff;
-  cursor: pointer;
-}
-
-.music-status {
-  font-family: 'VT323', monospace;
-  font-size: 12px;
-  color: #554455;
-  margin-top: 4px;
-  letter-spacing: 1px;
-  word-break: break-all;
-}
-
-/* WIN95 MODAL */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  z-index: 200;
-  align-items: center;
-  justify-content: center;
-}
-
+/* ── WIN95 MODALS ── */
+.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:200; align-items:center; justify-content:center; }
 .modal-overlay.open { display:flex; }
 
-.modal-window {
-  background: #c0c0c0;
-  border: 3px outset #ffffff;
-  min-width: 280px;
-  max-width: 460px;
-  width: 90vw;
-  box-shadow: 4px 4px 0 #000;
-}
+.modal-window { background:#c0c0c0; border:3px outset #ffffff; min-width:280px; max-width:480px; width:90vw; box-shadow:4px 4px 0 #000; }
 
 .modal-titlebar {
-  background: linear-gradient(90deg,#000080,#1084d0);
-  color: #fff;
-  padding: 4px 8px;
-  font-family: 'VT323', monospace;
-  font-size: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  letter-spacing: 1px;
+  background:linear-gradient(90deg,#000080,#1084d0); color:#fff;
+  padding:4px 8px; font-family:'VT323',monospace; font-size:16px;
+  display:flex; justify-content:space-between; align-items:center; letter-spacing:1px;
 }
 
 .modal-close-btn {
-  background: #c0c0c0;
-  border: 2px outset #fff;
-  color: #000;
-  font-size: 11px;
-  width:18px; height:18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: monospace;
-  padding:0; line-height:1;
+  background:#c0c0c0; border:2px outset #fff; color:#000; font-size:11px;
+  width:18px; height:18px; cursor:pointer; display:flex; align-items:center;
+  justify-content:center; font-family:monospace; padding:0; line-height:1;
 }
-
 .modal-close-btn:active { border-style:inset; }
 .modal-body { padding:12px; background:#c0c0c0; }
 
-.modal-label {
-  font-family: 'VT323', monospace;
-  font-size: 16px;
-  color: #000080;
-  display: block;
-  margin-bottom: 2px;
-  letter-spacing: 1px;
-}
+.modal-label { font-family:'VT323',monospace; font-size:16px; color:#000080; display:block; margin-bottom:2px; letter-spacing:1px; }
 
 .modal-input {
-  width: 100%;
-  font-family: 'VT323', monospace;
-  font-size: 15px;
-  background: #fff;
-  border: 2px inset #808080;
-  padding: 4px 6px;
-  color: #000;
-  margin-bottom: 10px;
-  outline: none;
-  box-sizing: border-box;
+  width:100%; font-family:'VT323',monospace; font-size:15px; background:#fff;
+  border:2px inset #808080; padding:4px 6px; color:#000; margin-bottom:10px; outline:none; box-sizing:border-box;
 }
-
 .modal-input:focus { background:#fffff0; }
 
-.drop-area {
-  border: 2px dashed #000080;
-  background: #d4d0c8;
-  padding: 16px 10px;
-  text-align: center;
-  cursor: pointer;
-  margin-bottom: 10px;
-  font-family: 'VT323', monospace;
-  font-size: 16px;
-  color: #000080;
-  letter-spacing: 1px;
+/* ── PHOTO LOAD AREA (multi-file, like music) ── */
+.photo-load-area {
+  border:2px dashed #000080; background:#d4d0c8;
+  padding:16px 10px; text-align:center; cursor:pointer;
+  margin-bottom:10px; font-family:'VT323',monospace; font-size:16px; color:#000080; letter-spacing:1px;
+}
+.photo-load-area:hover { background:#e0dcf0; border-color:#0000ff; }
+.photo-load-area.dragover { background:#d0e8ff; border-color:#0000ff; }
+
+.photo-thumbs {
+  display:flex; flex-wrap:wrap; gap:4px;
+  max-height:100px; overflow-y:auto;
+  margin-top:6px; justify-content:center;
 }
 
-.drop-area:hover { background:#e0dcf0; border-color:#0000ff; }
+.photo-thumbs img { width:56px; height:56px; object-fit:cover; border:2px inset #808080; filter:saturate(0.6); }
 
-#file-preview {
-  max-width:100%; max-height:90px;
-  display:none;
-  margin:6px auto 0;
-  border: 2px inset #808080;
-}
-
-.modal-btn-row {
-  display:flex; gap:6px;
-  justify-content:flex-end;
-  margin-top:6px;
-}
+.modal-btn-row { display:flex; gap:6px; justify-content:flex-end; margin-top:6px; }
 
 .win95-btn {
-  font-family: 'VT323', monospace;
-  font-size: 16px;
-  background: #c0c0c0;
-  border: 2px outset #fff;
-  padding: 3px 14px;
-  cursor: pointer;
-  color: #000;
-  letter-spacing: 1px;
-  min-width: 60px;
+  font-family:'VT323',monospace; font-size:16px; background:#c0c0c0;
+  border:2px outset #fff; padding:3px 14px; cursor:pointer; color:#000; letter-spacing:1px; min-width:60px;
 }
-
 .win95-btn:hover { background:#d0d0d0; }
 .win95-btn:active { border-style:inset; }
 .win95-btn.primary { background:#d0d8ff; }
 
+/* ── GALLERY ── */
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(76px,1fr));
-  gap: 4px;
-  max-height: 280px;
-  overflow-y: auto;
-  background: #808080;
-  padding: 4px;
-  margin-bottom: 8px;
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(76px,1fr));
+  gap:4px; max-height:280px; overflow-y:auto;
+  background:#808080; padding:4px; margin-bottom:8px;
 }
 
-.gal-item {
-  border: 2px outset #c0c0c0;
-  cursor: pointer;
-  position: relative;
-  aspect-ratio: 1;
-  overflow: hidden;
-  background: #000;
-}
-
+.gal-item { border:2px outset #c0c0c0; cursor:pointer; position:relative; aspect-ratio:1; overflow:hidden; background:#000; }
 .gal-item:hover { border-style:inset; }
 .gal-item.active { border:2px solid #ffff00; }
-
-.gal-item img {
-  width:100%; height:100%;
-  object-fit: cover;
-  display: block;
-  filter: saturate(0.6) sepia(0.15);
-}
+.gal-item img { width:100%; height:100%; object-fit:cover; display:block; filter:saturate(0.6) sepia(0.15); }
 
 .gal-del {
-  position: absolute; top:1px; right:1px;
-  background: rgba(0,0,0,0.85);
-  color: #ff4444;
-  border: 1px solid #880000;
-  font-size: 10px;
-  width:16px; height:16px;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-family: monospace;
+  position:absolute; top:1px; right:1px; background:rgba(0,0,0,0.85); color:#ff4444;
+  border:1px solid #880000; font-size:10px; width:16px; height:16px;
+  display:none; align-items:center; justify-content:center; cursor:pointer; font-family:monospace;
 }
-
 .gal-item:hover .gal-del { display:flex; }
 
-.blink      { animation: blink-anim 0.8s step-end infinite; }
-.blink-slow { animation: blink-anim 1.6s step-end infinite; }
+.blink      { animation:blink-anim 0.8s step-end infinite; }
+.blink-slow { animation:blink-anim 1.6s step-end infinite; }
 
 .page-center { max-width:680px; margin:0 auto; padding:10px 8px; }
 
 .top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3px 6px;
-  background: #000033;
-  border-bottom: 2px solid #0000aa;
-  max-width: 680px;
-  margin: 0 auto;
-  font-size: 12px;
-  font-family: 'VT323', monospace;
-  color: #8888ff;
-  letter-spacing: 1px;
-  flex-wrap: wrap;
-  gap: 4px;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:3px 6px; background:#000033; border-bottom:2px solid #0000aa;
+  max-width:680px; margin:0 auto; font-size:12px;
+  font-family:'VT323',monospace; color:#8888ff; letter-spacing:1px; flex-wrap:wrap; gap:4px;
 }
 
 .planet { display:inline-block; width:16px; height:16px; border-radius:50%; vertical-align:middle; margin:0 2px; }
-.planet-orange { background: radial-gradient(circle at 35% 35%,#ff8800,#aa3300); }
-.planet-blue   { background: radial-gradient(circle at 35% 35%,#4488ff,#001166); }
-.planet-green  { background: radial-gradient(circle at 35% 35%,#44ff88,#005522); }
+.planet-orange { background:radial-gradient(circle at 35% 35%,#ff8800,#aa3300); }
+.planet-blue   { background:radial-gradient(circle at 35% 35%,#4488ff,#001166); }
+.planet-green  { background:radial-gradient(circle at 35% 35%,#44ff88,#005522); }
 
 .under-const {
-  display: inline-block;
-  font-family: 'VT323', monospace;
-  font-size: 13px;
-  background: #ffff00;
-  color: #000;
-  padding: 1px 5px;
-  border: 2px outset #888;
-  animation: blink-anim 0.5s step-end infinite;
-  letter-spacing: 1px;
+  display:inline-block; font-family:'VT323',monospace; font-size:13px;
+  background:#ffff00; color:#000; padding:1px 5px; border:2px outset #888;
+  animation:blink-anim 0.5s step-end infinite; letter-spacing:1px;
 }
 
-.spacejam-footer {
-  text-align: center;
-  padding: 10px 0 20px;
-  font-family: 'VT323', monospace;
-  font-size: 14px;
-  color: #333;
-  letter-spacing: 3px;
-  max-width: 640px;
-  margin: 0 auto;
-}
+.spacejam-footer { text-align:center; padding:10px 0 20px; font-family:'VT323',monospace; font-size:14px; color:#333; letter-spacing:3px; max-width:640px; margin:0 auto; }
 </style>
 </head>
 <body>
 
 <!-- TOP BAR -->
 <div class="top-bar">
-  <span>
-    <span class="star1">*</span>
-    VISITORS:&nbsp;<span class="hit-counter" id="visit-count">000000</span>
-    <span class="star2">*</span>
-  </span>
+  <span><span class="star1">*</span> VISITORS:&nbsp;<span class="hit-counter" id="visit-count">000000</span> <span class="star2">*</span></span>
   <span><span class="under-const">!! UNDER CONSTRUCTION !!</span></span>
   <span>BEST: 800x600 | IE4.0 | NS3.0</span>
 </div>
 
 <div class="page-center">
 
-<!-- MARQUEE -->
 <marquee behavior="scroll" direction="left" scrollamount="3"
   style="color:#ff00ff;font-family:'VT323',monospace;font-size:18px;letter-spacing:3px;border-top:2px solid #330033;border-bottom:2px solid #330033;padding:2px 0;background:#0a0016;">
-&nbsp;&nbsp;
-<span class="star1">*</span> Anthony's Memory Hall &nbsp;
+&nbsp;&nbsp;<span class="star1">*</span> Anthony's Memory Hall &nbsp;
 <span class="planet planet-orange"></span> CRT PHOTO ARCHIVE <span class="planet planet-blue"></span>
-&nbsp; Memories From The Golden Age &nbsp;
-<span class="star2">*</span>&nbsp;&nbsp;
--- Est. 1996 -- CCD Era Photos --
-<span class="planet planet-green"></span>&nbsp;
-Welcome to My Page! &nbsp;
-<span class="star3">*</span>&nbsp;&nbsp;
+&nbsp; Memories From The Golden Age &nbsp;<span class="star2">*</span>&nbsp;&nbsp;
+-- Est. 1996 -- CCD Era Photos -- <span class="planet planet-green"></span>&nbsp;
+Welcome to My Page! &nbsp;<span class="star3">*</span>&nbsp;&nbsp;
 </marquee>
 
-<!-- TITLE -->
 <div style="text-align:center;padding:10px 0 4px;">
   <div class="main-title">
     <span class="star1">*</span>
     <span class="title-rainbow">~~ Anthony's Memory Hall ~~</span>
-    <span class="star1">*</span>
-    <br>
+    <span class="star1">*</span><br>
     <span style="font-size:0.7em;color:#8888ff;letter-spacing:1px;">
       <span class="star2">*</span> CRT PHOTO ARCHIVE &middot; EST. 1996 <span class="star2">*</span>
     </span>
@@ -663,13 +359,12 @@ Welcome to My Page! &nbsp;
 <div class="monitor-outer">
   <div class="monitor-inner">
     <div class="screen" id="screen">
-
       <img class="screen-photo" id="photo-img" src="" alt="" style="display:none;">
 
       <div class="no-signal" id="no-signal">
         <div class="no-signal-bars" id="signal-bars"></div>
         <div class="no-signal-text">NO SIGNAL</div>
-        <div class="no-signal-sub">Upload a photo to begin</div>
+        <div class="no-signal-sub">Click [ + ] Load Photos to begin</div>
       </div>
 
       <canvas id="noise-canvas"></canvas>
@@ -679,7 +374,6 @@ Welcome to My Page! &nbsp;
       <div class="osd-ts"  id="osd-ts"></div>
     </div>
   </div>
-
   <div class="monitor-brand-tag">MEMORYTRON MDT-9400</div>
   <div class="monitor-led-row"><div class="led-dot"></div></div>
 </div>
@@ -694,22 +388,18 @@ Welcome to My Page! &nbsp;
   </div>
 </div>
 
-<!-- NAV BUTTONS -->
+<!-- NAV -->
 <table class="nav-table" cellpadding="0" cellspacing="0">
 <tr>
-  <td class="nav-btn-cell">
-    <button class="arrow-btn" id="btn-prev" onclick="navigate(-1)">&#9668;&#9668; PREV</button>
-  </td>
+  <td class="nav-btn-cell"><button class="arrow-btn" id="btn-prev" onclick="navigate(-1)">&#9668;&#9668; PREV</button></td>
   <td class="counter-cell" id="counter-cell">-- / --</td>
-  <td class="nav-btn-cell">
-    <button class="arrow-btn" id="btn-next" onclick="navigate(1)">NEXT &#9658;&#9658;</button>
-  </td>
+  <td class="nav-btn-cell"><button class="arrow-btn" id="btn-next" onclick="navigate(1)">NEXT &#9658;&#9658;</button></td>
 </tr>
 </table>
 
 <hr class="plain">
 
-<!-- BOTTOM: CONTROLS + MUSIC -->
+<!-- CONTROLS + MUSIC -->
 <div class="bottom-section">
 <table width="100%" cellpadding="0" cellspacing="6" border="0">
 <tr valign="top">
@@ -717,21 +407,19 @@ Welcome to My Page! &nbsp;
   <td width="52%">
     <div class="ctrl-box">
       <div class="ctrl-title">&#9616; PHOTO CONTROLS</div>
-      <button class="ctrl-btn" onclick="openUploadModal()">[ + ] Add Photo</button>
+      <button class="ctrl-btn" onclick="openLoadModal()">[ + ] Load Photos</button>
       <button class="ctrl-btn" onclick="openGallery()">[ &#9638; ] Gallery</button><br>
       <button class="ctrl-btn" onclick="openEditModal()">[ &#9999; ] Edit Caption</button>
-      <button class="ctrl-btn red" onclick="deleteCurrentPhoto()">[ X ] Delete</button>
+      <button class="ctrl-btn red" onclick="deleteCurrentPhoto()">[ X ] Remove</button>
     </div>
   </td>
 
   <td width="48%">
     <div class="music-box">
       <div class="music-title">&#9834; BGM MUSIC PLAYER</div>
-
       <div class="music-display">
         <span class="music-scroll-text" id="music-txt">-- NO MUSIC LOADED -- Upload a song to begin --</span>
       </div>
-
       <div class="music-controls">
         <button class="music-btn" onclick="musicPlay()" title="Play">&#9658;</button>
         <button class="music-btn" onclick="musicPause()" title="Pause">&#8214;</button>
@@ -741,13 +429,11 @@ Welcome to My Page! &nbsp;
           <input type="file" id="music-input" accept="audio/*" style="display:none;" onchange="loadMusic(event)">
         </label>
       </div>
-
       <div class="volume-row">
         <span class="volume-label">VOL:</span>
         <input type="range" class="volume-slider" id="vol-slider" min="0" max="100" value="70" oninput="setVol(this.value)">
         <span class="volume-label" id="vol-num">70</span>
       </div>
-
       <div class="music-status" id="music-status">STATUS: IDLE</div>
     </div>
   </td>
@@ -758,7 +444,6 @@ Welcome to My Page! &nbsp;
 
 <hr class="fancy">
 
-<!-- FOOTER NAV LINKS -->
 <div style="text-align:center;padding:6px 0 4px;font-family:'VT323',monospace;font-size:16px;letter-spacing:2px;">
   <span class="star1">*</span>
   <span style="color:#ff00ff;">HOME</span> |
@@ -784,36 +469,37 @@ Welcome to My Page! &nbsp;
 
 </div><!-- /page-center -->
 
-<!-- UPLOAD MODAL -->
-<div class="modal-overlay" id="upload-modal">
+<!-- ── LOAD PHOTOS MODAL ── -->
+<div class="modal-overlay" id="load-modal">
   <div class="modal-window">
     <div class="modal-titlebar">
-      <span>&#128247; Add New Photo</span>
-      <button class="modal-close-btn" onclick="closeModal('upload-modal')">X</button>
+      <span>&#128247; Load Photos</span>
+      <button class="modal-close-btn" onclick="closeModal('load-modal')">X</button>
     </div>
     <div class="modal-body">
-      <div class="drop-area" id="drop-area" onclick="document.getElementById('file-input').click()">
-        Click to select a photo &mdash; or Drag &amp; Drop<br>
-        <span style="font-size:13px;color:#444;">JPG &middot; GIF &middot; PNG &middot; BMP</span>
-        <br><img id="file-preview" alt="preview">
+
+      <div style="font-family:'VT323',monospace;font-size:14px;color:#333;margin-bottom:8px;letter-spacing:1px;line-height:1.4;">
+        Select one or multiple photos.<br>
+        They load directly into memory &mdash; no data is stored on any server.
       </div>
-      <input type="file" id="file-input" accept="image/*" style="display:none;" onchange="handleFileSelect(event)">
 
-      <label class="modal-label">Caption:</label>
-      <input class="modal-input" type="text" id="upload-caption" placeholder="Enter a caption for this photo...">
-
-      <label class="modal-label">Date (optional):</label>
-      <input class="modal-input" type="text" id="upload-date" placeholder="e.g. Aug 15, 1997">
+      <div class="photo-load-area" id="drop-area" onclick="document.getElementById('file-input').click()">
+        Click to select photos &mdash; or Drag &amp; Drop<br>
+        <span style="font-size:13px;color:#555;">JPG &middot; PNG &middot; GIF &middot; BMP &middot; WEBP</span><br>
+        <span style="font-size:13px;color:#000080;">You can select multiple files at once</span>
+        <div class="photo-thumbs" id="file-thumbs"></div>
+      </div>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;" onchange="handleFilesSelect(event)">
 
       <div class="modal-btn-row">
-        <button class="win95-btn primary" onclick="confirmUpload()">OK</button>
-        <button class="win95-btn" onclick="closeModal('upload-modal')">Cancel</button>
+        <button class="win95-btn primary" id="confirm-load-btn" onclick="confirmLoad()" disabled>Load ( 0 )</button>
+        <button class="win95-btn" onclick="closeModal('load-modal')">Cancel</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- GALLERY MODAL -->
+<!-- ── GALLERY MODAL ── -->
 <div class="modal-overlay" id="gallery-modal">
   <div class="modal-window" style="max-width:500px;">
     <div class="modal-titlebar">
@@ -829,7 +515,7 @@ Welcome to My Page! &nbsp;
   </div>
 </div>
 
-<!-- EDIT MODAL -->
+<!-- ── EDIT CAPTION MODAL ── -->
 <div class="modal-overlay" id="edit-modal">
   <div class="modal-window">
     <div class="modal-titlebar">
@@ -840,7 +526,7 @@ Welcome to My Page! &nbsp;
       <label class="modal-label">Caption:</label>
       <input class="modal-input" type="text" id="edit-caption" placeholder="Enter caption...">
       <label class="modal-label">Date:</label>
-      <input class="modal-input" type="text" id="edit-date" placeholder="e.g. Dec 31, 1998">
+      <input class="modal-input" type="text" id="edit-date" placeholder="e.g. Aug 15, 1997">
       <div class="modal-btn-row">
         <button class="win95-btn primary" onclick="saveEdit()">OK</button>
         <button class="win95-btn" onclick="closeModal('edit-modal')">Cancel</button>
@@ -852,24 +538,19 @@ Welcome to My Page! &nbsp;
 <audio id="bgm-audio" loop></audio>
 
 <script>
-var photos = [];
+// ── STATE ──
+// photos[] holds objects: { blobUrl, caption, date, filename }
+// Nothing is ever saved to localStorage — all in memory like the music player.
+var photos  = [];
 var current = 0;
-var pendingFile = null;
-var bgmAudio = document.getElementById('bgm-audio');
+
+// pending batch for the load modal
+var pendingBatch = [];
+
+var bgmAudio  = document.getElementById('bgm-audio');
 var bgmLoaded = false;
-var DB_KEY = 'anthonysMemoryHall_v1';
 
-function loadDB() {
-  try { var r = localStorage.getItem(DB_KEY); if(r) photos = JSON.parse(r); }
-  catch(e) { photos = []; }
-}
-
-function saveDB() {
-  try { localStorage.setItem(DB_KEY, JSON.stringify(photos)); }
-  catch(e) { alert('Save failed: Storage may be full.'); }
-}
-
-// Visitor counter
+// ── VISITOR COUNTER (localStorage just for the fun counter) ──
 (function() {
   var k = 'anthonysMemoryHall_visits';
   var v = parseInt(localStorage.getItem(k) || '0') + 1;
@@ -877,7 +558,7 @@ function saveDB() {
   document.getElementById('visit-count').textContent = String(v).padStart(6,'0');
 })();
 
-// Color bars
+// ── COLOR BARS ──
 (function() {
   var bars = document.getElementById('signal-bars');
   ['#fff','#ff0','#0ff','#0f0','#f0f','#f00','#00f','#000'].forEach(function(c) {
@@ -887,11 +568,10 @@ function saveDB() {
   });
 })();
 
-// CCD Noise
+// ── CCD NOISE ──
 function initNoise() {
   var canvas = document.getElementById('noise-canvas');
   var screen = document.getElementById('screen');
-
   function resize() { canvas.width = screen.offsetWidth; canvas.height = screen.offsetHeight; }
   resize();
   window.addEventListener('resize', resize);
@@ -901,20 +581,16 @@ function initNoise() {
     var w = canvas.width, h = canvas.height;
     var img = ctx.createImageData(w, h);
     var d = img.data;
-
     for (var i = 0; i < d.length; i += 4) {
       var r = Math.random();
-      if (r < 0.006) {
-        d[i]=220; d[i+1]=240; d[i+2]=180; d[i+3]=180;
-      } else if (r < 0.009) {
-        d[i]=0; d[i+1]=40; d[i+2]=0; d[i+3]=160;
-      } else {
+      if (r < 0.006)      { d[i]=220; d[i+1]=240; d[i+2]=180; d[i+3]=180; }
+      else if (r < 0.009) { d[i]=0;   d[i+1]=40;  d[i+2]=0;   d[i+3]=160; }
+      else {
         var g = Math.random() * 36;
         d[i]=g*0.4; d[i+1]=g*1.3; d[i+2]=g*0.3;
         d[i+3] = g > 14 ? g*0.7 : 0;
       }
     }
-
     if (Math.random() < 0.035) {
       var ry = Math.floor(Math.random() * h);
       for (var x = 0; x < w; x++) {
@@ -922,25 +598,14 @@ function initNoise() {
         d[idx]=0; d[idx+1]=80+Math.random()*160; d[idx+2]=0; d[idx+3]=50+Math.random()*70;
       }
     }
-
     ctx.putImageData(img, 0, 0);
   }
-
   setInterval(draw, 80);
   draw();
 }
 
+// ── DISPLAY ──
 function pad3(n) { return String(n).padStart(3,'0'); }
-
-function fmtDate(ts) {
-  if (!ts) return '';
-  var d = new Date(ts);
-  return d.getFullYear() + '.' +
-    String(d.getMonth()+1).padStart(2,'0') + '.' +
-    String(d.getDate()).padStart(2,'0') + '  ' +
-    String(d.getHours()).padStart(2,'0') + ':' +
-    String(d.getMinutes()).padStart(2,'0');
-}
 
 function updateDisplay() {
   var img   = document.getElementById('photo-img');
@@ -961,19 +626,20 @@ function updateDisplay() {
   }
 
   var p = photos[current];
-  img.src = p.dataUrl;
+  img.src = p.blobUrl;
   img.style.display = 'block';
   noSig.style.display = 'none';
 
   ctr.textContent = (current+1) + ' / ' + photos.length;
-  document.getElementById('osd-ts').textContent  = p.date ? p.date : fmtDate(p.added);
-  document.getElementById('osd-cap').textContent = p.caption || '';
+  document.getElementById('osd-ts').textContent  = p.date || '';
+  document.getElementById('osd-cap').textContent = p.caption || p.filename || '';
   document.getElementById('osd-rec').textContent = 'REC  ' + pad3(current+1) + '/' + pad3(photos.length);
 
   bPrev.disabled = current <= 0;
   bNext.disabled = current >= photos.length - 1;
 }
 
+// ── NAVIGATE ──
 function navigate(dir) {
   if (!photos.length) return;
   var n = current + dir;
@@ -996,73 +662,76 @@ function navigate(dir) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'ArrowLeft')  navigate(-1);
   if (e.key === 'ArrowRight') navigate(1);
-  if (e.key === 'Escape') {
-    closeModal('upload-modal');
-    closeModal('gallery-modal');
-    closeModal('edit-modal');
-  }
+  if (e.key === 'Escape') { closeModal('load-modal'); closeModal('gallery-modal'); closeModal('edit-modal'); }
 });
 
-function openUploadModal() {
-  pendingFile = null;
-  document.getElementById('file-preview').style.display = 'none';
-  document.getElementById('upload-caption').value = '';
-  document.getElementById('upload-date').value    = '';
-  document.getElementById('file-input').value     = '';
-  document.getElementById('upload-modal').classList.add('open');
+// ── LOAD PHOTOS MODAL ──
+function openLoadModal() {
+  pendingBatch = [];
+  document.getElementById('file-thumbs').innerHTML = '';
+  document.getElementById('file-input').value = '';
+  document.getElementById('confirm-load-btn').disabled = true;
+  document.getElementById('confirm-load-btn').textContent = 'Load ( 0 )';
+  document.getElementById('load-modal').classList.add('open');
 }
 
-function handleFileSelect(e) {
-  var file = e.target.files[0];
-  if (file) readImgFile(file);
+function handleFilesSelect(e) {
+  var files = Array.from(e.target.files);
+  addFilesToBatch(files);
 }
 
-function readImgFile(file) {
-  var reader = new FileReader();
-  reader.onload = function(ev) {
-    pendingFile = ev.target.result;
-    var prev = document.getElementById('file-preview');
-    prev.src = pendingFile;
-    prev.style.display = 'block';
-  };
-  reader.readAsDataURL(file);
-}
+function addFilesToBatch(files) {
+  files.forEach(function(file) {
+    if (!file.type.match(/^image\//)) return;
+    // Revoke any old blob with same name to avoid leaks
+    var existing = pendingBatch.find(function(p) { return p.filename === file.name; });
+    if (existing) URL.revokeObjectURL(existing.blobUrl);
 
-var dropArea = document.getElementById('drop-area');
-dropArea.addEventListener('dragover', function(e) { e.preventDefault(); dropArea.style.background='#e0dcf0'; });
-dropArea.addEventListener('dragleave', function() { dropArea.style.background=''; });
-dropArea.addEventListener('drop', function(e) {
-  e.preventDefault(); dropArea.style.background='';
-  var file = e.dataTransfer.files[0];
-  if (file && file.type.match(/^image\//)) readImgFile(file);
-});
+    var blobUrl = URL.createObjectURL(file);
+    pendingBatch.push({ blobUrl: blobUrl, filename: file.name, caption: '', date: '' });
 
-function confirmUpload() {
-  if (!pendingFile) { alert('Please select a photo first!'); return; }
-  photos.push({
-    id:      Date.now(),
-    dataUrl: pendingFile,
-    caption: document.getElementById('upload-caption').value.trim(),
-    date:    document.getElementById('upload-date').value.trim(),
-    added:   Date.now()
+    var img = document.createElement('img');
+    img.src = blobUrl;
+    document.getElementById('file-thumbs').appendChild(img);
   });
-  saveDB();
-  current = photos.length - 1;
-  updateDisplay();
-  closeModal('upload-modal');
+
+  var btn = document.getElementById('confirm-load-btn');
+  btn.disabled = pendingBatch.length === 0;
+  btn.textContent = 'Load ( ' + pendingBatch.length + ' )';
 }
 
+// Drag and drop onto the load area
+var dropArea = document.getElementById('drop-area');
+dropArea.addEventListener('dragover', function(e) { e.preventDefault(); dropArea.classList.add('dragover'); });
+dropArea.addEventListener('dragleave', function() { dropArea.classList.remove('dragover'); });
+dropArea.addEventListener('drop', function(e) {
+  e.preventDefault(); dropArea.classList.remove('dragover');
+  var files = Array.from(e.dataTransfer.files).filter(function(f) { return f.type.match(/^image\//); });
+  addFilesToBatch(files);
+});
+
+function confirmLoad() {
+  if (!pendingBatch.length) return;
+  // Append to existing photos array
+  pendingBatch.forEach(function(p) { photos.push(p); });
+  current = photos.length - pendingBatch.length; // jump to first new photo
+  pendingBatch = [];
+  updateDisplay();
+  closeModal('load-modal');
+}
+
+// ── GALLERY ──
 function openGallery() {
   var grid = document.getElementById('gallery-grid');
   grid.innerHTML = '';
 
   if (!photos.length) {
-    grid.innerHTML = '<div style="grid-column:1/-1;color:#666;font-family:VT323,monospace;font-size:16px;text-align:center;padding:20px;">No photos yet. Upload one!</div>';
+    grid.innerHTML = '<div style="grid-column:1/-1;color:#666;font-family:VT323,monospace;font-size:16px;text-align:center;padding:20px;">No photos loaded yet.</div>';
   } else {
     photos.forEach(function(p, i) {
       var item = document.createElement('div');
       item.className = 'gal-item' + (i === current ? ' active' : '');
-      item.innerHTML = '<img src="' + p.dataUrl + '" alt=""><div class="gal-del" onclick="delPhoto(' + i + ',event)">X</div>';
+      item.innerHTML = '<img src="' + p.blobUrl + '" alt=""><div class="gal-del" onclick="delPhoto(' + i + ',event)">X</div>';
       item.addEventListener('click', function() { current = i; updateDisplay(); closeModal('gallery-modal'); });
       grid.appendChild(item);
     });
@@ -1073,14 +742,17 @@ function openGallery() {
 
 function delPhoto(i, e) {
   e.stopPropagation();
-  if (!confirm('Delete this photo?')) return;
+  if (!confirm('Remove this photo from the session?')) return;
+  URL.revokeObjectURL(photos[i].blobUrl); // free memory
   photos.splice(i, 1);
   if (current >= photos.length) current = Math.max(0, photos.length - 1);
-  saveDB(); updateDisplay(); openGallery();
+  updateDisplay();
+  openGallery();
 }
 
+// ── EDIT CAPTION ──
 function openEditModal() {
-  if (!photos.length) { alert('No photos to edit.'); return; }
+  if (!photos.length) { alert('No photos loaded.'); return; }
   var p = photos[current];
   document.getElementById('edit-caption').value = p.caption || '';
   document.getElementById('edit-date').value    = p.date    || '';
@@ -1091,15 +763,19 @@ function saveEdit() {
   if (!photos.length) return;
   photos[current].caption = document.getElementById('edit-caption').value.trim();
   photos[current].date    = document.getElementById('edit-date').value.trim();
-  saveDB(); updateDisplay(); closeModal('edit-modal');
+  updateDisplay();
+  closeModal('edit-modal');
 }
 
+// ── DELETE CURRENT ──
 function deleteCurrentPhoto() {
-  if (!photos.length) { alert('No photos.'); return; }
-  if (!confirm('Delete this photo?\n"' + (photos[current].caption || '(no caption)') + '"')) return;
+  if (!photos.length) { alert('No photos loaded.'); return; }
+  var label = photos[current].caption || photos[current].filename || '(no caption)';
+  if (!confirm('Remove "' + label + '" from the session?')) return;
+  URL.revokeObjectURL(photos[current].blobUrl);
   photos.splice(current, 1);
   if (current >= photos.length) current = Math.max(0, photos.length - 1);
-  saveDB(); updateDisplay();
+  updateDisplay();
 }
 
 function closeModal(id) { document.getElementById(id).classList.remove('open'); }
@@ -1108,13 +784,11 @@ document.querySelectorAll('.modal-overlay').forEach(function(el) {
   el.addEventListener('click', function(e) { if (e.target === el) el.classList.remove('open'); });
 });
 
-// Music Player
+// ── MUSIC PLAYER ──
 function loadMusic(e) {
   var file = e.target.files[0];
   if (!file) return;
-
   if (bgmAudio.src && bgmAudio.src.startsWith('blob:')) URL.revokeObjectURL(bgmAudio.src);
-
   bgmAudio.src = URL.createObjectURL(file);
   bgmLoaded = true;
 
@@ -1126,15 +800,14 @@ function loadMusic(e) {
   txt.style.animation = '';
 
   document.getElementById('music-status').textContent = 'STATUS: LOADED - ' + file.name.substring(0, 28);
-
   bgmAudio.volume = document.getElementById('vol-slider').value / 100;
   bgmAudio.play().catch(function() {
     document.getElementById('music-status').textContent = 'STATUS: Click PLAY to start';
   });
 }
 
-function musicPlay() {
-  if (!bgmLoaded) { alert('Please click LOAD to upload a music file first!'); return; }
+function musicPlay()  {
+  if (!bgmLoaded) { alert('Click the LOAD button to upload a music file first!'); return; }
   bgmAudio.play();
   document.getElementById('music-status').textContent = 'STATUS: PLAYING';
 }
@@ -1144,9 +817,8 @@ function musicPause() {
   document.getElementById('music-status').textContent = 'STATUS: PAUSED';
 }
 
-function musicStop() {
-  bgmAudio.pause();
-  bgmAudio.currentTime = 0;
+function musicStop()  {
+  bgmAudio.pause(); bgmAudio.currentTime = 0;
   document.getElementById('music-status').textContent = 'STATUS: STOPPED';
 }
 
@@ -1155,7 +827,7 @@ function setVol(v) {
   document.getElementById('vol-num').textContent = v;
 }
 
-loadDB();
+// ── INIT ──
 updateDisplay();
 initNoise();
 </script>
