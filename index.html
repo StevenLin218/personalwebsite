@@ -1,828 +1,1163 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>蔡巧貴 Amy Tsai — Zhen Innovation Development Co., Ltd. | 蓁創新開發展業股份有限公司</title>
-<meta name="description" content="蔡巧貴 Amy Tsai - Zhen Innovation Development Co., Ltd. (ZID) 董事長、臺北市政顧問、公關策劃與品牌顧問">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>~*~ Anthony's Memory Hall ~*~ CRT PHOTO ARCHIVE ~*~ EST. 1996 ~*~</title>
+
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
 
-:root {
-  --gold: #C5A55A;
-  --gold-light: #D4BB7C;
-  --gold-dark: #9E833E;
-  --charcoal: #1A1A1A;
-  --off-white: #F5F2ED;
-  --warm-gray: #8A8278;
-  --cream: #EDE8E0;
-  --deep: #0D0D0D;
-  --section-gap: 100px;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Noto Sans TC', sans-serif;
-  background: var(--deep);
-  color: var(--off-white);
+BODY {
+  background-color: #000011;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%23000011'/%3E%3Ccircle cx='23' cy='67' r='1' fill='white' opacity='0.9'/%3E%3Ccircle cx='89' cy='12' r='1.5' fill='white' opacity='0.7'/%3E%3Ccircle cx='156' cy='89' r='1' fill='%23aaaaff' opacity='0.8'/%3E%3Ccircle cx='234' cy='34' r='1' fill='white' opacity='0.6'/%3E%3Ccircle cx='312' cy='156' r='2' fill='%23ffff88' opacity='0.5'/%3E%3Ccircle cx='378' cy='23' r='1' fill='white' opacity='0.9'/%3E%3Ccircle cx='45' cy='189' r='1.5' fill='%23aaffaa' opacity='0.6'/%3E%3Ccircle cx='123' cy='267' r='1' fill='white' opacity='0.8'/%3E%3Ccircle cx='267' cy='189' r='1' fill='%23ffaaff' opacity='0.7'/%3E%3Ccircle cx='345' cy='267' r='1.5' fill='white' opacity='0.5'/%3E%3Ccircle cx='67' cy='345' r='1' fill='%23aaaaff' opacity='0.9'/%3E%3Ccircle cx='189' cy='345' r='1' fill='white' opacity='0.6'/%3E%3Ccircle cx='289' cy='378' r='2' fill='%23ffff88' opacity='0.4'/%3E%3Ccircle cx='367' cy='334' r='1' fill='white' opacity='0.8'/%3E%3Ccircle cx='12' cy='378' r='1.5' fill='%23aaffff' opacity='0.7'/%3E%3Ccircle cx='178' cy='145' r='1' fill='white' opacity='0.5'/%3E%3Ccircle cx='56' cy='256' r='1' fill='%23ffaaff' opacity='0.8'/%3E%3Ccircle cx='334' cy='78' r='1.5' fill='white' opacity='0.6'/%3E%3Ccircle cx='390' cy='189' r='1' fill='%23aaaaff' opacity='0.9'/%3E%3Ccircle cx='145' cy='390' r='1' fill='white' opacity='0.7'/%3E%3C/svg%3E");
+  margin: 0;
+  padding: 0;
+  font-family: 'VT323', 'Courier New', monospace;
+  color: #00ff00;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
 }
 
-/* === GRAIN OVERLAY === */
-body::after {
+.hit-counter {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #ff0000;
+  background: #000;
+  border: 2px inset #666;
+  padding: 2px 6px;
+  letter-spacing: 2px;
+}
+
+.main-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(9px, 2.2vw, 15px);
+  text-align: center;
+  padding: 8px 0;
+  letter-spacing: 2px;
+  line-height: 2;
+}
+
+.title-rainbow {
+  background: linear-gradient(90deg,#ff0000,#ff7700,#ffff00,#00ff00,#0000ff,#ff00ff,#ff0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200%;
+  animation: rainbow-shift 3s linear infinite;
+  display: inline-block;
+}
+
+@keyframes rainbow-shift { 0%{background-position:0%} 100%{background-position:200%} }
+
+.star1 { display:inline-block; animation: twinkle 0.8s step-end infinite; color: #ffff00; }
+.star2 { display:inline-block; animation: twinkle 1.3s step-end infinite 0.4s; color: #ff88ff; }
+.star3 { display:inline-block; animation: twinkle 0.6s step-end infinite 0.2s; color: #88ffff; }
+@keyframes twinkle { 0%,100%{opacity:1} 50%{opacity:0} }
+
+HR.fancy {
+  border: none;
+  height: 4px;
+  background: linear-gradient(90deg,transparent,#ff00ff,#00ffff,#ffff00,#ff00ff,transparent);
+  margin: 4px 0;
+}
+
+HR.plain { border: 1px solid #336633; margin: 4px 0; }
+
+.monitor-outer {
+  background: #1c1c1c;
+  border: 6px outset #555;
+  border-radius: 18px 18px 12px 12px;
+  padding: 16px 20px 40px 20px;
+  position: relative;
+  box-shadow: 4px 4px 0 #000, 8px 8px 0 rgba(0,0,0,0.5);
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+.monitor-inner {
+  background: #111;
+  border: 4px inset #222;
+  border-radius: 8px;
+  padding: 3px;
+}
+
+.screen {
+  background: #020802;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+
+.screen::after {
   content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg,rgba(0,0,0,0.22) 0px,rgba(0,0,0,0.22) 1px,transparent 1px,transparent 3px);
+  pointer-events: none;
+  z-index: 20;
+}
+
+.screen-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.65) contrast(1.05) brightness(0.85) sepia(0.2);
+  position: absolute;
+  inset: 0;
+}
+
+#noise-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.5;
+}
+
+.no-signal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  z-index: 5;
+}
+
+.no-signal-bars { display:flex; width:90%; height:55%; margin-bottom:10px; }
+.no-signal-bars div { flex:1; height:100%; }
+
+.no-signal-text {
+  font-family: 'VT323', monospace;
+  color: #fff;
+  font-size: 24px;
+  letter-spacing: 6px;
+  animation: blink-anim 1s step-end infinite;
+}
+
+.no-signal-sub {
+  font-family: 'VT323', monospace;
+  color: #666;
+  font-size: 16px;
+  letter-spacing: 3px;
+  margin-top: 4px;
+}
+
+@keyframes blink-anim { 0%,100%{opacity:1} 50%{opacity:0} }
+
+.osd-ts {
+  position: absolute; bottom:8px; right:10px;
+  font-family: 'VT323', monospace;
+  font-size: 14px;
+  color: rgba(255,210,0,0.9);
+  pointer-events: none;
+  z-index: 25;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.osd-cap {
+  position: absolute; bottom:8px; left:10px;
+  font-family: 'VT323', monospace;
+  font-size: 15px;
+  color: rgba(255,255,255,0.85);
+  pointer-events: none;
+  z-index: 25;
+  text-shadow: 1px 1px 0 #000;
+  max-width: 55%;
+}
+
+.osd-rec {
+  position: absolute; top:8px; left:10px;
+  font-family: 'VT323', monospace;
+  font-size: 13px;
+  color: rgba(0,255,65,0.8);
+  pointer-events: none;
+  z-index: 25;
+}
+
+.monitor-base {
+  width:60%; height:14px;
+  background: linear-gradient(180deg,#333,#222);
+  border: 2px outset #444;
+  margin: 0 auto;
+  border-radius: 0 0 6px 6px;
+}
+
+.monitor-stand {
+  width:30%; height:8px;
+  background: #1a1a1a;
+  border: 2px outset #333;
+  margin: 0 auto;
+  border-radius: 0 0 4px 4px;
+}
+
+.monitor-foot { display:flex; justify-content:center; gap:40px; }
+.monitor-foot-piece {
+  width:60px; height:6px;
+  background: #222;
+  border: 2px outset #333;
+  border-radius: 0 0 4px 4px;
+}
+
+.monitor-led-row {
+  position: absolute; bottom:14px; right:22px;
+  display:flex; align-items:center; gap:5px;
+}
+
+.led-dot {
+  width:7px; height:7px;
+  border-radius: 50%;
+  background: #00ff00;
+  box-shadow: 0 0 4px #00ff00;
+  animation: led-blink 2s ease-in-out infinite;
+}
+
+@keyframes led-blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+.monitor-brand-tag {
+  position: absolute; bottom:14px; left:50%;
+  transform: translateX(-50%);
+  font-family: 'VT323', monospace;
+  font-size: 11px;
+  color: #555;
+  letter-spacing: 5px;
+  white-space: nowrap;
+}
+
+.nav-table { margin:6px auto 0; border-collapse:collapse; }
+.nav-btn-cell { padding:4px 8px; }
+
+.arrow-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  background: #000033;
+  color: #00ffff;
+  border: 3px outset #0000aa;
+  padding: 6px 12px;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.arrow-btn:hover { background:#000066; }
+.arrow-btn:active { border-style:inset; }
+.arrow-btn:disabled { color:#333; border-color:#222; cursor:default; background:#000; }
+
+.counter-cell {
+  font-family: 'VT323', monospace;
+  font-size: 22px;
+  color: #ffaa00;
+  text-align: center;
+  padding: 0 16px;
+  letter-spacing: 3px;
+  min-width: 90px;
+}
+
+.bottom-section { max-width:640px; margin:8px auto 0; }
+
+.ctrl-box {
+  background: #000022;
+  border: 2px inset #003300;
+  padding: 10px;
+}
+
+.ctrl-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #00ff00;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #003300;
+  padding-bottom: 6px;
+}
+
+.ctrl-btn {
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  background: #001100;
+  color: #00cc00;
+  border: 2px outset #006600;
+  padding: 4px 10px;
+  cursor: pointer;
+  margin: 3px;
+  letter-spacing: 1px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.ctrl-btn:hover { background:#002200; color:#00ff00; }
+.ctrl-btn:active { border-style:inset; }
+.ctrl-btn.red { color:#ff4444; border-color:#660000; background:#110000; }
+.ctrl-btn.red:hover { background:#220000; color:#ff6666; }
+
+.music-box {
+  background: #110022;
+  border: 2px inset #330066;
+  padding: 10px;
+}
+
+.music-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #ff00ff;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #330033;
+  padding-bottom: 6px;
+}
+
+.music-display {
+  background: #000;
+  border: 2px inset #444;
+  color: #00ff88;
+  font-family: 'VT323', monospace;
+  font-size: 14px;
+  padding: 4px 6px;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+  height: 28px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.music-scroll-text {
+  display: inline-block;
+  animation: mscroll 14s linear infinite;
+  padding-left: 100%;
+}
+
+@keyframes mscroll { 0%{transform:translateX(0)} 100%{transform:translateX(-100%)} }
+
+.music-controls { display:flex; gap:4px; margin-bottom:6px; flex-wrap:wrap; }
+
+.music-btn {
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  background: #1a0033;
+  color: #ff88ff;
+  border: 2px outset #660066;
+  padding: 2px 10px;
+  cursor: pointer;
+  min-width: 36px;
+  text-align: center;
+}
+
+.music-btn:hover { background:#2a0044; color:#ffaaff; }
+.music-btn:active { border-style:inset; }
+
+.music-upload-label {
+  font-family: 'VT323', monospace;
+  font-size: 14px;
+  background: #110033;
+  color: #aa88ff;
+  border: 2px outset #440077;
+  padding: 3px 8px;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+.music-upload-label:hover { background:#220044; color:#cc99ff; }
+
+.volume-row { display:flex; align-items:center; gap:6px; margin-top:4px; }
+
+.volume-label {
+  font-family: 'VT323', monospace;
+  font-size: 13px;
+  color: #884488;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 70px; height:8px;
+  background: #330033;
+  border: 1px inset #660066;
+  outline: none;
+  cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width:14px; height:14px;
+  background: #ff00ff;
+  cursor: pointer;
+}
+
+.music-status {
+  font-family: 'VT323', monospace;
+  font-size: 12px;
+  color: #554455;
+  margin-top: 4px;
+  letter-spacing: 1px;
+  word-break: break-all;
+}
+
+/* WIN95 MODAL */
+.modal-overlay {
+  display: none;
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
+  background: rgba(0,0,0,0.75);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
 }
 
-/* === NAVIGATION === */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding: 20px 40px;
+.modal-overlay.open { display:flex; }
+
+.modal-window {
+  background: #c0c0c0;
+  border: 3px outset #ffffff;
+  min-width: 280px;
+  max-width: 460px;
+  width: 90vw;
+  box-shadow: 4px 4px 0 #000;
+}
+
+.modal-titlebar {
+  background: linear-gradient(90deg,#000080,#1084d0);
+  color: #fff;
+  padding: 4px 8px;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background 0.4s, backdrop-filter 0.4s;
+  letter-spacing: 1px;
 }
-nav.scrolled {
-  background: rgba(13,13,13,0.85);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(197,165,90,0.15);
-}
-.nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--gold);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a {
-  color: var(--warm-gray);
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: color 0.3s;
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--gold);
-  transition: width 0.3s;
-}
-.nav-links a:hover { color: var(--gold); }
-.nav-links a:hover::after { width: 100%; }
 
-/* === HERO === */
-.hero {
-  min-height: 100vh;
+.modal-close-btn {
+  background: #c0c0c0;
+  border: 2px outset #fff;
+  color: #000;
+  font-size: 11px;
+  width:18px; height:18px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
+  font-family: monospace;
+  padding:0; line-height:1;
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 20% 50%, rgba(197,165,90,0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 80% 30%, rgba(197,165,90,0.04) 0%, transparent 70%);
+
+.modal-close-btn:active { border-style:inset; }
+.modal-body { padding:12px; background:#c0c0c0; }
+
+.modal-label {
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  color: #000080;
+  display: block;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
 }
-.hero-content {
+
+.modal-input {
+  width: 100%;
+  font-family: 'VT323', monospace;
+  font-size: 15px;
+  background: #fff;
+  border: 2px inset #808080;
+  padding: 4px 6px;
+  color: #000;
+  margin-bottom: 10px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.modal-input:focus { background:#fffff0; }
+
+.drop-area {
+  border: 2px dashed #000080;
+  background: #d4d0c8;
+  padding: 16px 10px;
   text-align: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  color: #000080;
+  letter-spacing: 1px;
+}
+
+.drop-area:hover { background:#e0dcf0; border-color:#0000ff; }
+
+#file-preview {
+  max-width:100%; max-height:90px;
+  display:none;
+  margin:6px auto 0;
+  border: 2px inset #808080;
+}
+
+.modal-btn-row {
+  display:flex; gap:6px;
+  justify-content:flex-end;
+  margin-top:6px;
+}
+
+.win95-btn {
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  background: #c0c0c0;
+  border: 2px outset #fff;
+  padding: 3px 14px;
+  cursor: pointer;
+  color: #000;
+  letter-spacing: 1px;
+  min-width: 60px;
+}
+
+.win95-btn:hover { background:#d0d0d0; }
+.win95-btn:active { border-style:inset; }
+.win95-btn.primary { background:#d0d8ff; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(76px,1fr));
+  gap: 4px;
+  max-height: 280px;
+  overflow-y: auto;
+  background: #808080;
+  padding: 4px;
+  margin-bottom: 8px;
+}
+
+.gal-item {
+  border: 2px outset #c0c0c0;
+  cursor: pointer;
   position: relative;
-  z-index: 1;
-  animation: fadeUp 1.2s ease-out;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #000;
 }
-.hero-eyebrow {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 24px;
-  opacity: 0;
-  animation: fadeUp 1s ease-out 0.3s forwards;
+
+.gal-item:hover { border-style:inset; }
+.gal-item.active { border:2px solid #ffff00; }
+
+.gal-item img {
+  width:100%; height:100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.6) sepia(0.15);
 }
-.hero-name {
-  font-family: 'Noto Serif TC', serif;
-  font-size: clamp(3rem, 8vw, 6.5rem);
-  font-weight: 900;
-  letter-spacing: 12px;
-  line-height: 1.1;
-  margin-bottom: 12px;
-  opacity: 0;
-  animation: fadeUp 1s ease-out 0.5s forwards;
-}
-.hero-name-en {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.2rem, 3vw, 2rem);
-  font-weight: 400;
-  font-style: italic;
-  color: var(--gold-light);
-  letter-spacing: 8px;
-  margin-bottom: 40px;
-  opacity: 0;
-  animation: fadeUp 1s ease-out 0.7s forwards;
-}
-.hero-title {
-  font-size: 1.15rem;
-  font-weight: 300;
-  color: var(--warm-gray);
-  letter-spacing: 3px;
-  line-height: 2;
-  opacity: 0;
-  animation: fadeUp 1s ease-out 0.9s forwards;
-}
-.hero-divider {
-  width: 60px;
-  height: 1px;
-  background: var(--gold);
-  margin: 30px auto;
-  opacity: 0;
-  animation: fadeUp 1s ease-out 1.1s forwards;
-}
-.scroll-hint {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
+
+.gal-del {
+  position: absolute; top:1px; right:1px;
+  background: rgba(0,0,0,0.85);
+  color: #ff4444;
+  border: 1px solid #880000;
+  font-size: 10px;
+  width:16px; height:16px;
+  display: none;
   align-items: center;
-  gap: 8px;
-  opacity: 0;
-  animation: fadeUp 1s ease-out 1.5s forwards;
-}
-.scroll-hint span {
-  font-size: 0.8rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--warm-gray);
-}
-.scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--gold), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
+  justify-content: center;
+  cursor: pointer;
+  font-family: monospace;
 }
 
-/* === SECTIONS === */
-section { padding: var(--section-gap) 40px; }
+.gal-item:hover .gal-del { display:flex; }
 
-.section-label {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 16px;
-}
-.section-title {
-  font-family: 'Noto Serif TC', serif;
-  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-  font-weight: 700;
-  letter-spacing: 4px;
-  margin-bottom: 50px;
-  line-height: 1.4;
-}
+.blink      { animation: blink-anim 0.8s step-end infinite; }
+.blink-slow { animation: blink-anim 1.6s step-end infinite; }
 
-/* === ABOUT === */
-.about {
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-}
-.about-text {
-  font-size: 1.25rem;
-  line-height: 2.2;
-  font-weight: 300;
-  color: rgba(245,242,237,0.85);
-  column-count: 1;
-}
-.about-text p + p { margin-top: 1.5em; }
+.page-center { max-width:680px; margin:0 auto; padding:10px 8px; }
 
-.about-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 60px;
-  padding-top: 60px;
-  border-top: 1px solid rgba(197,165,90,0.2);
-}
-.stat-item { text-align: center; }
-.stat-number {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--gold);
-  line-height: 1;
-}
-.stat-label {
-  font-size: 1rem;
-  color: var(--warm-gray);
-  letter-spacing: 2px;
-  margin-top: 8px;
-}
-
-/* === ROLES / CREDENTIALS === */
-.roles {
-  max-width: 1100px;
-  margin: 0 auto;
-  background: linear-gradient(135deg, rgba(197,165,90,0.03), rgba(197,165,90,0.01));
-  border: 1px solid rgba(197,165,90,0.1);
-  border-radius: 4px;
-  padding: 80px;
-  position: relative;
-}
-.roles::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 50px;
-  right: 50px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-
-.role-category { margin-bottom: 50px; }
-.role-category:last-child { margin-bottom: 0; }
-
-.role-cat-title {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: var(--gold-light);
-  letter-spacing: 3px;
-  margin-bottom: 24px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(197,165,90,0.15);
-}
-
-.role-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 12px;
-}
-.role-item {
+.top-bar {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 14px 0;
-  font-size: 1.1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  transition: all 0.3s;
-}
-.role-item:hover {
-  padding-left: 8px;
-  border-bottom-color: rgba(197,165,90,0.2);
-}
-.role-org { color: rgba(245,242,237,0.75); font-weight: 400; }
-.role-pos {
-  color: var(--gold);
-  font-weight: 500;
-  white-space: nowrap;
-  margin-left: 16px;
-  font-size: 1.05rem;
-}
-
-/* === SERVICES === */
-.services-wrap {
-  max-width: 1100px;
+  align-items: center;
+  padding: 3px 6px;
+  background: #000033;
+  border-bottom: 2px solid #0000aa;
+  max-width: 680px;
   margin: 0 auto;
-}
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-.service-card {
-  padding: 48px 36px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(197,165,90,0.08);
-  border-radius: 2px;
-  transition: all 0.4s;
-  position: relative;
-  overflow: hidden;
-}
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transition: transform 0.4s;
-}
-.service-card:hover {
-  background: rgba(197,165,90,0.04);
-  border-color: rgba(197,165,90,0.2);
-  transform: translateY(-4px);
-}
-.service-card:hover::before { transform: scaleX(1); }
-
-.service-icon {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  display: block;
-  color: var(--gold);
-}
-.service-name {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 1.35rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-}
-.service-desc {
-  font-size: 1.05rem;
-  color: var(--warm-gray);
-  line-height: 1.9;
-}
-
-/* === PRODUCTS === */
-.products-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.products-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 16px;
-}
-.product-tag {
-  padding: 14px 32px;
-  background: transparent;
-  border: 1px solid rgba(197,165,90,0.25);
-  border-radius: 100px;
-  font-size: 1.05rem;
-  color: var(--off-white);
+  font-size: 12px;
+  font-family: 'VT323', monospace;
+  color: #8888ff;
   letter-spacing: 1px;
-  transition: all 0.3s;
-}
-.product-tag:hover {
-  background: var(--gold);
-  color: var(--deep);
-  border-color: var(--gold);
-}
-.product-highlight {
-  margin-top: 50px;
-  padding: 40px;
-  background: linear-gradient(135deg, rgba(197,165,90,0.06), rgba(197,165,90,0.02));
-  border-left: 3px solid var(--gold);
-  border-radius: 0 4px 4px 0;
-}
-.product-highlight h4 {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 1.3rem;
-  margin-bottom: 8px;
-  color: var(--gold-light);
-}
-.product-highlight p {
-  font-size: 1.1rem;
-  color: var(--warm-gray);
-  line-height: 1.9;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
-/* === CONTACT === */
-.contact {
-  max-width: 700px;
+.planet { display:inline-block; width:16px; height:16px; border-radius:50%; vertical-align:middle; margin:0 2px; }
+.planet-orange { background: radial-gradient(circle at 35% 35%,#ff8800,#aa3300); }
+.planet-blue   { background: radial-gradient(circle at 35% 35%,#4488ff,#001166); }
+.planet-green  { background: radial-gradient(circle at 35% 35%,#44ff88,#005522); }
+
+.under-const {
+  display: inline-block;
+  font-family: 'VT323', monospace;
+  font-size: 13px;
+  background: #ffff00;
+  color: #000;
+  padding: 1px 5px;
+  border: 2px outset #888;
+  animation: blink-anim 0.5s step-end infinite;
+  letter-spacing: 1px;
+}
+
+.spacejam-footer {
+  text-align: center;
+  padding: 10px 0 20px;
+  font-family: 'VT323', monospace;
+  font-size: 14px;
+  color: #333;
+  letter-spacing: 3px;
+  max-width: 640px;
   margin: 0 auto;
-  text-align: center;
-}
-.contact-intro {
-  font-size: 1.2rem;
-  color: var(--warm-gray);
-  line-height: 2;
-  margin-bottom: 50px;
-}
-.contact-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  align-items: center;
-}
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px 40px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(197,165,90,0.1);
-  border-radius: 4px;
-  min-width: 340px;
-  transition: all 0.3s;
-}
-.contact-item:hover {
-  border-color: var(--gold);
-  background: rgba(197,165,90,0.04);
-}
-.contact-icon {
-  color: var(--gold);
-  font-size: 0.9rem;
-  width: 24px;
-  text-align: center;
-}
-.contact-text {
-  font-size: 1.25rem;
-  letter-spacing: 2px;
-}
-.contact-label {
-  font-size: 0.9rem;
-  color: var(--warm-gray);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-top: 2px;
-}
-
-/* === FOOTER === */
-footer {
-  text-align: center;
-  padding: 50px 40px;
-  border-top: 1px solid rgba(197,165,90,0.1);
-  margin-top: var(--section-gap);
-}
-footer p {
-  font-size: 0.95rem;
-  color: var(--warm-gray);
-  letter-spacing: 2px;
-}
-
-/* === ANIMATIONS === */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* === MOBILE MENU === */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-}
-.menu-toggle span {
-  display: block;
-  width: 24px;
-  height: 1px;
-  background: var(--gold);
-  margin: 6px 0;
-  transition: all 0.3s;
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  nav { padding: 16px 24px; }
-  .nav-links { display: none; }
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(13,13,13,0.95);
-    backdrop-filter: blur(20px);
-    padding: 24px;
-    gap: 20px;
-    border-bottom: 1px solid rgba(197,165,90,0.15);
-  }
-  .menu-toggle { display: block; }
-  section { padding: 60px 24px; }
-  .roles { padding: 40px 24px; }
-  .role-grid { grid-template-columns: 1fr; }
-  .about-stats { grid-template-columns: 1fr; gap: 24px; }
-  .contact-item { min-width: auto; width: 100%; }
-  .hero-name { letter-spacing: 6px; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
-<nav id="mainNav">
-  <div class="nav-logo">ZID</div>
-  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links">
-    <li><a href="#about">關於</a></li>
-    <li><a href="#credentials">經歷</a></li>
-    <li><a href="#services">服務</a></li>
-    <li><a href="#products">代理品牌</a></li>
-    <li><a href="#contact">聯繫</a></li>
-  </ul>
-</nav>
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span>
+    <span class="star1">*</span>
+    VISITORS:&nbsp;<span class="hit-counter" id="visit-count">000000</span>
+    <span class="star2">*</span>
+  </span>
+  <span><span class="under-const">!! UNDER CONSTRUCTION !!</span></span>
+  <span>BEST: 800x600 | IE4.0 | NS3.0</span>
+</div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-eyebrow">Chairman &amp; Founder — ZID</div>
-    <h1 class="hero-name">蔡 巧 貴</h1>
-    <div class="hero-name-en">Amy Tsai</div>
-    <div class="hero-divider"></div>
-    <div class="hero-title">
-      蓁創新開發展業股份有限公司 — 董事長<br>
-      Zhen Innovation Development Co., Ltd.<br>
-      蓁創新美學
+<div class="page-center">
+
+<!-- MARQUEE -->
+<marquee behavior="scroll" direction="left" scrollamount="3"
+  style="color:#ff00ff;font-family:'VT323',monospace;font-size:18px;letter-spacing:3px;border-top:2px solid #330033;border-bottom:2px solid #330033;padding:2px 0;background:#0a0016;">
+&nbsp;&nbsp;
+<span class="star1">*</span> Anthony's Memory Hall &nbsp;
+<span class="planet planet-orange"></span> CRT PHOTO ARCHIVE <span class="planet planet-blue"></span>
+&nbsp; Memories From The Golden Age &nbsp;
+<span class="star2">*</span>&nbsp;&nbsp;
+-- Est. 1996 -- CCD Era Photos --
+<span class="planet planet-green"></span>&nbsp;
+Welcome to My Page! &nbsp;
+<span class="star3">*</span>&nbsp;&nbsp;
+</marquee>
+
+<!-- TITLE -->
+<div style="text-align:center;padding:10px 0 4px;">
+  <div class="main-title">
+    <span class="star1">*</span>
+    <span class="title-rainbow">~~ Anthony's Memory Hall ~~</span>
+    <span class="star1">*</span>
+    <br>
+    <span style="font-size:0.7em;color:#8888ff;letter-spacing:1px;">
+      <span class="star2">*</span> CRT PHOTO ARCHIVE &middot; EST. 1996 <span class="star2">*</span>
+    </span>
+  </div>
+</div>
+
+<hr class="fancy">
+
+<!-- MONITOR -->
+<div class="monitor-outer">
+  <div class="monitor-inner">
+    <div class="screen" id="screen">
+
+      <img class="screen-photo" id="photo-img" src="" alt="" style="display:none;">
+
+      <div class="no-signal" id="no-signal">
+        <div class="no-signal-bars" id="signal-bars"></div>
+        <div class="no-signal-text">NO SIGNAL</div>
+        <div class="no-signal-sub">Upload a photo to begin</div>
+      </div>
+
+      <canvas id="noise-canvas"></canvas>
+
+      <div class="osd-rec" id="osd-rec"></div>
+      <div class="osd-cap" id="osd-cap"></div>
+      <div class="osd-ts"  id="osd-ts"></div>
     </div>
   </div>
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
+
+  <div class="monitor-brand-tag">MEMORYTRON MDT-9400</div>
+  <div class="monitor-led-row"><div class="led-dot"></div></div>
+</div>
+
+<!-- STAND -->
+<div style="text-align:center;">
+  <div class="monitor-base"></div>
+  <div class="monitor-stand"></div>
+  <div class="monitor-foot">
+    <div class="monitor-foot-piece"></div>
+    <div class="monitor-foot-piece"></div>
   </div>
-</section>
+</div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about reveal">
-    <div class="section-label">About</div>
-    <h2 class="section-title">深耕公關 · 連結各界</h2>
-    <div class="about-text">
-      <p>蔡巧貴女士Amy Tsai為蓁創新開發展業股份有限公司董事長暨蓁創新美學品牌創辦人。深耕公關策劃、品牌顧問及社會公益領域多年，橫跨政商、教育、慈善與國際組織，以豐沛的人脈資源與卓越的整合能力，為企業與組織打造具影響力的品牌形象與公關策略。</p>
-      <p>身兼臺北市政府市政顧問及多個社會團體核心幹部，Amy 致力於串聯產官學社各界資源，以專業公關視角推動跨域合作，從婚禮策劃到商演活動、從品牌視覺到產品型錄，提供全方位的公關整合服務。</p>
+<!-- NAV BUTTONS -->
+<table class="nav-table" cellpadding="0" cellspacing="0">
+<tr>
+  <td class="nav-btn-cell">
+    <button class="arrow-btn" id="btn-prev" onclick="navigate(-1)">&#9668;&#9668; PREV</button>
+  </td>
+  <td class="counter-cell" id="counter-cell">-- / --</td>
+  <td class="nav-btn-cell">
+    <button class="arrow-btn" id="btn-next" onclick="navigate(1)">NEXT &#9658;&#9658;</button>
+  </td>
+</tr>
+</table>
+
+<hr class="plain">
+
+<!-- BOTTOM: CONTROLS + MUSIC -->
+<div class="bottom-section">
+<table width="100%" cellpadding="0" cellspacing="6" border="0">
+<tr valign="top">
+
+  <td width="52%">
+    <div class="ctrl-box">
+      <div class="ctrl-title">&#9616; PHOTO CONTROLS</div>
+      <button class="ctrl-btn" onclick="openUploadModal()">[ + ] Add Photo</button>
+      <button class="ctrl-btn" onclick="openGallery()">[ &#9638; ] Gallery</button><br>
+      <button class="ctrl-btn" onclick="openEditModal()">[ &#9999; ] Edit Caption</button>
+      <button class="ctrl-btn red" onclick="deleteCurrentPhoto()">[ X ] Delete</button>
     </div>
-    <div class="about-stats">
-      <div class="stat-item">
-        <div class="stat-number">20+</div>
-        <div class="stat-label">社會公職與顧問頭銜</div>
+  </td>
+
+  <td width="48%">
+    <div class="music-box">
+      <div class="music-title">&#9834; BGM MUSIC PLAYER</div>
+
+      <div class="music-display">
+        <span class="music-scroll-text" id="music-txt">-- NO MUSIC LOADED -- Upload a song to begin --</span>
       </div>
-      <div class="stat-item">
-        <div class="stat-number">6</div>
-        <div class="stat-label">大類公關服務項目</div>
+
+      <div class="music-controls">
+        <button class="music-btn" onclick="musicPlay()" title="Play">&#9658;</button>
+        <button class="music-btn" onclick="musicPause()" title="Pause">&#8214;</button>
+        <button class="music-btn" onclick="musicStop()" title="Stop">&#9632;</button>
+        <label class="music-upload-label">
+          &#9834; LOAD
+          <input type="file" id="music-input" accept="audio/*" style="display:none;" onchange="loadMusic(event)">
+        </label>
       </div>
-      <div class="stat-item">
-        <div class="stat-number">10+</div>
-        <div class="stat-label">年跨領域公關經驗</div>
+
+      <div class="volume-row">
+        <span class="volume-label">VOL:</span>
+        <input type="range" class="volume-slider" id="vol-slider" min="0" max="100" value="70" oninput="setVol(this.value)">
+        <span class="volume-label" id="vol-num">70</span>
       </div>
+
+      <div class="music-status" id="music-status">STATUS: IDLE</div>
     </div>
-  </div>
-</section>
+  </td>
 
-<!-- CREDENTIALS -->
-<section id="credentials">
-  <div class="roles reveal">
-    <div class="section-label">Credentials</div>
-    <h2 class="section-title">現任 · 公職與社團經歷</h2>
+</tr>
+</table>
+</div>
 
-    <div class="role-category">
-      <div class="role-cat-title">政府 · 顧問</div>
-      <div class="role-grid">
-        <div class="role-item">
-          <span class="role-org">臺北市政府</span>
-          <span class="role-pos">市政顧問</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">台北市律師聯誼協會</span>
-          <span class="role-pos">顧問</span>
-        </div>
-      </div>
+<hr class="fancy">
+
+<!-- FOOTER NAV LINKS -->
+<div style="text-align:center;padding:6px 0 4px;font-family:'VT323',monospace;font-size:16px;letter-spacing:2px;">
+  <span class="star1">*</span>
+  <span style="color:#ff00ff;">HOME</span> |
+  <span style="color:#00ffff;">GUESTBOOK</span> |
+  <span style="color:#ffff00;">ABOUT ME</span> |
+  <span style="color:#ff8800;">LINKS</span> |
+  <span style="color:#88ff88;">EMAIL ME</span>
+  <span class="star2">*</span>
+</div>
+
+<div style="text-align:center;padding:2px 0 4px;">
+  <span style="color:#4444aa;font-family:'VT323',monospace;font-size:11px;letter-spacing:2px;">
+    <span class="blink-slow">&#9632;</span>
+    THIS PAGE OPTIMIZED FOR NETSCAPE NAVIGATOR 3.0 AT 800x600 256 COLORS
+    <span class="blink-slow">&#9632;</span>
+  </span>
+</div>
+
+<div class="spacejam-footer">
+  &copy; 1996&ndash;2003 Anthony's Memory Hall &mdash; ALL RIGHTS RESERVED<br>
+  <span class="blink-slow">NO HOTLINKING &middot; ALL PHOTOS PROPERTY OF ANTHONY</span>
+</div>
+
+</div><!-- /page-center -->
+
+<!-- UPLOAD MODAL -->
+<div class="modal-overlay" id="upload-modal">
+  <div class="modal-window">
+    <div class="modal-titlebar">
+      <span>&#128247; Add New Photo</span>
+      <button class="modal-close-btn" onclick="closeModal('upload-modal')">X</button>
     </div>
+    <div class="modal-body">
+      <div class="drop-area" id="drop-area" onclick="document.getElementById('file-input').click()">
+        Click to select a photo &mdash; or Drag &amp; Drop<br>
+        <span style="font-size:13px;color:#444;">JPG &middot; GIF &middot; PNG &middot; BMP</span>
+        <br><img id="file-preview" alt="preview">
+      </div>
+      <input type="file" id="file-input" accept="image/*" style="display:none;" onchange="handleFileSelect(event)">
 
-    <div class="role-category">
-      <div class="role-cat-title">企業 · 顧問</div>
-      <div class="role-grid">
-        <div class="role-item">
-          <span class="role-org">台灣喜樂事股份有限公司</span>
-          <span class="role-pos">資深顧問</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">奇潔有限公司</span>
-          <span class="role-pos">資深顧問</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">台灣CIAM國際創意形象藝術協會</span>
-          <span class="role-pos">顧問</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">台灣智慧技術研發股份有限公司</span>
-          <span class="role-pos">顧問</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">中華民國十方愛心慈善會</span>
-          <span class="role-pos">顧問</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">創鑫生機集團 US·OTC</span>
-          <span class="role-pos">顧問</span>
-        </div>
-      </div>
-    </div>
+      <label class="modal-label">Caption:</label>
+      <input class="modal-input" type="text" id="upload-caption" placeholder="Enter a caption for this photo...">
 
-    <div class="role-category">
-      <div class="role-cat-title">社團 · 公益組織</div>
-      <div class="role-grid">
-        <div class="role-item">
-          <span class="role-org">新北市國際傑人會</span>
-          <span class="role-pos">常務監事</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">新北市表揚好人好事運動協會</span>
-          <span class="role-pos">理事</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">社團法人台灣全球消費者權益保護協會</span>
-          <span class="role-pos">理事</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">3523第四分區泰愛扶輪社</span>
-          <span class="role-pos">創社會員</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">300A1區鉅星匯獅子會</span>
-          <span class="role-pos">創會會員</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">新北韻采慈善會</span>
-          <span class="role-pos">創會副理事長</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">170週年艋舺青山宮爐主壇</span>
-          <span class="role-pos">公關長</span>
-        </div>
-      </div>
-    </div>
+      <label class="modal-label">Date (optional):</label>
+      <input class="modal-input" type="text" id="upload-date" placeholder="e.g. Aug 15, 1997">
 
-    <div class="role-category">
-      <div class="role-cat-title">教育 · 家長會</div>
-      <div class="role-grid">
-        <div class="role-item">
-          <span class="role-org">第22屆台北市高職學生家長會聯合會</span>
-          <span class="role-pos">總會長</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">110年松山工農學校家長會</span>
-          <span class="role-pos">會長</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">111~112年泰北高中家長會</span>
-          <span class="role-pos">會長</span>
-        </div>
-        <div class="role-item">
-          <span class="role-org">113~114年大理高中校友會</span>
-          <span class="role-pos">常務監事</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="services-wrap reveal">
-    <div class="section-label">Services</div>
-    <h2 class="section-title">公關策劃 · 全方位服務</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="service-icon">&#9830;</span>
-        <h3 class="service-name">婚禮策劃</h3>
-        <p class="service-desc">從儀式規劃到賓客接待，打造專屬的完美婚禮體驗，細節盡善盡美。</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">&#9733;</span>
-        <h3 class="service-name">商演活動</h3>
-        <p class="service-desc">企業尾牙、品牌發表、頒獎典禮等大型活動統籌，從企劃到執行一站式服務。</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">&#9674;</span>
-        <h3 class="service-name">品牌視覺</h3>
-        <p class="service-desc">企業識別系統設計、品牌定位策略，建構具辨識度的視覺語言。</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">&#9744;</span>
-        <h3 class="service-name">產品型錄</h3>
-        <p class="service-desc">高品質產品攝影與型錄編排，呈現產品最佳風貌與品牌質感。</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">&#9788;</span>
-        <h3 class="service-name">活動紀錄</h3>
-        <p class="service-desc">專業影像團隊全程記錄，為重要時刻留下珍貴的影音紀實。</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">&#9825;</span>
-        <h3 class="service-name">個人 · 家族</h3>
-        <p class="service-desc">個人形象塑造、家族紀念活動策劃，量身定制專屬方案。</p>
+      <div class="modal-btn-row">
+        <button class="win95-btn primary" onclick="confirmUpload()">OK</button>
+        <button class="win95-btn" onclick="closeModal('upload-modal')">Cancel</button>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- PRODUCTS -->
-<section id="products">
-  <div class="products-wrap reveal">
-    <div class="section-label">Products &amp; Distribution</div>
-    <h2 class="section-title">代理品牌 · 產品領域</h2>
-    <div class="products-list">
-      <span class="product-tag">醫療器材</span>
-      <span class="product-tag">生活用品</span>
-      <span class="product-tag">代理葡萄酒</span>
-      <span class="product-tag">保養品</span>
-      <span class="product-tag">防疫商品</span>
+<!-- GALLERY MODAL -->
+<div class="modal-overlay" id="gallery-modal">
+  <div class="modal-window" style="max-width:500px;">
+    <div class="modal-titlebar">
+      <span>&#9638; Photo Gallery</span>
+      <button class="modal-close-btn" onclick="closeModal('gallery-modal')">X</button>
     </div>
-    <div class="product-highlight">
-      <h4>渼大夫 DR.MEDISE — 保健食品 SOD</h4>
-      <p>專業保健食品品牌代理，以高品質 SOD 系列產品，守護現代人的健康生活。</p>
+    <div class="modal-body">
+      <div class="gallery-grid" id="gallery-grid"></div>
+      <div class="modal-btn-row">
+        <button class="win95-btn" onclick="closeModal('gallery-modal')">Close</button>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact reveal">
-    <div class="section-label">Contact</div>
-    <h2 class="section-title">聯繫 Amy</h2>
-    <p class="contact-intro">
-      無論是公關策劃合作、品牌顧問諮詢，或商務洽談，歡迎與 Amy 聯繫。
-    </p>
-    <div class="contact-grid">
-      <a href="tel:0918861680" class="contact-item" style="text-decoration:none;color:inherit;">
-        <div class="contact-icon">&#9742;</div>
-        <div>
-          <div class="contact-text">0918-861-680</div>
-          <div class="contact-label">Mobile</div>
-        </div>
-      </a>
-      <a href="tel:0916608688" class="contact-item" style="text-decoration:none;color:inherit;">
-        <div class="contact-icon">&#9742;</div>
-        <div>
-          <div class="contact-text">0916-608-688</div>
-          <div class="contact-label">Mobile 2</div>
-        </div>
-      </a>
+<!-- EDIT MODAL -->
+<div class="modal-overlay" id="edit-modal">
+  <div class="modal-window">
+    <div class="modal-titlebar">
+      <span>&#9999; Edit Caption</span>
+      <button class="modal-close-btn" onclick="closeModal('edit-modal')">X</button>
+    </div>
+    <div class="modal-body">
+      <label class="modal-label">Caption:</label>
+      <input class="modal-input" type="text" id="edit-caption" placeholder="Enter caption...">
+      <label class="modal-label">Date:</label>
+      <input class="modal-input" type="text" id="edit-date" placeholder="e.g. Dec 31, 1998">
+      <div class="modal-btn-row">
+        <button class="win95-btn primary" onclick="saveEdit()">OK</button>
+        <button class="win95-btn" onclick="closeModal('edit-modal')">Cancel</button>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- FOOTER -->
-<footer>
-  <p>&copy; 2025 蓁創新開發展業股份有限公司 Zhen Innovation Development Co., Ltd. (ZID) &nbsp;|&nbsp; MCEL 蓁艾創新美學 &nbsp;|&nbsp; All Rights Reserved</p>
-</footer>
+<audio id="bgm-audio" loop></audio>
 
 <script>
-// Nav scroll effect
-window.addEventListener('scroll', () => {
-  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
-});
+var photos = [];
+var current = 0;
+var pendingFile = null;
+var bgmAudio = document.getElementById('bgm-audio');
+var bgmLoaded = false;
+var DB_KEY = 'anthonysMemoryHall_v1';
 
-// Reveal on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+function loadDB() {
+  try { var r = localStorage.getItem(DB_KEY); if(r) photos = JSON.parse(r); }
+  catch(e) { photos = []; }
+}
+
+function saveDB() {
+  try { localStorage.setItem(DB_KEY, JSON.stringify(photos)); }
+  catch(e) { alert('Save failed: Storage may be full.'); }
+}
+
+// Visitor counter
+(function() {
+  var k = 'anthonysMemoryHall_visits';
+  var v = parseInt(localStorage.getItem(k) || '0') + 1;
+  localStorage.setItem(k, v);
+  document.getElementById('visit-count').textContent = String(v).padStart(6,'0');
+})();
+
+// Color bars
+(function() {
+  var bars = document.getElementById('signal-bars');
+  ['#fff','#ff0','#0ff','#0f0','#f0f','#f00','#00f','#000'].forEach(function(c) {
+    var d = document.createElement('div');
+    d.style.background = c;
+    bars.appendChild(d);
+  });
+})();
+
+// CCD Noise
+function initNoise() {
+  var canvas = document.getElementById('noise-canvas');
+  var screen = document.getElementById('screen');
+
+  function resize() { canvas.width = screen.offsetWidth; canvas.height = screen.offsetHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function draw() {
+    var ctx = canvas.getContext('2d');
+    var w = canvas.width, h = canvas.height;
+    var img = ctx.createImageData(w, h);
+    var d = img.data;
+
+    for (var i = 0; i < d.length; i += 4) {
+      var r = Math.random();
+      if (r < 0.006) {
+        d[i]=220; d[i+1]=240; d[i+2]=180; d[i+3]=180;
+      } else if (r < 0.009) {
+        d[i]=0; d[i+1]=40; d[i+2]=0; d[i+3]=160;
+      } else {
+        var g = Math.random() * 36;
+        d[i]=g*0.4; d[i+1]=g*1.3; d[i+2]=g*0.3;
+        d[i+3] = g > 14 ? g*0.7 : 0;
+      }
     }
-  });
-}, { threshold: 0.1 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    if (Math.random() < 0.035) {
+      var ry = Math.floor(Math.random() * h);
+      for (var x = 0; x < w; x++) {
+        var idx = (ry * w + x) * 4;
+        d[idx]=0; d[idx+1]=80+Math.random()*160; d[idx+2]=0; d[idx+3]=50+Math.random()*70;
+      }
+    }
 
-// Smooth scroll for nav links
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    target?.scrollIntoView({ behavior: 'smooth' });
-    document.querySelector('.nav-links').classList.remove('open');
-  });
+    ctx.putImageData(img, 0, 0);
+  }
+
+  setInterval(draw, 80);
+  draw();
+}
+
+function pad3(n) { return String(n).padStart(3,'0'); }
+
+function fmtDate(ts) {
+  if (!ts) return '';
+  var d = new Date(ts);
+  return d.getFullYear() + '.' +
+    String(d.getMonth()+1).padStart(2,'0') + '.' +
+    String(d.getDate()).padStart(2,'0') + '  ' +
+    String(d.getHours()).padStart(2,'0') + ':' +
+    String(d.getMinutes()).padStart(2,'0');
+}
+
+function updateDisplay() {
+  var img   = document.getElementById('photo-img');
+  var noSig = document.getElementById('no-signal');
+  var ctr   = document.getElementById('counter-cell');
+  var bPrev = document.getElementById('btn-prev');
+  var bNext = document.getElementById('btn-next');
+
+  if (photos.length === 0) {
+    img.style.display = 'none';
+    noSig.style.display = 'flex';
+    ctr.textContent = '-- / --';
+    document.getElementById('osd-ts').textContent  = '';
+    document.getElementById('osd-cap').textContent = '';
+    document.getElementById('osd-rec').textContent = '';
+    bPrev.disabled = true; bNext.disabled = true;
+    return;
+  }
+
+  var p = photos[current];
+  img.src = p.dataUrl;
+  img.style.display = 'block';
+  noSig.style.display = 'none';
+
+  ctr.textContent = (current+1) + ' / ' + photos.length;
+  document.getElementById('osd-ts').textContent  = p.date ? p.date : fmtDate(p.added);
+  document.getElementById('osd-cap').textContent = p.caption || '';
+  document.getElementById('osd-rec').textContent = 'REC  ' + pad3(current+1) + '/' + pad3(photos.length);
+
+  bPrev.disabled = current <= 0;
+  bNext.disabled = current >= photos.length - 1;
+}
+
+function navigate(dir) {
+  if (!photos.length) return;
+  var n = current + dir;
+  if (n < 0 || n >= photos.length) return;
+
+  var img = document.getElementById('photo-img');
+  img.style.opacity = '0';
+  img.style.filter  = 'saturate(0) contrast(3) brightness(2)';
+
+  setTimeout(function() {
+    current = n;
+    updateDisplay();
+    img.style.transition = 'opacity 0.2s, filter 0.3s';
+    img.style.opacity = '1';
+    img.style.filter  = 'saturate(0.65) contrast(1.05) brightness(0.85) sepia(0.2)';
+    setTimeout(function() { img.style.transition = ''; }, 400);
+  }, 120);
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft')  navigate(-1);
+  if (e.key === 'ArrowRight') navigate(1);
+  if (e.key === 'Escape') {
+    closeModal('upload-modal');
+    closeModal('gallery-modal');
+    closeModal('edit-modal');
+  }
 });
-</script>
 
+function openUploadModal() {
+  pendingFile = null;
+  document.getElementById('file-preview').style.display = 'none';
+  document.getElementById('upload-caption').value = '';
+  document.getElementById('upload-date').value    = '';
+  document.getElementById('file-input').value     = '';
+  document.getElementById('upload-modal').classList.add('open');
+}
+
+function handleFileSelect(e) {
+  var file = e.target.files[0];
+  if (file) readImgFile(file);
+}
+
+function readImgFile(file) {
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    pendingFile = ev.target.result;
+    var prev = document.getElementById('file-preview');
+    prev.src = pendingFile;
+    prev.style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+}
+
+var dropArea = document.getElementById('drop-area');
+dropArea.addEventListener('dragover', function(e) { e.preventDefault(); dropArea.style.background='#e0dcf0'; });
+dropArea.addEventListener('dragleave', function() { dropArea.style.background=''; });
+dropArea.addEventListener('drop', function(e) {
+  e.preventDefault(); dropArea.style.background='';
+  var file = e.dataTransfer.files[0];
+  if (file && file.type.match(/^image\//)) readImgFile(file);
+});
+
+function confirmUpload() {
+  if (!pendingFile) { alert('Please select a photo first!'); return; }
+  photos.push({
+    id:      Date.now(),
+    dataUrl: pendingFile,
+    caption: document.getElementById('upload-caption').value.trim(),
+    date:    document.getElementById('upload-date').value.trim(),
+    added:   Date.now()
+  });
+  saveDB();
+  current = photos.length - 1;
+  updateDisplay();
+  closeModal('upload-modal');
+}
+
+function openGallery() {
+  var grid = document.getElementById('gallery-grid');
+  grid.innerHTML = '';
+
+  if (!photos.length) {
+    grid.innerHTML = '<div style="grid-column:1/-1;color:#666;font-family:VT323,monospace;font-size:16px;text-align:center;padding:20px;">No photos yet. Upload one!</div>';
+  } else {
+    photos.forEach(function(p, i) {
+      var item = document.createElement('div');
+      item.className = 'gal-item' + (i === current ? ' active' : '');
+      item.innerHTML = '<img src="' + p.dataUrl + '" alt=""><div class="gal-del" onclick="delPhoto(' + i + ',event)">X</div>';
+      item.addEventListener('click', function() { current = i; updateDisplay(); closeModal('gallery-modal'); });
+      grid.appendChild(item);
+    });
+  }
+
+  document.getElementById('gallery-modal').classList.add('open');
+}
+
+function delPhoto(i, e) {
+  e.stopPropagation();
+  if (!confirm('Delete this photo?')) return;
+  photos.splice(i, 1);
+  if (current >= photos.length) current = Math.max(0, photos.length - 1);
+  saveDB(); updateDisplay(); openGallery();
+}
+
+function openEditModal() {
+  if (!photos.length) { alert('No photos to edit.'); return; }
+  var p = photos[current];
+  document.getElementById('edit-caption').value = p.caption || '';
+  document.getElementById('edit-date').value    = p.date    || '';
+  document.getElementById('edit-modal').classList.add('open');
+}
+
+function saveEdit() {
+  if (!photos.length) return;
+  photos[current].caption = document.getElementById('edit-caption').value.trim();
+  photos[current].date    = document.getElementById('edit-date').value.trim();
+  saveDB(); updateDisplay(); closeModal('edit-modal');
+}
+
+function deleteCurrentPhoto() {
+  if (!photos.length) { alert('No photos.'); return; }
+  if (!confirm('Delete this photo?\n"' + (photos[current].caption || '(no caption)') + '"')) return;
+  photos.splice(current, 1);
+  if (current >= photos.length) current = Math.max(0, photos.length - 1);
+  saveDB(); updateDisplay();
+}
+
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+document.querySelectorAll('.modal-overlay').forEach(function(el) {
+  el.addEventListener('click', function(e) { if (e.target === el) el.classList.remove('open'); });
+});
+
+// Music Player
+function loadMusic(e) {
+  var file = e.target.files[0];
+  if (!file) return;
+
+  if (bgmAudio.src && bgmAudio.src.startsWith('blob:')) URL.revokeObjectURL(bgmAudio.src);
+
+  bgmAudio.src = URL.createObjectURL(file);
+  bgmLoaded = true;
+
+  var name = file.name.replace(/\.[^.]+$/, '');
+  var txt = document.getElementById('music-txt');
+  txt.textContent = '\u266a ' + name + ' \u266a ' + name + ' \u266a ';
+  txt.style.animation = 'none';
+  void txt.offsetHeight;
+  txt.style.animation = '';
+
+  document.getElementById('music-status').textContent = 'STATUS: LOADED - ' + file.name.substring(0, 28);
+
+  bgmAudio.volume = document.getElementById('vol-slider').value / 100;
+  bgmAudio.play().catch(function() {
+    document.getElementById('music-status').textContent = 'STATUS: Click PLAY to start';
+  });
+}
+
+function musicPlay() {
+  if (!bgmLoaded) { alert('Please click LOAD to upload a music file first!'); return; }
+  bgmAudio.play();
+  document.getElementById('music-status').textContent = 'STATUS: PLAYING';
+}
+
+function musicPause() {
+  bgmAudio.pause();
+  document.getElementById('music-status').textContent = 'STATUS: PAUSED';
+}
+
+function musicStop() {
+  bgmAudio.pause();
+  bgmAudio.currentTime = 0;
+  document.getElementById('music-status').textContent = 'STATUS: STOPPED';
+}
+
+function setVol(v) {
+  bgmAudio.volume = v / 100;
+  document.getElementById('vol-num').textContent = v;
+}
+
+loadDB();
+updateDisplay();
+initNoise();
+</script>
 </body>
 </html>
