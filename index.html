@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>~*~ Anthony's Memory Hall ~*~ CRT PHOTO ARCHIVE ~*~ EST. 2026 ~*~</title>
+<title>~*~ Anthony's Memory Hall ~*~ CRT PHOTO ARCHIVE ~*~ EST. 1996 ~*~</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
@@ -75,9 +75,10 @@ HR.plain { border:1px solid #336633; margin:4px 0; }
 }
 
 .screen-photo {
-  width:100%; height:100%; object-fit:cover; display:block;
+  width:100%; height:100%; object-fit:contain; display:block;
   filter:saturate(0.65) contrast(1.05) brightness(0.85) sepia(0.2);
   position:absolute; inset:0;
+  background:#000;
 }
 
 #noise-canvas { position:absolute; inset:0; pointer-events:none; z-index:10; opacity:0.5; }
@@ -421,9 +422,11 @@ Welcome to My Page! &nbsp;<span class="star3">*</span>&nbsp;&nbsp;
         <span class="music-scroll-text" id="music-txt">-- NO MUSIC LOADED -- Upload a song to begin --</span>
       </div>
       <div class="music-controls">
+        <button class="music-btn" onclick="playTrack(trackIndex-1)" title="Prev Track">&#9668;&#9668;</button>
         <button class="music-btn" onclick="musicPlay()" title="Play">&#9658;</button>
         <button class="music-btn" onclick="musicPause()" title="Pause">&#8214;</button>
         <button class="music-btn" onclick="musicStop()" title="Stop">&#9632;</button>
+        <button class="music-btn" onclick="playTrack(trackIndex+1)" title="Next Track">&#9658;&#9658;</button>
         <label class="music-upload-label">
           &#9834; LOAD
           <input type="file" id="music-input" accept="audio/*" style="display:none;" onchange="loadMusic(event)">
@@ -538,17 +541,59 @@ Welcome to My Page! &nbsp;<span class="star3">*</span>&nbsp;&nbsp;
 <audio id="bgm-audio" loop></audio>
 
 <script>
-// ── STATE ──
-// photos[] holds objects: { blobUrl, caption, date, filename }
-// Nothing is ever saved to localStorage — all in memory like the music player.
+// ============================================================
+//  ★ ANTHONY'S MEMORY HALL — CONFIGURATION ★
+//  Edit this block to set your photos and music.
+//  Put your files in the repo like this:
+//
+//    index.html
+//    photos/
+//      photo1.jpg
+//      photo2.jpg
+//      ...
+//    music/
+//      song1.mp3
+//      song2.mp3
+//      ...
+//
+// ============================================================
+
+var CONFIG = {
+
+  // ── MUSIC PLAYLIST ──
+  // List all your music files. They will play in order and loop.
+  // Set to [] to disable music entirely.
+  music: [
+    'music/song1.mp3',
+    'music/song2.mp3',
+    'music/song3.mp3',
+  ],
+
+  // ── PHOTOS ──
+  // List every photo file and its caption + date.
+  // Paths are relative to index.html.
+  photos: [
+    { src: 'photos/photo1.jpg', caption: 'Caption here',   date: 'Aug 15, 1997' },
+    { src: 'photos/photo2.jpg', caption: 'Another memory', date: 'Dec 31, 1998' },
+    { src: 'photos/photo3.jpg', caption: '',               date: '' },
+  ]
+
+};
+
+// ============================================================
+//  END OF CONFIGURATION — do not edit below this line
+// ============================================================
+
 var photos  = [];
 var current = 0;
 
-// pending batch for the load modal
+// pending batch for the manual-load modal (still works as a fallback)
 var pendingBatch = [];
 
-var bgmAudio  = document.getElementById('bgm-audio');
-var bgmLoaded = false;
+var bgmAudio    = document.getElementById('bgm-audio');
+var bgmLoaded   = false;
+var playlist    = [];   // filled from CONFIG.music[]
+var trackIndex  = 0;    // current track in playlist
 
 // ── VISITOR COUNTER (localStorage just for the fun counter) ──
 (function() {
@@ -784,32 +829,22 @@ document.querySelectorAll('.modal-overlay').forEach(function(el) {
   el.addEventListener('click', function(e) { if (e.target === el) el.classList.remove('open'); });
 });
 
-// ── MUSIC PLAYER ──
+// ── MUSIC PLAYER (manual load fallback) ──
 function loadMusic(e) {
   var file = e.target.files[0];
   if (!file) return;
-  if (bgmAudio.src && bgmAudio.src.startsWith('blob:')) URL.revokeObjectURL(bgmAudio.src);
-  bgmAudio.src = URL.createObjectURL(file);
+  var blobUrl = URL.createObjectURL(file);
+  playlist.push(blobUrl);
   bgmLoaded = true;
-
-  var name = file.name.replace(/\.[^.]+$/, '');
-  var txt = document.getElementById('music-txt');
-  txt.textContent = '\u266a ' + name + ' \u266a ' + name + ' \u266a ';
-  txt.style.animation = 'none';
-  void txt.offsetHeight;
-  txt.style.animation = '';
-
-  document.getElementById('music-status').textContent = 'STATUS: LOADED - ' + file.name.substring(0, 28);
-  bgmAudio.volume = document.getElementById('vol-slider').value / 100;
-  bgmAudio.play().catch(function() {
-    document.getElementById('music-status').textContent = 'STATUS: Click PLAY to start';
-  });
+  // Jump to newly added track
+  playTrack(playlist.length - 1);
 }
 
 function musicPlay()  {
-  if (!bgmLoaded) { alert('Click the LOAD button to upload a music file first!'); return; }
+  if (!bgmLoaded && !playlist.length) { alert('Click the LOAD button to upload a music file first!'); return; }
   bgmAudio.play();
-  document.getElementById('music-status').textContent = 'STATUS: PLAYING';
+  document.getElementById('music-status').textContent =
+    'STATUS: PLAYING - TRACK ' + (trackIndex+1) + '/' + playlist.length;
 }
 
 function musicPause() {
@@ -827,9 +862,73 @@ function setVol(v) {
   document.getElementById('vol-num').textContent = v;
 }
 
+// ── AUTO-LOAD FROM CONFIG ──
+// ── PLAYLIST HELPERS ──
+function updateMusicDisplay() {
+  if (!playlist.length) return;
+  var name = playlist[trackIndex].split('/').pop().replace(/\.[^.]+$/, '');
+  var txt = document.getElementById('music-txt');
+  txt.textContent = '\u266a ' + name + ' \u266a ' + name + ' \u266a ';
+  txt.style.animation = 'none';
+  void txt.offsetHeight;
+  txt.style.animation = '';
+  document.getElementById('music-status').textContent =
+    'TRACK ' + (trackIndex + 1) + '/' + playlist.length + ' - ' +
+    playlist[trackIndex].split('/').pop();
+}
+
+function playTrack(idx) {
+  if (!playlist.length) return;
+  trackIndex = ((idx % playlist.length) + playlist.length) % playlist.length;
+  bgmAudio.src = playlist[trackIndex];
+  bgmAudio.volume = document.getElementById('vol-slider').value / 100;
+  bgmAudio.play().catch(function() {
+    document.getElementById('music-status').textContent = 'STATUS: Click anywhere to play';
+  });
+  updateMusicDisplay();
+}
+
+// Auto-advance to next track when one finishes
+bgmAudio.addEventListener('ended', function() {
+  playTrack(trackIndex + 1);
+});
+
+function autoLoad() {
+  // Load music playlist
+  if (CONFIG.music && CONFIG.music.length > 0) {
+    playlist = CONFIG.music;
+    bgmLoaded = true;
+    updateMusicDisplay();
+    bgmAudio.volume = document.getElementById('vol-slider').value / 100;
+    bgmAudio.src = playlist[0];
+    bgmAudio.play().catch(function() {
+      document.getElementById('music-status').textContent = 'STATUS: Click anywhere to play';
+      document.addEventListener('click', function startOnClick() {
+        bgmAudio.play();
+        document.removeEventListener('click', startOnClick);
+      });
+    });
+  }
+
+  // Load photos from CONFIG
+  if (CONFIG.photos && CONFIG.photos.length > 0) {
+    CONFIG.photos.forEach(function(p) {
+      photos.push({
+        blobUrl:  p.src,
+        caption:  p.caption  || '',
+        date:     p.date     || '',
+        filename: p.src.split('/').pop()
+      });
+    });
+    current = 0;
+  }
+
+  updateDisplay();
+}
+
 // ── INIT ──
-updateDisplay();
 initNoise();
+autoLoad();
 </script>
 </body>
 </html>
