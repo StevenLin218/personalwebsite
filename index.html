@@ -543,45 +543,32 @@ Welcome to My Page! &nbsp;<span class="star3">*</span>&nbsp;&nbsp;
 <script>
 // ============================================================
 //  ★ ANTHONY'S MEMORY HALL — CONFIGURATION ★
-//  Edit this block to set your photos and music.
-//  Put your files in the repo like this:
 //
+//  Repo structure:
 //    index.html
+//    photos.json    ← photo list
+//    music.json     ← music playlist
 //    photos/
-//      photo1.jpg
-//      photo2.jpg
+//      img001.jpg
+//      img002.jpg
 //      ...
 //    music/
 //      song1.mp3
 //      song2.mp3
 //      ...
 //
-// ============================================================
-
-var CONFIG = {
-
-  // ── MUSIC PLAYLIST ──
-  // List all your music files. They will play in order and loop.
-  // Set to [] to disable music entirely.
-  music: [
-    'music/song1.mp3',
-    'music/song2.mp3',
-    'music/song3.mp3',
-  ],
-
-  // ── PHOTOS ──
-  // List every photo file and its caption + date.
-  // Paths are relative to index.html.
-  photos: [
-    { src: 'photos/photo1.jpg', caption: 'Caption here',   date: 'Aug 15, 1997' },
-    { src: 'photos/photo2.jpg', caption: 'Another memory', date: 'Dec 31, 1998' },
-    { src: 'photos/photo3.jpg', caption: '',               date: '' },
-  ]
-
-};
-
-// ============================================================
-//  END OF CONFIGURATION — do not edit below this line
+//  photos.json example:
+//  [
+//    { "src": "photos/img001.jpg", "caption": "Summer trip", "date": "Aug 1997" },
+//    { "src": "photos/img002.jpg", "caption": "", "date": "" }
+//  ]
+//
+//  music.json example:
+//  [
+//    "music/song1.mp3",
+//    "music/song2.mp3"
+//  ]
+//
 // ============================================================
 
 var photos  = [];
@@ -893,37 +880,49 @@ bgmAudio.addEventListener('ended', function() {
   playTrack(trackIndex + 1);
 });
 
+// ── LOAD FROM JSON FILES ──
 function autoLoad() {
-  // Load music playlist
-  if (CONFIG.music && CONFIG.music.length > 0) {
-    playlist = CONFIG.music;
-    bgmLoaded = true;
-    updateMusicDisplay();
-    bgmAudio.volume = document.getElementById('vol-slider').value / 100;
-    bgmAudio.src = playlist[0];
-    bgmAudio.play().catch(function() {
-      document.getElementById('music-status').textContent = 'STATUS: Click anywhere to play';
-      document.addEventListener('click', function startOnClick() {
-        bgmAudio.play();
-        document.removeEventListener('click', startOnClick);
+  // Fetch both JSON files in parallel
+  var photosReady = fetch('photos.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      data.forEach(function(p) {
+        photos.push({
+          blobUrl:  p.src,
+          caption:  p.caption || '',
+          date:     p.date    || '',
+          filename: p.src.split('/').pop()
+        });
       });
+      current = 0;
+      updateDisplay();
+    })
+    .catch(function() {
+      // photos.json not found — show no-signal screen
+      updateDisplay();
     });
-  }
 
-  // Load photos from CONFIG
-  if (CONFIG.photos && CONFIG.photos.length > 0) {
-    CONFIG.photos.forEach(function(p) {
-      photos.push({
-        blobUrl:  p.src,
-        caption:  p.caption  || '',
-        date:     p.date     || '',
-        filename: p.src.split('/').pop()
+  var musicReady = fetch('music.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!Array.isArray(data) || !data.length) return;
+      playlist = data;
+      bgmLoaded = true;
+      updateMusicDisplay();
+      bgmAudio.volume = document.getElementById('vol-slider').value / 100;
+      bgmAudio.src = playlist[0];
+      bgmAudio.play().catch(function() {
+        document.getElementById('music-status').textContent = 'STATUS: Click anywhere to play';
+        document.addEventListener('click', function startOnClick() {
+          bgmAudio.play();
+          document.removeEventListener('click', startOnClick);
+          document.getElementById('music-status').textContent = 'STATUS: PLAYING';
+        });
       });
+    })
+    .catch(function() {
+      document.getElementById('music-status').textContent = 'STATUS: music.json not found';
     });
-    current = 0;
-  }
-
-  updateDisplay();
 }
 
 // ── INIT ──
