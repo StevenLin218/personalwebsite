@@ -660,6 +660,8 @@ function updateDisplay() {
   var p = photos[current];
   img.src = p.blobUrl;
   img.style.display = 'block';
+  img.style.opacity = '1';
+  img.style.filter  = 'saturate(0.65) contrast(1.05) brightness(0.85) sepia(0.2)';
   noSig.style.display = 'none';
 
   ctr.textContent = (current+1) + ' / ' + photos.length;
@@ -895,6 +897,8 @@ function autoLoad() {
         });
       });
       current = 0;
+      document.getElementById('no-signal').style.display = 'none';
+      document.getElementById('photo-img').style.display = 'block';
       updateDisplay();
     })
     .catch(function() {
