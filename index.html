@@ -888,6 +888,7 @@ function autoLoad() {
   var photosReady = fetch('photos.json')
     .then(function(r) { return r.json(); })
     .then(function(data) {
+      console.log('[AMH] photos.json loaded, count:', data.length);
       data.forEach(function(p) {
         photos.push({
           blobUrl:  p.src,
@@ -897,12 +898,13 @@ function autoLoad() {
         });
       });
       current = 0;
+      console.log('[AMH] first photo src:', photos[0].blobUrl);
       document.getElementById('no-signal').style.display = 'none';
       document.getElementById('photo-img').style.display = 'block';
       updateDisplay();
     })
-    .catch(function() {
-      // photos.json not found — show no-signal screen
+    .catch(function(err) {
+      console.error('[AMH] photos.json fetch failed:', err);
       updateDisplay();
     });
 
