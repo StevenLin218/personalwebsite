@@ -1,939 +1,1034 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>~*~ Anthony's Memory Hall ~*~ CRT PHOTO ARCHIVE ~*~ EST. 2004 ~*~</title>
-
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Strategy Loom</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
-
-BODY {
-  background-color: #000011;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%23000011'/%3E%3Ccircle cx='23' cy='67' r='1' fill='white' opacity='0.9'/%3E%3Ccircle cx='89' cy='12' r='1.5' fill='white' opacity='0.7'/%3E%3Ccircle cx='156' cy='89' r='1' fill='%23aaaaff' opacity='0.8'/%3E%3Ccircle cx='234' cy='34' r='1' fill='white' opacity='0.6'/%3E%3Ccircle cx='312' cy='156' r='2' fill='%23ffff88' opacity='0.5'/%3E%3Ccircle cx='378' cy='23' r='1' fill='white' opacity='0.9'/%3E%3Ccircle cx='45' cy='189' r='1.5' fill='%23aaffaa' opacity='0.6'/%3E%3Ccircle cx='123' cy='267' r='1' fill='white' opacity='0.8'/%3E%3Ccircle cx='267' cy='189' r='1' fill='%23ffaaff' opacity='0.7'/%3E%3Ccircle cx='345' cy='267' r='1.5' fill='white' opacity='0.5'/%3E%3Ccircle cx='67' cy='345' r='1' fill='%23aaaaff' opacity='0.9'/%3E%3Ccircle cx='189' cy='345' r='1' fill='white' opacity='0.6'/%3E%3Ccircle cx='289' cy='378' r='2' fill='%23ffff88' opacity='0.4'/%3E%3Ccircle cx='367' cy='334' r='1' fill='white' opacity='0.8'/%3E%3Ccircle cx='12' cy='378' r='1.5' fill='%23aaffff' opacity='0.7'/%3E%3Ccircle cx='178' cy='145' r='1' fill='white' opacity='0.5'/%3E%3Ccircle cx='56' cy='256' r='1' fill='%23ffaaff' opacity='0.8'/%3E%3Ccircle cx='334' cy='78' r='1.5' fill='white' opacity='0.6'/%3E%3Ccircle cx='390' cy='189' r='1' fill='%23aaaaff' opacity='0.9'/%3E%3Ccircle cx='145' cy='390' r='1' fill='white' opacity='0.7'/%3E%3C/svg%3E");
-  margin: 0; padding: 0;
-  font-family: 'VT323', 'Courier New', monospace;
-  color: #00ff00;
-  overflow-x: hidden;
+/* Layout: one-screen node editor. Block palette | wiring canvas | inspector, results dock underneath. Ports: round = number series, diamond = true/false. */
+:root{
+  --bg:#E8EBF1; --panel:#F7F8FB; --panel2:#EEF1F6; --ink:#141923; --muted:#5A6377; --line:#CBD1DC; --dot:#C3C9D6;
+  --accent:#2D47D8; --accent-soft:rgba(45,71,216,.10);
+  --num:#2D47D8; --bool:#B86E00; --pos:#0F7A56; --neg:#BE3529;
+  --c-data:#5A6377; --c-ind:#2D47D8; --c-cond:#B86E00; --c-logic:#7438C2; --c-act:#0F7A56;
+  --shadow:0 1px 2px rgba(20,25,35,.07),0 6px 16px rgba(20,25,35,.06);
+  --f-disp:'Archivo','Arial Narrow',system-ui,sans-serif;
+  --f-body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
 }
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0C0F15; --panel:#141821; --panel2:#11151D; --ink:#E3E7F0; --muted:#8B94A7; --line:#283040; --dot:#232A38;
+  --accent:#8094FF; --accent-soft:rgba(128,148,255,.13);
+  --num:#8094FF; --bool:#F2A93B; --pos:#3CC48E; --neg:#F2685C;
+  --c-data:#9AA3B6; --c-ind:#8094FF; --c-cond:#F2A93B; --c-logic:#B58CFF; --c-act:#3CC48E;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 20px rgba(0,0,0,.3); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0C0F15; --panel:#141821; --panel2:#11151D; --ink:#E3E7F0; --muted:#8B94A7; --line:#283040; --dot:#232A38;
+  --accent:#8094FF; --accent-soft:rgba(128,148,255,.13);
+  --num:#8094FF; --bool:#F2A93B; --pos:#3CC48E; --neg:#F2685C;
+  --c-data:#9AA3B6; --c-ind:#8094FF; --c-cond:#F2A93B; --c-logic:#B58CFF; --c-act:#3CC48E;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 20px rgba(0,0,0,.3); color-scheme:dark}
 
-.hit-counter {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 8px; color: #ff0000;
-  background: #000; border: 2px inset #666;
-  padding: 2px 6px; letter-spacing: 2px;
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:13px;line-height:1.45}
+*{box-sizing:border-box}
+button,select,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:5px 10px;font-weight:500}
+button:hover{border-color:var(--muted)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--panel)}
+button.danger{color:var(--neg)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+select,input[type=number],input[type=text]{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:5px 8px;min-width:0}
+
+.app{height:100%;display:grid;gap:10px;
+  grid-template-columns:208px minmax(0,1fr) 288px;
+  grid-template-rows:auto minmax(0,1fr) minmax(250px,40%);
+  grid-template-areas:"top top top" "pal cv insp" "res res res";
+  padding-block:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top{grid-area:top;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--f-disp);font-stretch:78%;font-weight:750;font-size:20px;letter-spacing:.01em;white-space:nowrap}
+.brand svg{flex:none}
+.name{flex:1 1 220px;max-width:380px;font-weight:600;font-size:14px;background:transparent!important;border-color:transparent!important}
+.name:hover,.name:focus{border-color:var(--line)!important;background:var(--panel)!important}
+.top-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-left:auto}
+.status{font-family:var(--f-mono);font-size:11.5px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);background:var(--panel);white-space:nowrap}
+.status.ok{color:var(--pos)} .status.bad{color:var(--neg)}
+
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;min-height:0;min-width:0}
+.pal{grid-area:pal;overflow:auto;padding:12px 10px;display:flex;flex-direction:column;gap:14px}
+.pal h4{margin:0 0 6px 4px;font-family:var(--f-mono);font-size:10.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.pal .grp{display:flex;flex-direction:column;gap:4px}
+.blk{display:flex;align-items:center;gap:9px;text-align:left;width:100%;border-color:transparent;background:transparent;padding:6px 8px}
+.blk:hover{background:var(--panel2);border-color:var(--line)}
+.blk i{width:9px;height:9px;border-radius:2px;flex:none;background:var(--cc)}
+.blk b{font-weight:500}
+.blk small{display:block;color:var(--muted);font-size:11px;font-weight:400;line-height:1.3}
+
+.cv{grid-area:cv;position:relative;overflow:hidden}
+.viewport{position:absolute;inset:0;overflow:hidden;touch-action:none;cursor:default;
+  background-color:var(--panel2);background-image:radial-gradient(var(--dot) 1.1px,transparent 1.3px);border-radius:10px}
+.viewport.panning{cursor:grabbing}
+.world{position:absolute;left:0;top:0;transform-origin:0 0}
+.wires{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.wires .hit{fill:none;stroke:transparent;stroke-width:14;pointer-events:stroke;cursor:pointer}
+.wire{fill:none;stroke-width:2;stroke:var(--num);opacity:.75;pointer-events:none}
+.wire.t-bool{stroke:var(--bool)}
+.wire.t-bool.off{opacity:.35;stroke-dasharray:4 4}
+.wire.t-bool.on{stroke:var(--pos);opacity:1;stroke-width:3;stroke-dasharray:8 6;animation:flow .7s linear infinite}
+.wire.sel{stroke-width:3.5;opacity:1;filter:drop-shadow(0 0 3px var(--accent))}
+.wire.temp{stroke:var(--accent);stroke-dasharray:5 4;opacity:1}
+@keyframes flow{to{stroke-dashoffset:-14}}
+@media (prefers-reduced-motion:reduce){.wire.t-bool.on{animation:none}}
+
+.node{position:absolute;width:184px;background:var(--panel);border:1px solid var(--line);border-radius:7px;box-shadow:var(--shadow);user-select:none;-webkit-user-select:none}
+.node.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent),var(--shadow)}
+.node.err{border-color:var(--neg)}
+.nh{height:34px;display:flex;align-items:center;gap:7px;padding:0 9px;border-bottom:1px solid var(--line);cursor:grab}
+.tag{font-family:var(--f-mono);font-size:9.5px;font-weight:500;letter-spacing:.06em;padding:1px 5px;border-radius:3px;color:var(--cc);border:1px solid var(--cc);line-height:1.4}
+.node.err .tag{color:var(--neg);border-color:var(--neg)}
+.nt{font-weight:600;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nid{margin-left:auto;font-family:var(--f-mono);font-size:10.5px;color:var(--muted);font-weight:400}
+.row{height:26px;position:relative;display:flex;justify-content:space-between;align-items:center;padding:0 13px;font-family:var(--f-mono);font-size:10.5px;color:var(--muted)}
+.pl.note{font-style:italic}
+.port{position:absolute;top:7px;width:12px;height:12px;border-radius:50%;background:var(--num);border:2px solid var(--panel);box-shadow:0 0 0 1px var(--num);cursor:crosshair}
+.port::after{content:"";position:absolute;inset:-8px}
+.port.t-bool{background:var(--bool);box-shadow:0 0 0 1px var(--bool);border-radius:2px;transform:rotate(45deg) scale(.88)}
+.port.in{left:-7px}.port.out{right:-7px}
+.port.in.open{background:var(--panel)}
+.wiring-num .port.in.t-num,.wiring-bool .port.in.t-bool{animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 4px var(--accent-soft),0 0 0 1px var(--accent)}}
+.nf{height:26px;border-top:1px dashed var(--line);display:flex;align-items:center;justify-content:space-between;gap:6px;padding:0 9px;font-family:var(--f-mono);font-size:10.5px}
+.ps{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lv{white-space:nowrap;font-variant-numeric:tabular-nums}
+.chip{font-family:var(--f-mono);font-size:9.5px;padding:0 5px;border-radius:3px;letter-spacing:.04em}
+.chip.t{background:var(--pos);color:var(--panel)}
+.chip.f{color:var(--muted);border:1px solid var(--line)}
+.cat-data{--cc:var(--c-data)}.cat-ind{--cc:var(--c-ind)}.cat-cond{--cc:var(--c-cond)}.cat-logic{--cc:var(--c-logic)}.cat-act{--cc:var(--c-act)}
+
+.zoom{position:absolute;right:10px;bottom:10px;display:flex;gap:4px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:3px}
+.zoom button{border:0;padding:3px 9px;background:transparent}
+.zoom span{font-family:var(--f-mono);font-size:11px;min-width:40px;text-align:center;color:var(--muted)}
+.hint{position:absolute;left:10px;bottom:10px;right:180px;font-size:11.5px;color:var(--muted);pointer-events:none}
+
+.insp{grid-area:insp;overflow:auto;padding:14px}
+.insp h2{margin:0;font-family:var(--f-disp);font-stretch:85%;font-size:18px;font-weight:700;text-wrap:balance}
+.insp h3{margin:16px 0 6px;font-family:var(--f-mono);font-size:10.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.ihead{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.idesc{color:var(--muted);margin:6px 0 0}
+.fields{display:flex;flex-direction:column;gap:8px}
+.fld{display:grid;grid-template-columns:1fr 112px;align-items:center;gap:8px}
+.fld small{grid-column:1/-1;color:var(--muted);font-size:11px;margin-top:-4px}
+.kv{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.kv li{display:flex;justify-content:space-between;gap:10px;font-size:12px}
+.kv .k{color:var(--muted);font-family:var(--f-mono);font-size:11px;flex:none}
+.kv .v{text-align:right;min-width:0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.miss{color:var(--neg);font-style:normal}
+.ibtns{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+.issues{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.issues li{display:flex;gap:8px;align-items:flex-start;font-size:12px;cursor:pointer;padding:6px 8px;border-radius:6px;background:var(--panel2)}
+.issues li:hover{outline:1px solid var(--line)}
+.sev{font-family:var(--f-mono);font-size:9.5px;padding:1px 5px;border-radius:3px;flex:none;margin-top:1px}
+.sev.error{background:var(--neg);color:var(--panel)} .sev.warn{border:1px solid var(--bool);color:var(--bool)}
+.okmsg{color:var(--pos);margin:8px 0 0}
+.howto{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:12px}
+.howto b{color:var(--ink);font-weight:500}
+
+.res{grid-area:res;display:flex;flex-direction:column;overflow:hidden}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);padding:0 8px;overflow-x:auto;flex:none}
+.tabs button{border:0;border-radius:0;background:transparent;padding:9px 12px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--accent)}
+.pane{flex:1;min-height:0;display:flex;flex-direction:column;overflow:auto}
+.btbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 12px;border-bottom:1px solid var(--line)}
+.btbar label{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.btbar input[type=number]{width:96px}
+.btbar .sp{flex:1}
+.stats{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));border-bottom:1px solid var(--line);flex:none}
+.stat{padding:7px 12px;border-right:1px solid var(--line);min-width:0}
+.stat:last-child{border-right:0}
+.stat span{display:block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.stat b{font-family:var(--f-mono);font-weight:500;font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pos{color:var(--pos)}.neg{color:var(--neg)}
+.chartwrap{flex:1;min-height:200px;display:flex;flex-direction:column;position:relative}
+.readout{font-family:var(--f-mono);font-size:11px;color:var(--muted);padding:6px 12px 0;display:flex;gap:14px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.readout b{color:var(--ink);font-weight:500}
+.chartbox{flex:1;min-height:0;position:relative}
+#chart{position:absolute;inset:0;cursor:crosshair;touch-action:pan-y}
+.datanote{font-size:11px;color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:12px;font-variant-numeric:tabular-nums}
+th,td{padding:6px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);position:sticky;top:0;background:var(--panel)}
+th:first-child,td:first-child,td.l,th.l{text-align:left}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:var(--panel2)}
+.tablewrap{overflow:auto;flex:1}
+.empty{padding:24px 14px;color:var(--muted)}
+.codebar{display:flex;gap:8px;padding:8px 12px;border-bottom:1px solid var(--line);align-items:center;flex-wrap:wrap}
+.codebar .datanote{flex:1}
+pre.code,textarea.code{margin:0;padding:12px 14px;font-family:var(--f-mono);font-size:11.5px;line-height:1.55;overflow:auto;flex:1;white-space:pre;tab-size:4}
+textarea.code{border:0;resize:none;background:var(--panel);outline-offset:-2px;min-height:160px}
+.kw{color:var(--c-logic)}.cm{color:var(--muted)}.st{color:var(--pos)}.nu{color:var(--bool)}
+
+.logic{padding:12px 14px;display:flex;flex-direction:column;gap:14px}
+.lsec h5{margin:0 0 6px;font-family:var(--f-disp);font-stretch:85%;font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
+.lsec h5 small{font-family:var(--f-body);font-size:12px;color:var(--muted);font-weight:400}
+.lnote{color:var(--muted);font-size:12px;margin:0}
+.grp-box{border:1px solid var(--line);border-radius:8px;padding:6px 8px 8px;display:flex;flex-direction:column;gap:6px;background:var(--panel)}
+.grp-box .gh{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11px;color:var(--c-logic);font-weight:500;letter-spacing:.06em}
+.grp-box .gb{display:flex;flex-direction:column;gap:6px;padding-left:12px;border-left:2px solid var(--c-logic)}
+.cond{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 8px;border-radius:6px;background:var(--panel2);font-size:12.5px}
+.cond .op{font-family:var(--f-mono);color:var(--c-cond);font-weight:500}
+.cond .tv{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.cond.link{cursor:pointer}
+
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--panel);padding:8px 14px;border-radius:8px;font-size:12.5px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center;max-width:calc(100% - 32px);z-index:20}
+.toast button{background:transparent;color:inherit;border-color:currentColor;padding:2px 8px}
+
+@media (max-width:980px){
+  html,body{height:auto}
+  .app{height:auto;grid-template-columns:minmax(0,1fr);grid-template-rows:auto;grid-template-areas:"top" "pal" "cv" "insp" "res"}
+  .pal{flex-direction:row;overflow-x:auto;padding:8px}
+  .pal .grp{flex:none}
+  .pal .grp>div{display:flex;gap:4px}
+  .blk{width:auto;white-space:nowrap}
+  .blk small{display:none}
+  .cv{height:62vh;min-height:380px}
+  .insp{max-height:none}
+  .res{min-height:560px}
+  .stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .stat:nth-child(4n){border-right:0}
+  .stat:nth-child(-n+4){border-bottom:1px solid var(--line)}
+  .chartwrap{min-height:340px}
+  .hint{display:none}
 }
-
-.main-title {
-  font-family: 'Press Start 2P', monospace;
-  font-size: clamp(9px, 2.2vw, 15px);
-  text-align: center; padding: 8px 0;
-  letter-spacing: 2px; line-height: 2;
-}
-
-.title-rainbow {
-  background: linear-gradient(90deg,#ff0000,#ff7700,#ffff00,#00ff00,#0000ff,#ff00ff,#ff0000);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; background-size: 200%;
-  animation: rainbow-shift 3s linear infinite; display: inline-block;
-}
-
-@keyframes rainbow-shift { 0%{background-position:0%} 100%{background-position:200%} }
-
-.star1 { display:inline-block; animation:twinkle 0.8s step-end infinite; color:#ffff00; }
-.star2 { display:inline-block; animation:twinkle 1.3s step-end infinite 0.4s; color:#ff88ff; }
-.star3 { display:inline-block; animation:twinkle 0.6s step-end infinite 0.2s; color:#88ffff; }
-@keyframes twinkle { 0%,100%{opacity:1} 50%{opacity:0} }
-
-HR.fancy {
-  border:none; height:4px;
-  background:linear-gradient(90deg,transparent,#ff00ff,#00ffff,#ffff00,#ff00ff,transparent);
-  margin:4px 0;
-}
-HR.plain { border:1px solid #336633; margin:4px 0; }
-
-.monitor-outer {
-  background:#1c1c1c; border:6px outset #555;
-  border-radius:18px 18px 12px 12px;
-  padding:16px 20px 40px 20px; position:relative;
-  box-shadow:4px 4px 0 #000,8px 8px 0 rgba(0,0,0,0.5);
-  margin:0 auto; max-width:640px;
-}
-
-.monitor-inner { background:#111; border:4px inset #222; border-radius:8px; padding:3px; }
-
-.screen {
-  background:#020802; border-radius:6px;
-  position:relative; overflow:hidden;
-  width:100%; aspect-ratio:4/3;
-}
-
-.screen::after {
-  content:''; position:absolute; inset:0;
-  background:repeating-linear-gradient(0deg,rgba(0,0,0,0.22) 0px,rgba(0,0,0,0.22) 1px,transparent 1px,transparent 3px);
-  pointer-events:none; z-index:20;
-}
-
-.screen-photo {
-  width:100%; height:100%; object-fit:contain; display:block;
-  filter:saturate(0.65) contrast(1.05) brightness(0.85) sepia(0.2);
-  position:absolute; inset:0;
-  background:#000;
-}
-
-#noise-canvas { position:absolute; inset:0; pointer-events:none; z-index:10; opacity:0.5; }
-
-.no-signal {
-  position:absolute; inset:0; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; background:#000; z-index:5;
-}
-
-.no-signal-bars { display:flex; width:90%; height:55%; margin-bottom:10px; }
-.no-signal-bars div { flex:1; height:100%; }
-
-.no-signal-text {
-  font-family:'VT323',monospace; color:#fff; font-size:24px;
-  letter-spacing:6px; animation:blink-anim 1s step-end infinite;
-}
-
-.no-signal-sub { font-family:'VT323',monospace; color:#666; font-size:16px; letter-spacing:3px; margin-top:4px; }
-
-@keyframes blink-anim { 0%,100%{opacity:1} 50%{opacity:0} }
-
-.osd-ts {
-  position:absolute; bottom:8px; right:10px;
-  font-family:'VT323',monospace; font-size:14px;
-  color:rgba(255,210,0,0.9); pointer-events:none; z-index:25;
-  letter-spacing:1px; text-shadow:1px 1px 0 #000;
-}
-
-.osd-cap {
-  position:absolute; bottom:8px; left:10px;
-  font-family:'VT323',monospace; font-size:15px;
-  color:rgba(255,255,255,0.85); pointer-events:none; z-index:25;
-  text-shadow:1px 1px 0 #000; max-width:55%;
-}
-
-.osd-rec {
-  position:absolute; top:8px; left:10px;
-  font-family:'VT323',monospace; font-size:13px;
-  color:rgba(0,255,65,0.8); pointer-events:none; z-index:25;
-}
-
-.monitor-base {
-  width:60%; height:14px;
-  background:linear-gradient(180deg,#333,#222);
-  border:2px outset #444; margin:0 auto; border-radius:0 0 6px 6px;
-}
-
-.monitor-stand { width:30%; height:8px; background:#1a1a1a; border:2px outset #333; margin:0 auto; border-radius:0 0 4px 4px; }
-.monitor-foot { display:flex; justify-content:center; gap:40px; }
-.monitor-foot-piece { width:60px; height:6px; background:#222; border:2px outset #333; border-radius:0 0 4px 4px; }
-
-.monitor-led-row { position:absolute; bottom:14px; right:22px; display:flex; align-items:center; gap:5px; }
-
-.led-dot {
-  width:7px; height:7px; border-radius:50%; background:#00ff00;
-  box-shadow:0 0 4px #00ff00; animation:led-blink 2s ease-in-out infinite;
-}
-
-@keyframes led-blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
-
-.monitor-brand-tag {
-  position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
-  font-family:'VT323',monospace; font-size:11px; color:#555; letter-spacing:5px; white-space:nowrap;
-}
-
-.nav-table { margin:6px auto 0; border-collapse:collapse; }
-.nav-btn-cell { padding:4px 8px; }
-
-.arrow-btn {
-  font-family:'Press Start 2P',monospace; font-size:12px;
-  background:#000033; color:#00ffff; border:3px outset #0000aa;
-  padding:6px 12px; cursor:pointer; letter-spacing:1px;
-}
-.arrow-btn:hover { background:#000066; }
-.arrow-btn:active { border-style:inset; }
-.arrow-btn:disabled { color:#333; border-color:#222; cursor:default; background:#000; }
-
-.counter-cell {
-  font-family:'VT323',monospace; font-size:22px; color:#ffaa00;
-  text-align:center; padding:0 16px; letter-spacing:3px; min-width:90px;
-}
-
-.bottom-section { max-width:640px; margin:8px auto 0; }
-
-.ctrl-box { background:#000022; border:2px inset #003300; padding:10px; }
-
-.ctrl-title {
-  font-family:'Press Start 2P',monospace; font-size:7px; color:#00ff00;
-  letter-spacing:2px; margin-bottom:8px; border-bottom:1px solid #003300; padding-bottom:6px;
-}
-
-.ctrl-btn {
-  font-family:'VT323',monospace; font-size:16px; background:#001100; color:#00cc00;
-  border:2px outset #006600; padding:4px 10px; cursor:pointer;
-  margin:3px; letter-spacing:1px; display:inline-block; white-space:nowrap;
-}
-.ctrl-btn:hover { background:#002200; color:#00ff00; }
-.ctrl-btn:active { border-style:inset; }
-.ctrl-btn.red { color:#ff4444; border-color:#660000; background:#110000; }
-.ctrl-btn.red:hover { background:#220000; color:#ff6666; }
-
-/* ── MUSIC PLAYER ── */
-.music-box { background:#110022; border:2px inset #330066; padding:10px; }
-
-.music-title {
-  font-family:'Press Start 2P',monospace; font-size:7px; color:#ff00ff;
-  letter-spacing:2px; margin-bottom:8px; border-bottom:1px solid #330033; padding-bottom:6px;
-}
-
-.music-display {
-  background:#000; border:2px inset #444; color:#00ff88;
-  font-family:'VT323',monospace; font-size:14px; padding:4px 6px;
-  margin-bottom:6px; letter-spacing:1px; height:28px; overflow:hidden; white-space:nowrap;
-}
-
-.music-scroll-text {
-  display:inline-block; animation:mscroll 14s linear infinite; padding-left:100%;
-}
-
-@keyframes mscroll { 0%{transform:translateX(0)} 100%{transform:translateX(-100%)} }
-
-.music-controls { display:flex; gap:4px; margin-bottom:6px; flex-wrap:wrap; }
-
-.music-btn {
-  font-family:'VT323',monospace; font-size:18px; background:#1a0033; color:#ff88ff;
-  border:2px outset #660066; padding:2px 10px; cursor:pointer; min-width:36px; text-align:center;
-}
-.music-btn:hover { background:#2a0044; color:#ffaaff; }
-.music-btn:active { border-style:inset; }
-
-.music-upload-label {
-  font-family:'VT323',monospace; font-size:14px; background:#110033; color:#aa88ff;
-  border:2px outset #440077; padding:3px 8px; cursor:pointer; display:inline-block; letter-spacing:1px;
-}
-.music-upload-label:hover { background:#220044; color:#cc99ff; }
-
-.volume-row { display:flex; align-items:center; gap:6px; margin-top:4px; }
-.volume-label { font-family:'VT323',monospace; font-size:13px; color:#884488; letter-spacing:1px; white-space:nowrap; }
-
-.volume-slider { -webkit-appearance:none; appearance:none; width:70px; height:8px; background:#330033; border:1px inset #660066; outline:none; cursor:pointer; }
-.volume-slider::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; background:#ff00ff; cursor:pointer; }
-
-.music-status { font-family:'VT323',monospace; font-size:12px; color:#554455; margin-top:4px; letter-spacing:1px; word-break:break-all; }
-
-/* ── WIN95 MODALS ── */
-.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:200; align-items:center; justify-content:center; }
-.modal-overlay.open { display:flex; }
-
-.modal-window { background:#c0c0c0; border:3px outset #ffffff; min-width:280px; max-width:480px; width:90vw; box-shadow:4px 4px 0 #000; }
-
-.modal-titlebar {
-  background:linear-gradient(90deg,#000080,#1084d0); color:#fff;
-  padding:4px 8px; font-family:'VT323',monospace; font-size:16px;
-  display:flex; justify-content:space-between; align-items:center; letter-spacing:1px;
-}
-
-.modal-close-btn {
-  background:#c0c0c0; border:2px outset #fff; color:#000; font-size:11px;
-  width:18px; height:18px; cursor:pointer; display:flex; align-items:center;
-  justify-content:center; font-family:monospace; padding:0; line-height:1;
-}
-.modal-close-btn:active { border-style:inset; }
-.modal-body { padding:12px; background:#c0c0c0; }
-
-.modal-label { font-family:'VT323',monospace; font-size:16px; color:#000080; display:block; margin-bottom:2px; letter-spacing:1px; }
-
-.modal-input {
-  width:100%; font-family:'VT323',monospace; font-size:15px; background:#fff;
-  border:2px inset #808080; padding:4px 6px; color:#000; margin-bottom:10px; outline:none; box-sizing:border-box;
-}
-.modal-input:focus { background:#fffff0; }
-
-/* ── PHOTO LOAD AREA (multi-file, like music) ── */
-.photo-load-area {
-  border:2px dashed #000080; background:#d4d0c8;
-  padding:16px 10px; text-align:center; cursor:pointer;
-  margin-bottom:10px; font-family:'VT323',monospace; font-size:16px; color:#000080; letter-spacing:1px;
-}
-.photo-load-area:hover { background:#e0dcf0; border-color:#0000ff; }
-.photo-load-area.dragover { background:#d0e8ff; border-color:#0000ff; }
-
-.photo-thumbs {
-  display:flex; flex-wrap:wrap; gap:4px;
-  max-height:100px; overflow-y:auto;
-  margin-top:6px; justify-content:center;
-}
-
-.photo-thumbs img { width:56px; height:56px; object-fit:cover; border:2px inset #808080; filter:saturate(0.6); }
-
-.modal-btn-row { display:flex; gap:6px; justify-content:flex-end; margin-top:6px; }
-
-.win95-btn {
-  font-family:'VT323',monospace; font-size:16px; background:#c0c0c0;
-  border:2px outset #fff; padding:3px 14px; cursor:pointer; color:#000; letter-spacing:1px; min-width:60px;
-}
-.win95-btn:hover { background:#d0d0d0; }
-.win95-btn:active { border-style:inset; }
-.win95-btn.primary { background:#d0d8ff; }
-
-/* ── GALLERY ── */
-.gallery-grid {
-  display:grid; grid-template-columns:repeat(auto-fill,minmax(76px,1fr));
-  gap:4px; max-height:280px; overflow-y:auto;
-  background:#808080; padding:4px; margin-bottom:8px;
-}
-
-.gal-item { border:2px outset #c0c0c0; cursor:pointer; position:relative; aspect-ratio:1; overflow:hidden; background:#000; }
-.gal-item:hover { border-style:inset; }
-.gal-item.active { border:2px solid #ffff00; }
-.gal-item img { width:100%; height:100%; object-fit:cover; display:block; filter:saturate(0.6) sepia(0.15); }
-
-.gal-del {
-  position:absolute; top:1px; right:1px; background:rgba(0,0,0,0.85); color:#ff4444;
-  border:1px solid #880000; font-size:10px; width:16px; height:16px;
-  display:none; align-items:center; justify-content:center; cursor:pointer; font-family:monospace;
-}
-.gal-item:hover .gal-del { display:flex; }
-
-.blink      { animation:blink-anim 0.8s step-end infinite; }
-.blink-slow { animation:blink-anim 1.6s step-end infinite; }
-
-.page-center { max-width:680px; margin:0 auto; padding:10px 8px; }
-
-.top-bar {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:3px 6px; background:#000033; border-bottom:2px solid #0000aa;
-  max-width:680px; margin:0 auto; font-size:12px;
-  font-family:'VT323',monospace; color:#8888ff; letter-spacing:1px; flex-wrap:wrap; gap:4px;
-}
-
-.planet { display:inline-block; width:16px; height:16px; border-radius:50%; vertical-align:middle; margin:0 2px; }
-.planet-orange { background:radial-gradient(circle at 35% 35%,#ff8800,#aa3300); }
-.planet-blue   { background:radial-gradient(circle at 35% 35%,#4488ff,#001166); }
-.planet-green  { background:radial-gradient(circle at 35% 35%,#44ff88,#005522); }
-
-.under-const {
-  display:inline-block; font-family:'VT323',monospace; font-size:13px;
-  background:#ffff00; color:#000; padding:1px 5px; border:2px outset #888;
-  animation:blink-anim 0.5s step-end infinite; letter-spacing:1px;
-}
-
-.spacejam-footer { text-align:center; padding:10px 0 20px; font-family:'VT323',monospace; font-size:14px; color:#333; letter-spacing:3px; max-width:640px; margin:0 auto; }
 </style>
-</head>
-<body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <span><span class="star1">*</span> VISITORS:&nbsp;<span class="hit-counter" id="visit-count">000000</span> <span class="star2">*</span></span>
-  <span><span class="under-const">!! UNDER CONSTRUCTION !!</span></span>
-  <span>BEST: 800x600 | IE4.0 | NS3.0</span>
-</div>
-
-<div class="page-center">
-
-<marquee behavior="scroll" direction="left" scrollamount="3"
-  style="color:#ff00ff;font-family:'VT323',monospace;font-size:18px;letter-spacing:3px;border-top:2px solid #330033;border-bottom:2px solid #330033;padding:2px 0;background:#0a0016;">
-&nbsp;&nbsp;<span class="star1">*</span> Anthony's Memory Hall &nbsp;
-<span class="planet planet-orange"></span> CRT PHOTO ARCHIVE <span class="planet planet-blue"></span>
-&nbsp; Memories From The Golden Age &nbsp;<span class="star2">*</span>&nbsp;&nbsp;
--- Est. 2004 -- CCD Era Photos -- <span class="planet planet-green"></span>&nbsp;
-Welcome to My Page! &nbsp;<span class="star3">*</span>&nbsp;&nbsp;
-</marquee>
-
-<div style="text-align:center;padding:10px 0 4px;">
-  <div class="main-title">
-    <span class="star1">*</span>
-    <span class="title-rainbow">~~ Anthony's Memory Hall ~~</span>
-    <span class="star1">*</span><br>
-    <span style="font-size:0.7em;color:#8888ff;letter-spacing:1px;">
-      <span class="star2">*</span> CRT PHOTO ARCHIVE &middot; EST. 2004 <span class="star2">*</span>
-    </span>
-  </div>
-</div>
-
-<hr class="fancy">
-
-<!-- MONITOR -->
-<div class="monitor-outer">
-  <div class="monitor-inner">
-    <div class="screen" id="screen">
-      <img class="screen-photo" id="photo-img" src="" alt="" style="display:none;">
-
-      <div class="no-signal" id="no-signal">
-        <div class="no-signal-bars" id="signal-bars"></div>
-        <div class="no-signal-text">NO SIGNAL</div>
-        <div class="no-signal-sub">Click [ + ] Load Photos to begin</div>
-      </div>
-
-      <canvas id="noise-canvas"></canvas>
-
-      <div class="osd-rec" id="osd-rec"></div>
-      <div class="osd-cap" id="osd-cap"></div>
-      <div class="osd-ts"  id="osd-ts"></div>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="4" cy="5" r="2.6" fill="var(--num)"/><circle cx="4" cy="17" r="2.6" fill="var(--num)"/><rect x="15" y="8" width="5.4" height="5.4" transform="rotate(45 17.7 10.7)" fill="var(--bool)"/><path d="M6.5 5C11 5 10 10.7 14.5 10.7M6.5 17C11 17 10 10.7 14.5 10.7" stroke="var(--ink)" stroke-width="1.6" fill="none"/></svg>
+      Strategy Loom
     </div>
-  </div>
-  <div class="monitor-brand-tag">MEMORYTRON MDT-9400</div>
-  <div class="monitor-led-row"><div class="led-dot"></div></div>
-</div>
-
-<!-- STAND -->
-<div style="text-align:center;">
-  <div class="monitor-base"></div>
-  <div class="monitor-stand"></div>
-  <div class="monitor-foot">
-    <div class="monitor-foot-piece"></div>
-    <div class="monitor-foot-piece"></div>
-  </div>
-</div>
-
-<!-- NAV -->
-<table class="nav-table" cellpadding="0" cellspacing="0">
-<tr>
-  <td class="nav-btn-cell"><button class="arrow-btn" id="btn-prev" onclick="navigate(-1)">&#9668;&#9668; PREV</button></td>
-  <td class="counter-cell" id="counter-cell">-- / --</td>
-  <td class="nav-btn-cell"><button class="arrow-btn" id="btn-next" onclick="navigate(1)">NEXT &#9658;&#9658;</button></td>
-</tr>
-</table>
-
-<hr class="plain">
-
-<!-- CONTROLS + MUSIC -->
-<div class="bottom-section">
-<table width="100%" cellpadding="0" cellspacing="6" border="0">
-<tr valign="top">
-
-  <td width="52%">
-    <div class="ctrl-box">
-      <div class="ctrl-title">&#9616; PHOTO CONTROLS</div>
-      <button class="ctrl-btn" onclick="openLoadModal()">[ + ] Load Photos</button>
-      <button class="ctrl-btn" onclick="openGallery()">[ &#9638; ] Gallery</button><br>
-      <button class="ctrl-btn" onclick="openEditModal()">[ &#9999; ] Edit Caption</button>
-      <button class="ctrl-btn red" onclick="deleteCurrentPhoto()">[ X ] Remove</button>
+    <input id="stratName" class="name" type="text" aria-label="Strategy name" autocomplete="off">
+    <div class="top-actions">
+      <select id="tplSel" aria-label="Load a template">
+        <option value="">Load a template…</option>
+        <option value="ema">EMA crossover + RSI filter</option>
+        <option value="rsi">RSI mean reversion</option>
+        <option value="donchian">Donchian breakout + MACD</option>
+        <option value="bb">Bollinger band bounce</option>
+        <option value="blank">Blank canvas</option>
+      </select>
+      <button id="undoBtn" title="Undo (Ctrl+Z)">Undo</button>
+      <span id="status" class="status">…</span>
     </div>
-  </td>
+  </header>
 
-  <td width="48%">
-    <div class="music-box">
-      <div class="music-title">&#9834; BGM MUSIC PLAYER</div>
-      <div class="music-display">
-        <span class="music-scroll-text" id="music-txt">-- NO MUSIC LOADED -- Upload a song to begin --</span>
-      </div>
-      <div class="music-controls">
-        <button class="music-btn" onclick="playTrack(trackIndex-1)" title="Prev Track">&#9668;&#9668;</button>
-        <button class="music-btn" onclick="musicPlay()" title="Play">&#9658;</button>
-        <button class="music-btn" onclick="musicPause()" title="Pause">&#8214;</button>
-        <button class="music-btn" onclick="musicStop()" title="Stop">&#9632;</button>
-        <button class="music-btn" onclick="playTrack(trackIndex+1)" title="Next Track">&#9658;&#9658;</button>
-        <label class="music-upload-label">
-          &#9834; LOAD
-          <input type="file" id="music-input" accept="audio/*" style="display:none;" onchange="loadMusic(event)">
-        </label>
-      </div>
-      <div class="volume-row">
-        <span class="volume-label">VOL:</span>
-        <input type="range" class="volume-slider" id="vol-slider" min="0" max="100" value="70" oninput="setVol(this.value)">
-        <span class="volume-label" id="vol-num">70</span>
-      </div>
-      <div class="music-status" id="music-status">STATUS: IDLE</div>
-    </div>
-  </td>
+  <aside class="pal panel" id="palette" aria-label="Blocks"></aside>
 
-</tr>
-</table>
-</div>
-
-<hr class="fancy">
-
-<div style="text-align:center;padding:6px 0 4px;font-family:'VT323',monospace;font-size:16px;letter-spacing:2px;">
-  <span class="star1">*</span>
-  <span style="color:#ff00ff;">HOME</span> |
-  <span style="color:#00ffff;">GUESTBOOK</span> |
-  <span style="color:#ffff00;">ABOUT ME</span> |
-  <span style="color:#ff8800;">LINKS</span> |
-  <span style="color:#88ff88;">EMAIL ME</span>
-  <span class="star2">*</span>
-</div>
-
-<div style="text-align:center;padding:2px 0 4px;">
-  <span style="color:#4444aa;font-family:'VT323',monospace;font-size:11px;letter-spacing:2px;">
-    <span class="blink-slow">&#9632;</span>
-    THIS PAGE OPTIMIZED FOR NETSCAPE NAVIGATOR 3.0 AT 800x600 256 COLORS
-    <span class="blink-slow">&#9632;</span>
-  </span>
-</div>
-
-<div class="spacejam-footer">
-  &copy; 2004 Anthony's Memory Hall &mdash; ALL RIGHTS RESERVED<br>
-  <span class="blink-slow">NO HOTLINKING &middot; ALL PHOTOS PROPERTY OF ANTHONY</span>
-</div>
-
-</div><!-- /page-center -->
-
-<!-- ── LOAD PHOTOS MODAL ── -->
-<div class="modal-overlay" id="load-modal">
-  <div class="modal-window">
-    <div class="modal-titlebar">
-      <span>&#128247; Load Photos</span>
-      <button class="modal-close-btn" onclick="closeModal('load-modal')">X</button>
-    </div>
-    <div class="modal-body">
-
-      <div style="font-family:'VT323',monospace;font-size:14px;color:#333;margin-bottom:8px;letter-spacing:1px;line-height:1.4;">
-        Select one or multiple photos.<br>
-        They load directly into memory &mdash; no data is stored on any server.
-      </div>
-
-      <div class="photo-load-area" id="drop-area" onclick="document.getElementById('file-input').click()">
-        Click to select photos &mdash; or Drag &amp; Drop<br>
-        <span style="font-size:13px;color:#555;">JPG &middot; PNG &middot; GIF &middot; BMP &middot; WEBP</span><br>
-        <span style="font-size:13px;color:#000080;">You can select multiple files at once</span>
-        <div class="photo-thumbs" id="file-thumbs"></div>
-      </div>
-      <input type="file" id="file-input" accept="image/*" multiple style="display:none;" onchange="handleFilesSelect(event)">
-
-      <div class="modal-btn-row">
-        <button class="win95-btn primary" id="confirm-load-btn" onclick="confirmLoad()" disabled>Load ( 0 )</button>
-        <button class="win95-btn" onclick="closeModal('load-modal')">Cancel</button>
+  <section class="cv panel">
+    <div class="viewport" id="viewport">
+      <div class="world" id="world">
+        <svg id="wires" class="wires" width="10" height="10"></svg>
+        <div id="nodes"></div>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- ── GALLERY MODAL ── -->
-<div class="modal-overlay" id="gallery-modal">
-  <div class="modal-window" style="max-width:500px;">
-    <div class="modal-titlebar">
-      <span>&#9638; Photo Gallery</span>
-      <button class="modal-close-btn" onclick="closeModal('gallery-modal')">X</button>
+    <div class="hint">Drag an output dot onto an input dot to wire blocks. Scroll to pan, Ctrl + scroll to zoom. Delete removes the selection.</div>
+    <div class="zoom">
+      <button id="zOut" aria-label="Zoom out">−</button><span id="zLbl">100%</span><button id="zIn" aria-label="Zoom in">+</button><button id="fitBtn">Fit</button>
     </div>
-    <div class="modal-body">
-      <div class="gallery-grid" id="gallery-grid"></div>
-      <div class="modal-btn-row">
-        <button class="win95-btn" onclick="closeModal('gallery-modal')">Close</button>
+  </section>
+
+  <aside class="insp panel" id="inspector"></aside>
+
+  <section class="res panel">
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-tab="bt" aria-selected="true">Backtest</button>
+      <button role="tab" data-tab="trades" aria-selected="false">Trades</button>
+      <button role="tab" data-tab="logic" aria-selected="false">Logic flow</button>
+      <button role="tab" data-tab="py" aria-selected="false">Python</button>
+      <button role="tab" data-tab="json" aria-selected="false">JSON</button>
+    </nav>
+    <div class="pane" data-pane="bt">
+      <div class="btbar">
+        <label>Data <select id="dataSel">
+          <option value="trend">Sample · trending</option>
+          <option value="range">Sample · range-bound</option>
+          <option value="volatile">Sample · volatile</option>
+        </select></label>
+        <button id="reseed" title="Generate a different random sample">New sample</button>
+        <button id="csvBtn">Load CSV…</button>
+        <label>Capital <input id="capIn" type="number" min="100" step="1000"></label>
+        <label>Fee (bps/side) <input id="feeIn" type="number" min="0" step="0.5"></label>
+        <span class="sp"></span>
+        <span class="datanote" id="dataNote"></span>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div class="chartwrap">
+        <div class="readout" id="readout"></div>
+        <div class="chartbox"><canvas id="chart" aria-label="Price, equity and indicator chart"></canvas></div>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- ── EDIT CAPTION MODAL ── -->
-<div class="modal-overlay" id="edit-modal">
-  <div class="modal-window">
-    <div class="modal-titlebar">
-      <span>&#9999; Edit Caption</span>
-      <button class="modal-close-btn" onclick="closeModal('edit-modal')">X</button>
+    <div class="pane" data-pane="trades" hidden><div class="tablewrap" id="tradesWrap"></div></div>
+    <div class="pane" data-pane="logic" hidden><div class="logic" id="logicPane"></div></div>
+    <div class="pane" data-pane="py" hidden>
+      <div class="codebar"><span class="datanote">Pandas script that reproduces this graph and backtest. Load your OHLC data into <code>df</code>.</span><button id="copyPy">Copy code</button></div>
+      <pre class="code" id="pyCode"></pre>
     </div>
-    <div class="modal-body">
-      <label class="modal-label">Caption:</label>
-      <input class="modal-input" type="text" id="edit-caption" placeholder="Enter caption...">
-      <label class="modal-label">Date:</label>
-      <input class="modal-input" type="text" id="edit-date" placeholder="e.g. Aug 15, 1997">
-      <div class="modal-btn-row">
-        <button class="win95-btn primary" onclick="saveEdit()">OK</button>
-        <button class="win95-btn" onclick="closeModal('edit-modal')">Cancel</button>
-      </div>
+    <div class="pane" data-pane="json" hidden>
+      <div class="codebar"><span class="datanote">Save or share the strategy as JSON. Paste a strategy here and apply it to load it.</span><button id="copyJson">Copy JSON</button><button id="applyJson" class="primary">Apply pasted JSON</button></div>
+      <textarea class="code" id="jsonTxt" spellcheck="false" aria-label="Strategy JSON"></textarea>
     </div>
-  </div>
+  </section>
 </div>
-
-<audio id="bgm-audio" loop></audio>
+<input type="file" id="csvFile" accept=".csv,text/csv,text/plain" hidden>
+<div class="toast" id="toast" hidden></div>
 
 <script>
-// ============================================================
-//  ★ ANTHONY'S MEMORY HALL — CONFIGURATION ★
-//
-//  Repo structure:
-//    index.html
-//    photos.json    ← photo list
-//    music.json     ← music playlist
-//    photos/
-//      img001.jpg
-//      img002.jpg
-//      ...
-//    music/
-//      song1.mp3
-//      song2.mp3
-//      ...
-//
-//  photos.json example:
-//  [
-//    { "src": "photos/img001.jpg", "caption": "Summer trip", "date": "Aug 1997" },
-//    { "src": "photos/img002.jpg", "caption": "", "date": "" }
-//  ]
-//
-//  music.json example:
-//  [
-//    "music/song1.mp3",
-//    "music/song2.mp3"
-//  ]
-//
-// ============================================================
+"use strict";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const W=184,HDR=34,ROW=26,FTR=26;
+const MATHSYM={'+':'+','-':'−','*':'×','/':'÷'};
 
-var photos  = [];
-var current = 0;
+/* ---------- Block definitions ---------- */
+const P=(k,l,type,extra)=>Object.assign({k,l,type},extra||{});
+const DEFS={
+  price:{cat:'data',label:'Price',desc:'A price series from the loaded bars. hl2 is (high+low)/2, hlc3 is (high+low+close)/3.',ins:[],outs:[['value','num']],p:{field:'close'},sch:[P('field','Field','select',{opts:['close','open','high','low','hl2','hlc3']})]},
+  number:{cat:'data',label:'Number',desc:'A constant level, such as 70 for RSI overbought or 0 for the MACD zero line.',ins:[],outs:[['value','num']],p:{value:50},sch:[P('value','Value','num')]},
+  sma:{cat:'ind',label:'SMA',desc:'Simple moving average of the source over N bars.',ins:[['src','num']],outs:[['value','num']],p:{period:20},sch:[P('period','Period','int',{min:1,max:500})],overlay:true},
+  ema:{cat:'ind',label:'EMA',desc:'Exponential moving average. Reacts faster than an SMA of the same length.',ins:[['src','num']],outs:[['value','num']],p:{period:20},sch:[P('period','Period','int',{min:1,max:500})],overlay:true},
+  rsi:{cat:'ind',label:'RSI',desc:'Relative Strength Index (Wilder smoothing), 0–100. Readings above 70 are often called overbought, below 30 oversold.',ins:[['src','num']],outs:[['value','num']],p:{period:14},sch:[P('period','Period','int',{min:2,max:200})]},
+  macd:{cat:'ind',label:'MACD',desc:'Fast EMA minus slow EMA, its signal line, and the histogram between them.',ins:[['src','num']],outs:[['macd','num'],['signal','num'],['hist','num']],p:{fast:12,slow:26,signal:9},sch:[P('fast','Fast','int',{min:1,max:200}),P('slow','Slow','int',{min:2,max:400}),P('signal','Signal','int',{min:1,max:200})]},
+  bb:{cat:'ind',label:'Bollinger Bands',desc:'SMA middle band with upper and lower bands at ± k standard deviations.',ins:[['src','num']],outs:[['upper','num'],['mid','num'],['lower','num']],p:{period:20,mult:2},sch:[P('period','Period','int',{min:2,max:400}),P('mult','Std devs (k)','num',{min:0.1})],overlay:true},
+  atr:{cat:'ind',label:'ATR',desc:'Average True Range from high, low and close. Measures volatility in price units.',ins:[],outs:[['value','num']],p:{period:14},sch:[P('period','Period','int',{min:1,max:400})]},
+  highest:{cat:'ind',label:'Highest',desc:'Highest value of the source over the prior N bars. The current bar is excluded so a close can break above it.',ins:[['src','num']],outs:[['value','num']],p:{period:20},sch:[P('period','Lookback','int',{min:1,max:500})],overlay:true},
+  lowest:{cat:'ind',label:'Lowest',desc:'Lowest value of the source over the prior N bars, excluding the current bar.',ins:[['src','num']],outs:[['value','num']],p:{period:20},sch:[P('period','Lookback','int',{min:1,max:500})],overlay:true},
+  math:{cat:'ind',label:'Math',desc:'Combine two series, for example SMA − 2 × ATR for a volatility band.',ins:[['a','num'],['b','num']],outs:[['value','num']],p:{op:'-'},sch:[P('op','Operation','select',{opts:['+','-','*','/'],disp:{'+':'A + B','-':'A − B','*':'A × B','/':'A ÷ B'}})]},
+  compare:{cat:'cond',label:'Compare',desc:'Compares A with B on every bar and outputs true or false. "Crosses" is true only on the bar where the relationship flips.',ins:[['a','num'],['b','num']],outs:[['out','bool']],p:{op:'>'},sch:[P('op','Condition','select',{opts:['>','<','>=','<=','crosses above','crosses below'],disp:{'>':'A > B','<':'A < B','>=':'A ≥ B','<=':'A ≤ B','crosses above':'A crosses above B','crosses below':'A crosses below B'}})]},
+  and:{cat:'logic',label:'AND',desc:'True only when both inputs are true.',ins:[['a','bool'],['b','bool']],outs:[['out','bool']],p:{},sch:[]},
+  or:{cat:'logic',label:'OR',desc:'True when either input is true.',ins:[['a','bool'],['b','bool']],outs:[['out','bool']],p:{},sch:[]},
+  not:{cat:'logic',label:'NOT',desc:'Flips true to false and false to true.',ins:[['a','bool']],outs:[['out','bool']],p:{},sch:[]},
+  entry:{cat:'act',label:'Enter Long',desc:'When the signal is true at a bar close and no position is open, buy at the next bar open.',ins:[['signal','bool']],outs:[],p:{size:100},sch:[P('size','Size (% of equity)','num',{min:1,max:100})]},
+  exit:{cat:'act',label:'Exit Long',desc:'When the signal is true at a bar close while long, sell at the next bar open.',ins:[['signal','bool']],outs:[],p:{},sch:[]},
+  risk:{cat:'act',label:'Stop / Target',desc:'Protective exits measured from the entry price, checked against each bar high and low. Set either to 0 to turn it off.',ins:[],outs:[],p:{stop:5,take:10},sch:[P('stop','Stop loss %','num',{min:0,hint:'0 turns the stop off'}),P('take','Take profit %','num',{min:0,hint:'0 turns the target off'})]}
+};
+const CATS=[['data','Data'],['ind','Indicators'],['cond','Conditions'],['logic','Logic'],['act','Actions']];
+const TAG={data:'DATA',ind:'IND',cond:'COND',logic:'LOGIC',act:'ACTION'};
+const BLURB={price:'close, open, high, low',number:'fixed level',sma:'simple moving avg',ema:'exponential moving avg',rsi:'momentum 0–100',macd:'trend momentum',bb:'volatility bands',atr:'average true range',highest:'N-bar high',lowest:'N-bar low',math:'A + − × ÷ B',compare:'>, <, crosses',and:'both true',or:'either true',not:'invert',entry:'buy signal',exit:'sell signal',risk:'stop loss, take profit'};
 
-// pending batch for the manual-load modal (still works as a fallback)
-var pendingBatch = [];
+/* ---------- State ---------- */
+let S={name:'',nodes:[],edges:[],nextId:1,nextE:1};
+let settings={dataset:'trend',seed:7,capital:100000,fee:5};
+let view={px:40,py:40,z:1};
+let sel=null, R=null, data=null, csvData=null, idx=0, pinned=false;
+let undo=[], issueNodes=new Set();
+const byId=id=>S.nodes.find(n=>n.id===id);
+const srcOf=(nid,port)=>{const e=S.edges.find(e=>e.to[0]===nid&&e.to[1]===port);return e?e.from:null};
+const edgeType=e=>{const n=byId(e.from[0]);const o=n&&DEFS[n.type].outs.find(p=>p[0]===e.from[1]);return o?o[1]:'num'};
 
-var bgmAudio    = document.getElementById('bgm-audio');
-var bgmLoaded   = false;
-var playlist    = [];   // filled from CONFIG.music[]
-var trackIndex  = 0;    // current track in playlist
+/* ---------- Templates ---------- */
+function build(name,list,wires,){
+  const nodes=list.map(([id,type,x,y,p])=>({id,type,x,y,params:Object.assign({},DEFS[type].p,p||{})}));
+  const edges=wires.map(([f,fp,t,tp],i)=>({id:i+1,from:[f,fp],to:[t,tp]}));
+  return {name,nodes,edges,nextId:Math.max(...nodes.map(n=>n.id),0)+1,nextE:edges.length+1};
+}
+const TEMPLATES={
+  ema:()=>build('EMA crossover + RSI filter',[
+    [1,'price',40,200],[2,'ema',280,40,{period:12}],[3,'ema',280,180,{period:26}],[4,'rsi',280,330,{period:14}],[5,'number',280,460,{value:70}],
+    [6,'compare',540,20,{op:'crosses above'}],[7,'compare',540,330,{op:'<'}],[8,'and',790,200],[9,'entry',1040,200,{size:100}],
+    [10,'compare',540,175,{op:'crosses below'}],[11,'exit',1040,60],[12,'risk',1040,340,{stop:6,take:0}]],
+    [[1,'value',2,'src'],[1,'value',3,'src'],[1,'value',4,'src'],[2,'value',6,'a'],[3,'value',6,'b'],[4,'value',7,'a'],[5,'value',7,'b'],[6,'out',8,'a'],[7,'out',8,'b'],[8,'out',9,'signal'],[2,'value',10,'a'],[3,'value',10,'b'],[10,'out',11,'signal']]),
+  rsi:()=>build('RSI mean reversion',[
+    [1,'price',40,230],[2,'rsi',280,40,{period:14}],[3,'number',280,170,{value:30}],[4,'sma',280,300,{period:150}],[5,'number',280,430,{value:70}],
+    [6,'compare',540,30,{op:'crosses above'}],[7,'compare',540,180,{op:'>'}],[8,'and',790,100],[9,'entry',1040,100],
+    [10,'compare',540,340,{op:'>'}],[11,'compare',540,490,{op:'crosses below'}],[12,'or',790,400],[13,'exit',1040,400],[14,'risk',1040,250,{stop:8,take:0}]],
+    [[1,'value',2,'src'],[1,'value',4,'src'],[2,'value',6,'a'],[3,'value',6,'b'],[1,'value',7,'a'],[4,'value',7,'b'],[6,'out',8,'a'],[7,'out',8,'b'],[8,'out',9,'signal'],
+     [2,'value',10,'a'],[5,'value',10,'b'],[1,'value',11,'a'],[4,'value',11,'b'],[10,'out',12,'a'],[11,'out',12,'b'],[12,'out',13,'signal']]),
+  donchian:()=>build('Donchian breakout + MACD',[
+    [1,'price',40,220],[2,'highest',280,30,{period:55}],[3,'lowest',280,160,{period:20}],[4,'macd',280,290],[5,'number',280,460,{value:0}],
+    [6,'compare',540,20,{op:'crosses above'}],[7,'compare',540,330,{op:'>'}],[8,'and',790,160],[9,'entry',1040,160],
+    [10,'compare',540,175,{op:'crosses below'}],[11,'exit',1040,20],[12,'risk',1040,320,{stop:7,take:0}]],
+    [[1,'value',2,'src'],[1,'value',3,'src'],[1,'value',4,'src'],[1,'value',6,'a'],[2,'value',6,'b'],[4,'hist',7,'a'],[5,'value',7,'b'],[6,'out',8,'a'],[7,'out',8,'b'],[8,'out',9,'signal'],[1,'value',10,'a'],[3,'value',10,'b'],[10,'out',11,'signal']]),
+  bb:()=>build('Bollinger band bounce',[
+    [1,'price',40,140],[2,'bb',280,60,{period:20,mult:2}],[6,'compare',540,40,{op:'crosses above'}],[9,'entry',800,40],
+    [10,'compare',540,200,{op:'crosses above'}],[11,'exit',800,200],[12,'risk',800,340,{stop:5,take:8}]],
+    [[1,'value',2,'src'],[1,'value',6,'a'],[2,'lower',6,'b'],[6,'out',9,'signal'],[1,'value',10,'a'],[2,'mid',10,'b'],[10,'out',11,'signal']]),
+  blank:()=>build('Untitled strategy',[[1,'price',60,120]],[])
+};
 
-// ── VISITOR COUNTER (localStorage just for the fun counter) ──
-(function() {
-  var k = 'anthonysMemoryHall_visits';
-  var v = parseInt(localStorage.getItem(k) || '0') + 1;
-  localStorage.setItem(k, v);
-  document.getElementById('visit-count').textContent = String(v).padStart(6,'0');
-})();
-
-// ── COLOR BARS ──
-(function() {
-  var bars = document.getElementById('signal-bars');
-  ['#fff','#ff0','#0ff','#0f0','#f0f','#f00','#00f','#000'].forEach(function(c) {
-    var d = document.createElement('div');
-    d.style.background = c;
-    bars.appendChild(d);
-  });
-})();
-
-// ── CCD NOISE ──
-function initNoise() {
-  var canvas = document.getElementById('noise-canvas');
-  var screen = document.getElementById('screen');
-  function resize() { canvas.width = screen.offsetWidth; canvas.height = screen.offsetHeight; }
-  resize();
-  window.addEventListener('resize', resize);
-
-  function draw() {
-    var ctx = canvas.getContext('2d');
-    var w = canvas.width, h = canvas.height;
-    var img = ctx.createImageData(w, h);
-    var d = img.data;
-    for (var i = 0; i < d.length; i += 4) {
-      var r = Math.random();
-      if (r < 0.006)      { d[i]=220; d[i+1]=240; d[i+2]=180; d[i+3]=180; }
-      else if (r < 0.009) { d[i]=0;   d[i+1]=40;  d[i+2]=0;   d[i+3]=160; }
-      else {
-        var g = Math.random() * 36;
-        d[i]=g*0.4; d[i+1]=g*1.3; d[i+2]=g*0.3;
-        d[i+3] = g > 14 ? g*0.7 : 0;
-      }
-    }
-    if (Math.random() < 0.035) {
-      var ry = Math.floor(Math.random() * h);
-      for (var x = 0; x < w; x++) {
-        var idx = (ry * w + x) * 4;
-        d[idx]=0; d[idx+1]=80+Math.random()*160; d[idx+2]=0; d[idx+3]=50+Math.random()*70;
-      }
-    }
-    ctx.putImageData(img, 0, 0);
+/* ---------- Data ---------- */
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const dataCache={};
+function genData(kind,seed){
+  const key=kind+':'+seed; if(dataCache[key]) return dataCache[key];
+  const r=mulberry(seed*9973+kind.length*131);
+  const g=()=>{let u=0,v=0;while(!u)u=r();while(!v)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
+  const N=750,o=[],h=[],l=[],c=[],dates=[];
+  let p=100,drift=0,vol=.012,left=0; const d=new Date(Date.UTC(2023,9,16));
+  for(let i=0;i<N;i++){
+    while(d.getUTCDay()===0||d.getUTCDay()===6) d.setUTCDate(d.getUTCDate()+1);
+    dates.push(d.toISOString().slice(0,10)); d.setUTCDate(d.getUTCDate()+1);
+    if(left<=0){left=60+Math.floor(r()*120);
+      if(kind==='trend'){drift=[.0014,.0009,-.0007,.0019,.0002][Math.floor(r()*5)];vol=.009+r()*.008}
+      else if(kind==='volatile'){drift=(r()-.45)*.004;vol=.018+r()*.016}
+      else{drift=0;vol=.010+r()*.006}}
+    left--;
+    let ret;
+    if(kind==='range'){const anchor=Math.log(100)+.13*Math.sin(i/38)+.05*Math.sin(i/11);ret=.06*(anchor-Math.log(p))+vol*g()}
+    else{ret=drift+vol*g();if(kind==='volatile'&&r()<.012)ret+=(r()<.5?-1:1)*vol*4}
+    const open=p*Math.exp(g()*vol*.2), close=p*Math.exp(ret);
+    o.push(open);c.push(close);h.push(Math.max(open,close)*(1+Math.abs(g())*vol*.45));l.push(Math.min(open,close)*(1-Math.abs(g())*vol*.45));
+    p=close;
   }
-  setInterval(draw, 80);
-  draw();
+  return dataCache[key]={dates,open:o,high:h,low:l,close:c,label:'Synthetic sample, not market data'};
 }
-
-// ── DISPLAY ──
-function pad3(n) { return String(n).padStart(3,'0'); }
-
-function updateDisplay() {
-  var img   = document.getElementById('photo-img');
-  var noSig = document.getElementById('no-signal');
-  var ctr   = document.getElementById('counter-cell');
-  var bPrev = document.getElementById('btn-prev');
-  var bNext = document.getElementById('btn-next');
-
-  if (photos.length === 0) {
-    img.style.display = 'none';
-    noSig.style.display = 'flex';
-    ctr.textContent = '-- / --';
-    document.getElementById('osd-ts').textContent  = '';
-    document.getElementById('osd-cap').textContent = '';
-    document.getElementById('osd-rec').textContent = '';
-    bPrev.disabled = true; bNext.disabled = true;
-    return;
+function parseCSV(txt,fname){
+  const lines=txt.trim().split(/\r?\n/).filter(s=>s.trim());
+  if(lines.length<31) throw new Error('The file needs a header row and at least 30 rows of prices.');
+  const sep=lines[0].includes('\t')?'\t':(lines[0].includes(';')&&!lines[0].includes(',')?';':',');
+  const hdr=lines[0].split(sep).map(s=>s.trim().replace(/^"|"$/g,'').toLowerCase());
+  const find=(...ns)=>hdr.findIndex(x=>ns.includes(x));
+  const di=find('date','time','datetime','timestamp'),oi=find('open'),hi=find('high'),li=find('low'),ci=find('close','adj close','adj_close','price','last');
+  if(ci<0) throw new Error('No "close" column found. The header row should name date, open, high, low, close.');
+  let rows=[];
+  for(const ln of lines.slice(1)){
+    const f=ln.split(sep).map(s=>s.trim().replace(/^"|"$/g,''));
+    const cl=parseFloat(f[ci]); if(!isFinite(cl)) continue;
+    const op=oi>=0&&isFinite(parseFloat(f[oi]))?parseFloat(f[oi]):cl;
+    const hh=hi>=0&&isFinite(parseFloat(f[hi]))?parseFloat(f[hi]):Math.max(op,cl);
+    const ll=li>=0&&isFinite(parseFloat(f[li]))?parseFloat(f[li]):Math.min(op,cl);
+    rows.push({d:di>=0?f[di]:String(rows.length+1),o:op,h:hh,l:ll,c:cl});
   }
+  if(rows.length<30) throw new Error('Fewer than 30 rows had a readable close price.');
+  const t0=Date.parse(rows[0].d),t1=Date.parse(rows[rows.length-1].d);
+  if(isFinite(t0)&&isFinite(t1)&&t0>t1) rows.reverse();
+  return {dates:rows.map(r=>r.d.slice(0,16)),open:rows.map(r=>r.o),high:rows.map(r=>r.h),low:rows.map(r=>r.l),close:rows.map(r=>r.c),label:fname+' · '+rows.length+' bars'};
+}
+function getData(){return settings.dataset==='csv'&&csvData?csvData:genData(settings.dataset==='csv'?'trend':settings.dataset,settings.seed)}
 
-  var p = photos[current];
-  img.src = p.blobUrl;
-  img.style.display = 'block';
-  img.style.opacity = '1';
-  img.style.filter  = 'saturate(0.65) contrast(1.05) brightness(0.85) sepia(0.2)';
-  noSig.style.display = 'none';
+/* ---------- Indicator math ---------- */
+const nanA=N=>new Array(N).fill(NaN), falseA=N=>new Array(N).fill(false);
+function smaF(a,n){const N=a.length,o=nanA(N);for(let i=n-1;i<N;i++){let s=0,ok=true;for(let j=i-n+1;j<=i;j++){if(!isFinite(a[j])){ok=false;break}s+=a[j]}if(ok)o[i]=s/n}return o}
+function ewm(a,alpha){const N=a.length,o=nanA(N);let s=-1;for(let i=0;i<N;i++){if(!isFinite(a[i])){if(s>=0)o[i]=o[i-1];continue}if(s<0){s=i;o[i]=a[i]}else o[i]=alpha*a[i]+(1-alpha)*o[i-1]}return o}
+const emaF=(a,n)=>ewm(a,2/(n+1));
+function rsiF(a,n){const N=a.length,up=nanA(N),dn=nanA(N);for(let i=1;i<N;i++){const d=a[i]-a[i-1];if(!isFinite(d))continue;up[i]=Math.max(d,0);dn[i]=Math.max(-d,0)}const U=ewm(up,1/n),D=ewm(dn,1/n);return U.map((u,i)=>!isFinite(u)?NaN:D[i]===0?100:100-100/(1+u/D[i]))}
+function stdF(a,n){const N=a.length,o=nanA(N);for(let i=n-1;i<N;i++){let s=0,q=0,ok=true;for(let j=i-n+1;j<=i;j++){if(!isFinite(a[j])){ok=false;break}s+=a[j];q+=a[j]*a[j]}if(ok){const m=s/n;o[i]=Math.sqrt(Math.max(q/n-m*m,0))}}return o}
+function extF(a,n,isMax){const N=a.length,o=nanA(N);for(let i=n;i<N;i++){let v=isMax?-Infinity:Infinity,ok=true;for(let j=i-n;j<i;j++){if(!isFinite(a[j])){ok=false;break}v=isMax?Math.max(v,a[j]):Math.min(v,a[j])}if(ok)o[i]=v}return o}
+function atrF(D,n){const N=D.close.length,tr=nanA(N);for(let i=0;i<N;i++){const hl=D.high[i]-D.low[i];tr[i]=i?Math.max(hl,Math.abs(D.high[i]-D.close[i-1]),Math.abs(D.low[i]-D.close[i-1])):hl}return ewm(tr,1/n)}
 
-  ctr.textContent = (current+1) + ' / ' + photos.length;
-  document.getElementById('osd-ts').textContent  = p.date || '';
-  document.getElementById('osd-cap').textContent = p.caption || p.filename || '';
-  document.getElementById('osd-rec').textContent = 'REC  ' + pad3(current+1) + '/' + pad3(photos.length);
-
-  bPrev.disabled = current <= 0;
-  bNext.disabled = current >= photos.length - 1;
+/* ---------- Graph evaluation ---------- */
+function topo(){
+  const indeg=new Map(S.nodes.map(n=>[n.id,0]));
+  for(const e of S.edges) if(indeg.has(e.to[0])) indeg.set(e.to[0],indeg.get(e.to[0])+1);
+  const q=S.nodes.filter(n=>!indeg.get(n.id)).map(n=>n.id),out=[];
+  while(q.length){const id=q.shift();out.push(id);for(const e of S.edges) if(e.from[0]===id){indeg.set(e.to[0],indeg.get(e.to[0])-1);if(!indeg.get(e.to[0]))q.push(e.to[0])}}
+  return out;
+}
+function evaluate(D){
+  const N=D.close.length,vals={},issues=[];
+  for(const id of topo()){
+    const n=byId(id),d=DEFS[n.type],p=n.params,ins={},missing=[];
+    for(const [k] of d.ins){const s=srcOf(id,k);if(!s||!vals[s[0]]||!vals[s[0]][s[1]])missing.push(k);else ins[k]=vals[s[0]][s[1]]}
+    let out={};
+    if(missing.length){
+      d.outs.forEach(([k,t])=>out[k]=t==='num'?nanA(N):falseA(N));
+      issues.push({lvl:'error',node:id,msg:`${d.label} #${id} needs its ${missing.map(k=>portLabel(d,k,'in')).join(' and ')} input connected.`});
+    } else switch(n.type){
+      case 'price':{const f=p.field;out.value=f==='hl2'?D.high.map((h,i)=>(h+D.low[i])/2):f==='hlc3'?D.high.map((h,i)=>(h+D.low[i]+D.close[i])/3):D[f].slice();break}
+      case 'number':out.value=new Array(N).fill(+p.value);break;
+      case 'sma':out.value=smaF(ins.src,p.period);break;
+      case 'ema':out.value=emaF(ins.src,p.period);break;
+      case 'rsi':out.value=rsiF(ins.src,p.period);break;
+      case 'macd':{const f=emaF(ins.src,p.fast),s=emaF(ins.src,p.slow),m=f.map((v,i)=>v-s[i]),sg=emaF(m,p.signal);out.macd=m;out.signal=sg;out.hist=m.map((v,i)=>v-sg[i]);break}
+      case 'bb':{const m=smaF(ins.src,p.period),sd=stdF(ins.src,p.period);out.mid=m;out.upper=m.map((v,i)=>v+p.mult*sd[i]);out.lower=m.map((v,i)=>v-p.mult*sd[i]);break}
+      case 'atr':out.value=atrF(D,p.period);break;
+      case 'highest':out.value=extF(ins.src,p.period,true);break;
+      case 'lowest':out.value=extF(ins.src,p.period,false);break;
+      case 'math':{const f={'+':(a,b)=>a+b,'-':(a,b)=>a-b,'*':(a,b)=>a*b,'/':(a,b)=>b===0?NaN:a/b}[p.op];out.value=ins.a.map((v,i)=>f(v,ins.b[i]));break}
+      case 'compare':{const a=ins.a,b=ins.b,op=p.op;out.out=a.map((v,i)=>{
+        if(op==='>')return v>b[i];if(op==='<')return v<b[i];if(op==='>=')return v>=b[i];if(op==='<=')return v<=b[i];
+        if(i===0)return false;if(op==='crosses above')return v>b[i]&&a[i-1]<=b[i-1];return v<b[i]&&a[i-1]>=b[i-1]});break}
+      case 'and':out.out=ins.a.map((v,i)=>v&&ins.b[i]);break;
+      case 'or':out.out=ins.a.map((v,i)=>v||ins.b[i]);break;
+      case 'not':out.out=ins.a.map(v=>!v);break;
+    }
+    vals[id]=out;
+  }
+  return {vals,issues};
+}
+function structuralIssues(issues){
+  const entries=S.nodes.filter(n=>n.type==='entry'),exits=S.nodes.filter(n=>n.type==='exit'),risks=S.nodes.filter(n=>n.type==='risk');
+  if(!entries.length) issues.unshift({lvl:'error',msg:'Add an Enter Long block and connect a true/false signal to it.'});
+  if(entries.length&&!exits.length&&!risks.some(r=>r.params.stop>0||r.params.take>0)) issues.push({lvl:'warn',msg:'Nothing closes a position. Add Exit Long or Stop / Target, otherwise the first trade runs to the end of the data.'});
+  if(risks.length>1) issues.push({lvl:'warn',node:risks[1].id,msg:`Only the first Stop / Target block (#${risks[0].id}) is used.`});
+  // blocks that never reach an action
+  const reach=new Set();const stack=S.nodes.filter(n=>n.type==='entry'||n.type==='exit').map(n=>n.id);
+  while(stack.length){const id=stack.pop();if(reach.has(id))continue;reach.add(id);S.edges.filter(e=>e.to[0]===id).forEach(e=>stack.push(e.from[0]))}
+  for(const n of S.nodes){if(DEFS[n.type].outs.length&&!reach.has(n.id)) issues.push({lvl:'warn',node:n.id,msg:`${DEFS[n.type].label} #${n.id} is not wired into an Enter or Exit block, so it has no effect.`})}
+  return issues;
 }
 
-// ── NAVIGATE ──
-function navigate(dir) {
-  if (!photos.length) return;
-  var n = current + dir;
-  if (n < 0 || n >= photos.length) return;
-
-  var img = document.getElementById('photo-img');
-  img.style.opacity = '0';
-  img.style.filter  = 'saturate(0) contrast(3) brightness(2)';
-
-  setTimeout(function() {
-    current = n;
-    updateDisplay();
-    img.style.transition = 'opacity 0.2s, filter 0.3s';
-    img.style.opacity = '1';
-    img.style.filter  = 'saturate(0.65) contrast(1.05) brightness(0.85) sepia(0.2)';
-    setTimeout(function() { img.style.transition = ''; }, 400);
-  }, 120);
+/* ---------- Backtest ---------- */
+function orSignals(type,vals,N){
+  const sig=falseA(N);
+  for(const n of S.nodes.filter(n=>n.type===type)){const s=srcOf(n.id,'signal');const a=s&&vals[s[0]]&&vals[s[0]][s[1]];if(a)for(let i=0;i<N;i++)if(a[i])sig[i]=true}
+  return sig;
+}
+function backtest(D,vals){
+  const N=D.close.length,cap=+settings.capital||100000,fee=(+settings.fee||0)/10000;
+  const ent=S.nodes.find(n=>n.type==='entry'),risk=S.nodes.find(n=>n.type==='risk');
+  const size=Math.min(Math.max((ent?+ent.params.size:100)/100,0.01),1);
+  const stop=risk?Math.max(+risk.params.stop||0,0)/100:0,take=risk?Math.max(+risk.params.take||0,0)/100:0;
+  const entry=orSignals('entry',vals,N),exit=orSignals('exit',vals,N);
+  let cash=cap,qty=0,epx=0,ei=-1,pIn=false,pOut=false,inBars=0;
+  const eq=[],trades=[],pos=[];
+  const close=(i,px,reason)=>{const net=px*(1-fee);cash+=qty*net;trades.push({ei,xi:i,epx,xpx:net,ret:net/epx-1,reason,bars:i-ei,pnl:qty*(net-epx)});qty=0};
+  for(let i=0;i<N;i++){
+    const o=D.open[i],h=D.high[i],l=D.low[i],c=D.close[i];
+    if(pIn&&qty===0){epx=o*(1+fee);qty=cash*size/epx;cash-=qty*epx;ei=i}
+    else if(pOut&&qty>0) close(i,o,'Signal');
+    pIn=pOut=false;
+    if(qty>0&&stop>0){const sp=epx*(1-stop);if(l<=sp)close(i,Math.min(o,sp),'Stop')}
+    if(qty>0&&take>0){const tp=epx*(1+take);if(h>=tp)close(i,Math.max(o,tp),'Target')}
+    if(qty===0&&entry[i]&&i<N-1)pIn=true;else if(qty>0&&exit[i])pOut=true;
+    if(qty>0)inBars++;
+    pos.push(qty>0);eq.push(cash+qty*c);
+  }
+  if(qty>0){close(N-1,D.close[N-1],'Still open');eq[N-1]=cash}
+  let peak=-Infinity,mdd=0;for(const v of eq){peak=Math.max(peak,v);mdd=Math.min(mdd,v/peak-1)}
+  const rets=[];for(let i=1;i<N;i++)rets.push(eq[i]/eq[i-1]-1);
+  const mean=rets.reduce((a,b)=>a+b,0)/rets.length,sd=Math.sqrt(rets.reduce((a,b)=>a+(b-mean)**2,0)/rets.length);
+  const wins=trades.filter(t=>t.ret>0),gw=wins.reduce((a,t)=>a+t.pnl,0),gl=-trades.filter(t=>t.ret<=0).reduce((a,t)=>a+t.pnl,0);
+  return {eq,trades,pos,entry,exit,cap,size,stop,take,
+    stats:{ret:eq[N-1]/cap-1,bh:D.close[N-1]/D.close[0]-1,mdd,win:trades.length?wins.length/trades.length:NaN,n:trades.length,pf:trades.length?(gl>0?gw/gl:Infinity):NaN,sharpe:sd>0?mean/sd*Math.sqrt(252):NaN,expo:inBars/N}};
 }
 
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'ArrowLeft')  navigate(-1);
-  if (e.key === 'ArrowRight') navigate(1);
-  if (e.key === 'Escape') { closeModal('load-modal'); closeModal('gallery-modal'); closeModal('edit-modal'); }
-});
+/* ---------- Descriptions ---------- */
+function fmt(v,d){if(v===true)return 'TRUE';if(v===false)return 'FALSE';if(!isFinite(v))return '—';const a=Math.abs(v);d=d??(a>=1000?0:a>=100?1:2);return v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})}
+const pct=(v,d=1,sign=true)=>!isFinite(v)?'—':(sign&&v>0?'+':'')+(v*100).toFixed(d)+'%';
+function portLabel(d,k,dir){if(dir==='out'&&d.outs.length===1)return d.outs[0][1]==='bool'?'true / false':'series';return {src:'source',a:'A',b:'B'}[k]||k}
+function summary(n){const p=n.params;switch(n.type){
+  case 'price':return p.field;case 'number':return fmt(+p.value);case 'sma':case 'ema':case 'rsi':case 'atr':return 'period '+p.period;
+  case 'highest':case 'lowest':return 'prior '+p.period+' bars';case 'macd':return p.fast+' / '+p.slow+' / '+p.signal;case 'bb':return p.period+', '+p.mult+'σ';
+  case 'math':return 'A '+MATHSYM[p.op]+' B';case 'compare':return 'A '+({'>=':'≥','<=':'≤'}[p.op]||p.op)+' B';case 'entry':return p.size+'% equity';
+  case 'risk':return (p.stop>0?'SL '+p.stop+'%':'no stop')+' · '+(p.take>0?'TP '+p.take+'%':'no target');default:return ''}}
+function describe(nid,port,depth=0){
+  const n=byId(nid);if(!n)return '?';const p=n.params,s=k=>{const x=srcOf(nid,k);return x&&depth<6?describe(x[0],x[1],depth+1):'?'};
+  switch(n.type){
+    case 'price':return p.field;case 'number':return fmt(+p.value);
+    case 'sma':case 'ema':case 'rsi':return `${n.type.toUpperCase()}(${s('src')}, ${p.period})`;
+    case 'macd':return `${port==='macd'?'MACD':port==='signal'?'MACD signal':'MACD hist'}(${s('src')}, ${p.fast}/${p.slow}/${p.signal})`;
+    case 'bb':return `BB ${port}(${s('src')}, ${p.period}, ${p.mult}σ)`;
+    case 'atr':return `ATR(${p.period})`;
+    case 'highest':case 'lowest':return `${n.type==='highest'?'Highest':'Lowest'}(${s('src')}, ${p.period})`;
+    case 'math':return `(${s('a')} ${MATHSYM[p.op]} ${s('b')})`;
+    case 'compare':return `${s('a')} ${p.op} ${s('b')}`;
+    case 'and':case 'or':return `(${s('a')} ${n.type.toUpperCase()} ${s('b')})`;
+    case 'not':return `NOT ${s('a')}`;
+  }return '?'}
+const valAt=(nid,port)=>{const v=R&&R.vals[nid]&&R.vals[nid][port];return v?v[idx]:undefined};
 
-// ── LOAD PHOTOS MODAL ──
-function openLoadModal() {
-  pendingBatch = [];
-  document.getElementById('file-thumbs').innerHTML = '';
-  document.getElementById('file-input').value = '';
-  document.getElementById('confirm-load-btn').disabled = true;
-  document.getElementById('confirm-load-btn').textContent = 'Load ( 0 )';
-  document.getElementById('load-modal').classList.add('open');
+/* ---------- Rendering: palette ---------- */
+function renderPalette(){
+  $('#palette').innerHTML=CATS.map(([c,name])=>`<div class="grp"><h4>${name}</h4><div>${Object.entries(DEFS).filter(([,d])=>d.cat===c).map(([t,d])=>
+    `<button class="blk cat-${c}" draggable="true" data-type="${t}" title="${esc(d.desc)}"><i></i><span><b>${d.label}</b><small>${BLURB[t]}</small></span></button>`).join('')}</div></div>`).join('');
 }
 
-function handleFilesSelect(e) {
-  var files = Array.from(e.target.files);
-  addFilesToBatch(files);
+/* ---------- Rendering: graph ---------- */
+const rowsOf=d=>Math.max(d.ins.length,d.outs.length,1);
+const nodeH=n=>2+HDR+rowsOf(DEFS[n.type])*ROW+FTR;
+function renderNodes(){
+  const host=$('#nodes');let html='';
+  for(const n of S.nodes){
+    const d=DEFS[n.type];let rows='';
+    if(!d.ins.length&&!d.outs.length)rows=`<div class="row"><span class="pl note">applies to every trade</span></div>`;
+    else for(let r=0;r<rowsOf(d);r++){
+      const i=d.ins[r],o=d.outs[r];
+      rows+='<div class="row">'+(i?`<span class="port in t-${i[1]}${srcOf(n.id,i[0])?'':' open'}" data-node="${n.id}" data-port="${i[0]}" data-t="${i[1]}" title="Input: ${i[1]==='bool'?'true/false':'number series'}"></span><span class="pl">${portLabel(d,i[0],'in')}</span>`:'<span></span>')
+        +(o?`<span class="pl">${portLabel(d,o[0],'out')}</span><span class="port out t-${o[1]}" data-node="${n.id}" data-port="${o[0]}" data-t="${o[1]}" title="Output: drag to an input"></span>`:'<span></span>')+'</div>';
+    }
+    html+=`<div class="node cat-${d.cat}${sel&&sel.kind==='node'&&sel.id===n.id?' sel':''}${issueNodes.has(n.id)?' err':''}" data-id="${n.id}" style="left:${n.x}px;top:${n.y}px">
+      <div class="nh"><span class="tag">${TAG[d.cat]}</span><span class="nt">${d.label}</span><span class="nid">#${n.id}</span></div>
+      <div class="rows">${rows}</div><div class="nf"><span class="ps">${esc(summary(n))}</span><span class="lv" id="lv-${n.id}"></span></div></div>`;
+  }
+  host.innerHTML=html;
 }
-
-function addFilesToBatch(files) {
-  files.forEach(function(file) {
-    if (!file.type.match(/^image\//)) return;
-    // Revoke any old blob with same name to avoid leaks
-    var existing = pendingBatch.find(function(p) { return p.filename === file.name; });
-    if (existing) URL.revokeObjectURL(existing.blobUrl);
-
-    var blobUrl = URL.createObjectURL(file);
-    pendingBatch.push({ blobUrl: blobUrl, filename: file.name, caption: '', date: '' });
-
-    var img = document.createElement('img');
-    img.src = blobUrl;
-    document.getElementById('file-thumbs').appendChild(img);
-  });
-
-  var btn = document.getElementById('confirm-load-btn');
-  btn.disabled = pendingBatch.length === 0;
-  btn.textContent = 'Load ( ' + pendingBatch.length + ' )';
+function pPos(nid,port,dir){const n=byId(nid);if(!n)return null;const d=DEFS[n.type],list=dir==='out'?d.outs:d.ins,i=list.findIndex(p=>p[0]===port);if(i<0)return null;return {x:n.x+(dir==='out'?W:0),y:n.y+1+HDR+ROW/2+i*ROW}}
+function curve(a,b){const dx=Math.max(40,Math.abs(b.x-a.x)*.5);return `M${a.x},${a.y} C${a.x+dx},${a.y} ${b.x-dx},${b.y} ${b.x},${b.y}`}
+function renderEdges(){
+  let s='';
+  for(const e of S.edges){const a=pPos(e.from[0],e.from[1],'out'),b=pPos(e.to[0],e.to[1],'in');if(!a||!b)continue;const d=curve(a,b);
+    s+=`<path class="hit" data-edge="${e.id}" d="${d}"/><path class="wire t-${edgeType(e)}${sel&&sel.kind==='edge'&&sel.id===e.id?' sel':''}" id="w-${e.id}" d="${d}"/>`}
+  s+='<path id="tempWire" class="wire temp" d=""/>';
+  $('#wires').innerHTML=s;applyLive();
 }
-
-// Drag and drop onto the load area
-var dropArea = document.getElementById('drop-area');
-dropArea.addEventListener('dragover', function(e) { e.preventDefault(); dropArea.classList.add('dragover'); });
-dropArea.addEventListener('dragleave', function() { dropArea.classList.remove('dragover'); });
-dropArea.addEventListener('drop', function(e) {
-  e.preventDefault(); dropArea.classList.remove('dragover');
-  var files = Array.from(e.dataTransfer.files).filter(function(f) { return f.type.match(/^image\//); });
-  addFilesToBatch(files);
-});
-
-function confirmLoad() {
-  if (!pendingBatch.length) return;
-  // Append to existing photos array
-  pendingBatch.forEach(function(p) { photos.push(p); });
-  current = photos.length - pendingBatch.length; // jump to first new photo
-  pendingBatch = [];
-  updateDisplay();
-  closeModal('load-modal');
+function renderGraph(){renderNodes();renderEdges()}
+function applyView(){
+  const vp=$('#viewport');$('#world').style.transform=`translate(${view.px}px,${view.py}px) scale(${view.z})`;
+  vp.style.backgroundSize=`${22*view.z}px ${22*view.z}px`;vp.style.backgroundPosition=`${view.px}px ${view.py}px`;
+  $('#zLbl').textContent=Math.round(view.z*100)+'%';
 }
+function fit(){
+  if(!S.nodes.length){view={px:40,py:40,z:1};return applyView()}
+  const vp=$('#viewport'),vw=vp.clientWidth,vh=vp.clientHeight;
+  const x0=Math.min(...S.nodes.map(n=>n.x)),y0=Math.min(...S.nodes.map(n=>n.y)),x1=Math.max(...S.nodes.map(n=>n.x+W)),y1=Math.max(...S.nodes.map(n=>n.y+nodeH(n)));
+  const z=Math.max(.3,Math.min(1.1,(vw-48)/(x1-x0),(vh-64)/(y1-y0)));
+  view={z,px:(vw-(x1-x0)*z)/2-x0*z,py:(vh-24-(y1-y0)*z)/2-y0*z};applyView();
+}
+function zoomAt(cx,cy,f){const z=Math.max(.3,Math.min(2,view.z*f)),wx=(cx-view.px)/view.z,wy=(cy-view.py)/view.z;view={z,px:cx-wx*z,py:cy-wy*z};applyView()}
 
-// ── GALLERY ──
-function openGallery() {
-  var grid = document.getElementById('gallery-grid');
-  grid.innerHTML = '';
+/* ---------- Live values (cursor bar) ---------- */
+function liveHTML(n){
+  const d=DEFS[n.type];
+  if(n.type==='entry'||n.type==='exit'){const s=srcOf(n.id,'signal');const v=s?valAt(s[0],s[1]):undefined;return v?`<span class="chip t">FIRES</span>`:`<span class="chip f">idle</span>`}
+  if(!d.outs.length)return '';
+  const [k,t]=d.outs[0];const v=valAt(n.id,k);
+  if(t==='bool')return v?'<span class="chip t">TRUE</span>':'<span class="chip f">FALSE</span>';
+  return fmt(v);
+}
+function applyLive(){
+  if(!R)return;
+  for(const n of S.nodes){const el=document.getElementById('lv-'+n.id);if(el)el.innerHTML=liveHTML(n)}
+  for(const e of S.edges){if(edgeType(e)!=='bool')continue;const w=document.getElementById('w-'+e.id);if(!w)continue;const v=valAt(e.from[0],e.from[1]);w.classList.toggle('on',!!v);w.classList.toggle('off',!v)}
+  if(sel&&sel.kind==='node'){const n=byId(sel.id);if(n)for(const [k] of DEFS[n.type].outs){const el=document.getElementById('iv-'+k);if(el)el.innerHTML=(v=>v===true?'<span class="chip t">TRUE</span>':v===false?'<span class="chip f">FALSE</span>':fmt(v))(valAt(n.id,k))}}
+  renderReadout();
+  if(!$('[data-pane="logic"]').hidden)renderLogic();
+}
+function setIdx(i,redraw=true){if(!data)return;idx=Math.max(0,Math.min(data.close.length-1,i));applyLive();if(redraw)drawChart()}
 
-  if (!photos.length) {
-    grid.innerHTML = '<div style="grid-column:1/-1;color:#666;font-family:VT323,monospace;font-size:16px;text-align:center;padding:20px;">No photos loaded yet.</div>';
+/* ---------- Inspector ---------- */
+function renderInspector(){
+  const el=$('#inspector');
+  if(sel&&sel.kind==='node'){
+    const n=byId(sel.id);if(!n){sel=null;return renderInspector()}
+    const d=DEFS[n.type];
+    const fields=d.sch.map(s=>{const v=n.params[s.k];
+      if(s.type==='select')return `<label class="fld" for="f-${s.k}"><span>${s.l}</span><select id="f-${s.k}" data-k="${s.k}">${s.opts.map(o=>`<option value="${esc(o)}"${o==v?' selected':''}>${esc((s.disp&&s.disp[o])||o)}</option>`).join('')}</select></label>`;
+      return `<label class="fld" for="f-${s.k}"><span>${s.l}</span><input id="f-${s.k}" data-k="${s.k}" data-int="${s.type==='int'?1:0}" type="number" inputmode="decimal" value="${v}"${s.min!=null?` min="${s.min}"`:''}${s.max!=null?` max="${s.max}"`:''} step="${s.type==='int'?1:'any'}">${s.hint?`<small>${s.hint}</small>`:''}</label>`}).join('');
+    const ins=d.ins.length?`<h3>Inputs</h3><ul class="kv">${d.ins.map(([k])=>{const s=srcOf(n.id,k);return `<li><span class="k">${portLabel(d,k,'in')}</span><span class="v">${s?esc(describe(s[0],s[1])):'<em class="miss">not connected</em>'}</span></li>`}).join('')}</ul>`:'';
+    const outs=d.outs.length?`<h3>Value at cursor bar</h3><ul class="kv">${d.outs.map(([k])=>`<li><span class="k">${k}</span><span class="v" id="iv-${k}">—</span></li>`).join('')}</ul>`:'';
+    el.innerHTML=`<div class="ihead cat-${d.cat}"><span class="tag">${TAG[d.cat]}</span><h2>${d.label} <span class="nid">#${n.id}</span></h2></div><p class="idesc">${d.desc}</p>
+      ${fields?`<h3>Settings</h3><div class="fields">${fields}</div>`:''}${ins}${outs}
+      <div class="ibtns"><button id="dupBtn">Duplicate</button><button id="delBtn" class="danger">Delete block</button></div>`;
+    el.querySelectorAll('[data-k]').forEach(inp=>{
+      inp.addEventListener('focus',pushHistory);
+      inp.addEventListener(inp.tagName==='SELECT'?'change':'input',()=>{
+        let v=inp.value;if(inp.tagName!=='SELECT'){v=parseFloat(v);if(!isFinite(v))return;const s=d.sch.find(s=>s.k===inp.dataset.k);if(inp.dataset.int==='1')v=Math.round(v);if(s.min!=null)v=Math.max(s.min,v);if(s.max!=null)v=Math.min(s.max,v)}
+        if(inp.tagName==='SELECT')pushHistory();
+        n.params[inp.dataset.k]=v;save();renderGraph();scheduleRun()});
+    });
+    $('#dupBtn').onclick=()=>{pushHistory();const c={id:S.nextId++,type:n.type,x:n.x+24,y:n.y+24,params:{...n.params}};S.nodes.push(c);sel={kind:'node',id:c.id};commit()};
+    $('#delBtn').onclick=deleteSel;
+  } else if(sel&&sel.kind==='edge'){
+    const e=S.edges.find(e=>e.id===sel.id);if(!e){sel=null;return renderInspector()}
+    const fn=byId(e.from[0]),tn=byId(e.to[0]);
+    el.innerHTML=`<div class="ihead"><span class="tag" style="--cc:var(--${edgeType(e)==='bool'?'bool':'num'})">${edgeType(e)==='bool'?'TRUE / FALSE':'SERIES'}</span><h2>Connection</h2></div>
+      <ul class="kv" style="margin-top:12px"><li><span class="k">from</span><span class="v">${DEFS[fn.type].label} #${fn.id} · ${e.from[1]}</span></li><li><span class="k">to</span><span class="v">${DEFS[tn.type].label} #${tn.id} · ${portLabel(DEFS[tn.type],e.to[1],'in')}</span></li></ul>
+      <h3>Carries</h3><p class="idesc" style="margin:0">${esc(describe(e.from[0],e.from[1]))}</p>
+      <div class="ibtns"><button id="delBtn" class="danger">Delete connection</button></div>`;
+    $('#delBtn').onclick=deleteSel;
   } else {
-    photos.forEach(function(p, i) {
-      var item = document.createElement('div');
-      item.className = 'gal-item' + (i === current ? ' active' : '');
-      item.innerHTML = '<img src="' + p.blobUrl + '" alt=""><div class="gal-del" onclick="delPhoto(' + i + ',event)">X</div>';
-      item.addEventListener('click', function() { current = i; updateDisplay(); closeModal('gallery-modal'); });
-      grid.appendChild(item);
-    });
+    const iss=R?R.issues:[];
+    el.innerHTML=`<h2>Strategy check</h2>
+      ${iss.length?`<ul class="issues">${iss.map((x,i)=>`<li data-i="${i}"><span class="sev ${x.lvl}">${x.lvl==='error'?'FIX':'NOTE'}</span><span>${esc(x.msg)}</span></li>`).join('')}</ul>`:'<p class="okmsg">Every input is connected. The backtest below reflects this graph.</p>'}
+      <h3>How to build</h3>
+      <ol class="howto">
+        <li><b>Add blocks</b> from the left panel by clicking or dragging them onto the canvas.</li>
+        <li><b>Wire them.</b> Drag from an output dot to an input dot. Round dots carry number series, diamonds carry true/false signals.</li>
+        <li><b>Finish at an action.</b> Feed a signal into Enter Long and Exit Long, and add Stop / Target if you want protective exits.</li>
+        <li><b>Step through time.</b> Hover the chart to see every block's value and which signal wires are live on that bar. Click to pin a bar.</li>
+      </ol>`;
+    el.querySelectorAll('.issues li').forEach(li=>li.onclick=()=>{const x=iss[+li.dataset.i];if(x.node){setSel({kind:'node',id:x.node})}});
   }
-
-  document.getElementById('gallery-modal').classList.add('open');
+  applyLive();
+}
+function setSel(s){
+  sel=s;
+  document.querySelectorAll('.node').forEach(el=>el.classList.toggle('sel',!!(s&&s.kind==='node'&&+el.dataset.id===s.id)));
+  document.querySelectorAll('.wire').forEach(el=>el.classList.toggle('sel',!!(s&&s.kind==='edge'&&el.id==='w-'+s.id)));
+  renderInspector();drawChart();
+}
+function deleteSel(){
+  if(!sel)return;pushHistory();
+  if(sel.kind==='node'){S.nodes=S.nodes.filter(n=>n.id!==sel.id);S.edges=S.edges.filter(e=>e.from[0]!==sel.id&&e.to[0]!==sel.id)}
+  else S.edges=S.edges.filter(e=>e.id!==sel.id);
+  sel=null;commit();toast('Deleted.',true);
 }
 
-function delPhoto(i, e) {
-  e.stopPropagation();
-  if (!confirm('Remove this photo from the session?')) return;
-  URL.revokeObjectURL(photos[i].blobUrl); // free memory
-  photos.splice(i, 1);
-  if (current >= photos.length) current = Math.max(0, photos.length - 1);
-  updateDisplay();
-  openGallery();
+/* ---------- Mutations ---------- */
+function pushHistory(){undo.push(JSON.stringify(S));if(undo.length>80)undo.shift()}
+function doUndo(){const s=undo.pop();if(!s)return toast('Nothing to undo.');S=JSON.parse(s);sel=null;$('#stratName').value=S.name;commit()}
+function commit(){save();renderGraph();renderInspector();scheduleRun()}
+function addNode(type,x,y){
+  pushHistory();const n={id:S.nextId++,type,x:Math.round(x/8)*8,y:Math.round(y/8)*8,params:{...DEFS[type].p}};
+  S.nodes.push(n);sel={kind:'node',id:n.id};commit();
+}
+function reaches(from,target){const seen=new Set(),st=[from];while(st.length){const id=st.pop();if(id===target)return true;if(seen.has(id))continue;seen.add(id);S.edges.filter(e=>e.from[0]===id).forEach(e=>st.push(e.to[0]))}return false}
+function connect(from,toNode,toPort,noHist){
+  const fn=byId(from[0]),tn=byId(toNode);if(!fn||!tn)return false;
+  const ft=DEFS[fn.type].outs.find(p=>p[0]===from[1])[1],tt=DEFS[tn.type].ins.find(p=>p[0]===toPort)[1];
+  if(ft!==tt){toast(ft==='bool'?'A true/false signal can only go into a diamond input (Logic or Action blocks).':'A number series can only go into a round input. Use a Compare block to turn it into a signal.');return false}
+  if(from[0]===toNode||reaches(toNode,from[0])){toast('That connection would create a loop.');return false}
+  if(!noHist)pushHistory();S.edges=S.edges.filter(e=>!(e.to[0]===toNode&&e.to[1]===toPort));
+  S.edges.push({id:S.nextE++,from:[...from],to:[toNode,toPort]});commit();return true;
 }
 
-// ── EDIT CAPTION ──
-function openEditModal() {
-  if (!photos.length) { alert('No photos loaded.'); return; }
-  var p = photos[current];
-  document.getElementById('edit-caption').value = p.caption || '';
-  document.getElementById('edit-date').value    = p.date    || '';
-  document.getElementById('edit-modal').classList.add('open');
-}
-
-function saveEdit() {
-  if (!photos.length) return;
-  photos[current].caption = document.getElementById('edit-caption').value.trim();
-  photos[current].date    = document.getElementById('edit-date').value.trim();
-  updateDisplay();
-  closeModal('edit-modal');
-}
-
-// ── DELETE CURRENT ──
-function deleteCurrentPhoto() {
-  if (!photos.length) { alert('No photos loaded.'); return; }
-  var label = photos[current].caption || photos[current].filename || '(no caption)';
-  if (!confirm('Remove "' + label + '" from the session?')) return;
-  URL.revokeObjectURL(photos[current].blobUrl);
-  photos.splice(current, 1);
-  if (current >= photos.length) current = Math.max(0, photos.length - 1);
-  updateDisplay();
-}
-
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
-
-document.querySelectorAll('.modal-overlay').forEach(function(el) {
-  el.addEventListener('click', function(e) { if (e.target === el) el.classList.remove('open'); });
-});
-
-// ── MUSIC PLAYER (manual load fallback) ──
-function loadMusic(e) {
-  var file = e.target.files[0];
-  if (!file) return;
-  var blobUrl = URL.createObjectURL(file);
-  playlist.push(blobUrl);
-  bgmLoaded = true;
-  // Jump to newly added track
-  playTrack(playlist.length - 1);
-}
-
-function musicPlay()  {
-  if (!bgmLoaded && !playlist.length) { alert('Click the LOAD button to upload a music file first!'); return; }
-  bgmAudio.play();
-  document.getElementById('music-status').textContent =
-    'STATUS: PLAYING - TRACK ' + (trackIndex+1) + '/' + playlist.length;
-}
-
-function musicPause() {
-  bgmAudio.pause();
-  document.getElementById('music-status').textContent = 'STATUS: PAUSED';
-}
-
-function musicStop()  {
-  bgmAudio.pause(); bgmAudio.currentTime = 0;
-  document.getElementById('music-status').textContent = 'STATUS: STOPPED';
-}
-
-function setVol(v) {
-  bgmAudio.volume = v / 100;
-  document.getElementById('vol-num').textContent = v;
-}
-
-// ── AUTO-LOAD FROM CONFIG ──
-// ── PLAYLIST HELPERS ──
-function updateMusicDisplay() {
-  if (!playlist.length) return;
-  var name = playlist[trackIndex].split('/').pop().replace(/\.[^.]+$/, '');
-  var txt = document.getElementById('music-txt');
-  txt.textContent = '\u266a ' + name + ' \u266a ' + name + ' \u266a ';
-  txt.style.animation = 'none';
-  void txt.offsetHeight;
-  txt.style.animation = '';
-  document.getElementById('music-status').textContent =
-    'TRACK ' + (trackIndex + 1) + '/' + playlist.length + ' - ' +
-    playlist[trackIndex].split('/').pop();
-}
-
-function playTrack(idx) {
-  if (!playlist.length) return;
-  trackIndex = ((idx % playlist.length) + playlist.length) % playlist.length;
-  bgmAudio.src = playlist[trackIndex];
-  bgmAudio.volume = document.getElementById('vol-slider').value / 100;
-  bgmAudio.play().catch(function() {
-    document.getElementById('music-status').textContent = 'STATUS: Click anywhere to play';
+/* ---------- Canvas interaction ---------- */
+let drag=null;
+function toWorld(cx,cy){const r=$('#viewport').getBoundingClientRect();return {x:(cx-r.left-view.px)/view.z,y:(cy-r.top-view.py)/view.z}}
+function initCanvas(){
+  const vp=$('#viewport');
+  vp.addEventListener('pointerdown',e=>{
+    if(e.button>0)return;
+    const port=e.target.closest('.port');
+    if(port){
+      const nid=+port.dataset.node,pn=port.dataset.port;
+      if(port.classList.contains('out'))drag={kind:'wire',from:[nid,pn],t:port.dataset.t};
+      else{const ed=S.edges.find(x=>x.to[0]===nid&&x.to[1]===pn);if(!ed)return;pushHistory();S.edges=S.edges.filter(x=>x!==ed);renderEdges();drag={kind:'wire',from:ed.from,t:port.dataset.t,detached:true}}
+      vp.classList.add('wiring-'+drag.t);vp.setPointerCapture(e.pointerId);e.preventDefault();return;
+    }
+    const hit=e.target.closest('[data-edge]');
+    if(hit){setSel({kind:'edge',id:+hit.dataset.edge});return}
+    const nodeEl=e.target.closest('.node');
+    if(nodeEl){const n=byId(+nodeEl.dataset.id),w=toWorld(e.clientX,e.clientY);if(!(sel&&sel.kind==='node'&&sel.id===n.id))setSel({kind:'node',id:n.id});
+      drag={kind:'node',n,el:nodeEl,ox:w.x-n.x,oy:w.y-n.y,sx:e.clientX,sy:e.clientY,moved:false};vp.setPointerCapture(e.pointerId);return}
+    drag={kind:'pan',sx:e.clientX,sy:e.clientY,px:view.px,py:view.py,moved:false};vp.setPointerCapture(e.pointerId);
   });
-  updateMusicDisplay();
+  vp.addEventListener('pointermove',e=>{
+    if(!drag)return;
+    if(drag.kind==='pan'){const dx=e.clientX-drag.sx,dy=e.clientY-drag.sy;if(Math.abs(dx)+Math.abs(dy)>3){drag.moved=true;vp.classList.add('panning')}view.px=drag.px+dx;view.py=drag.py+dy;applyView()}
+    else if(drag.kind==='node'){
+      if(!drag.moved&&Math.abs(e.clientX-drag.sx)+Math.abs(e.clientY-drag.sy)<4)return;
+      if(!drag.moved){drag.moved=true;pushHistory()}
+      const w=toWorld(e.clientX,e.clientY);drag.n.x=w.x-drag.ox;drag.n.y=w.y-drag.oy;drag.el.style.left=drag.n.x+'px';drag.el.style.top=drag.n.y+'px';renderEdges();
+    } else if(drag.kind==='wire'){const a=pPos(drag.from[0],drag.from[1],'out'),b=toWorld(e.clientX,e.clientY);const t=document.getElementById('tempWire');if(t&&a)t.setAttribute('d',curve(a,b))}
+  });
+  const end=e=>{
+    if(!drag)return;const d=drag;drag=null;vp.classList.remove('panning','wiring-num','wiring-bool');
+    if(d.kind==='pan'&&!d.moved)setSel(null);
+    else if(d.kind==='node'&&d.moved){d.n.x=Math.round(d.n.x/8)*8;d.n.y=Math.round(d.n.y/8)*8;commit()}
+    else if(d.kind==='wire'){
+      const t=document.getElementById('tempWire');if(t)t.setAttribute('d','');
+      const under=e.type==='pointerup'?document.elementFromPoint(e.clientX,e.clientY):null;
+      let port=under&&under.closest('.port.in');
+      if(!port&&under&&under.closest('.node')){const ne=under.closest('.node');const cands=[...ne.querySelectorAll('.port.in')].filter(p=>p.dataset.t===d.t);port=cands.find(p=>p.classList.contains('open'))||cands[0]}
+      if(port){if(!connect(d.from,+port.dataset.node,port.dataset.port,d.detached)&&d.detached)commit()}
+      else if(d.detached)commit();
+    }
+  };
+  vp.addEventListener('pointerup',end);vp.addEventListener('pointercancel',end);
+  vp.addEventListener('dblclick',e=>{const hit=e.target.closest('[data-edge]');if(hit){sel={kind:'edge',id:+hit.dataset.edge};deleteSel()}});
+  vp.addEventListener('wheel',e=>{e.preventDefault();const r=vp.getBoundingClientRect();
+    if(e.ctrlKey||e.metaKey)zoomAt(e.clientX-r.left,e.clientY-r.top,Math.exp(-e.deltaY*.0025));else{view.px-=e.deltaX;view.py-=e.deltaY;applyView()}},{passive:false});
+  vp.addEventListener('dragover',e=>{e.preventDefault();e.dataTransfer.dropEffect='copy'});
+  vp.addEventListener('drop',e=>{e.preventDefault();const t=e.dataTransfer.getData('text/plain');if(!DEFS[t])return;const w=toWorld(e.clientX,e.clientY);addNode(t,w.x-W/2,w.y-17)});
+  $('#palette').addEventListener('dragstart',e=>{const b=e.target.closest('.blk');if(b)e.dataTransfer.setData('text/plain',b.dataset.type)});
+  let cascade=0;
+  $('#palette').addEventListener('click',e=>{const b=e.target.closest('.blk');if(!b)return;const r=vp.getBoundingClientRect();const w=toWorld(r.left+r.width/2,r.top+r.height/2);cascade=(cascade+1)%6;addNode(b.dataset.type,w.x-W/2+cascade*18,w.y-50+cascade*18)});
+  $('#zIn').onclick=()=>zoomAt(vp.clientWidth/2,vp.clientHeight/2,1.2);
+  $('#zOut').onclick=()=>zoomAt(vp.clientWidth/2,vp.clientHeight/2,1/1.2);
+  $('#fitBtn').onclick=fit;
 }
 
-// Auto-advance to next track when one finishes
-bgmAudio.addEventListener('ended', function() {
-  playTrack(trackIndex + 1);
-});
-
-// ── LOAD FROM JSON FILES ──
-function autoLoad() {
-  // Fetch both JSON files in parallel
-  var photosReady = fetch('photos.json')
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      console.log('[AMH] photos.json loaded, count:', data.length);
-      data.forEach(function(p) {
-        photos.push({
-          blobUrl:  p.src,
-          caption:  p.caption || '',
-          date:     p.date    || '',
-          filename: p.src.split('/').pop()
-        });
-      });
-      current = 0;
-      console.log('[AMH] first photo src:', photos[0].blobUrl);
-      document.getElementById('no-signal').style.display = 'none';
-      document.getElementById('photo-img').style.display = 'block';
-      updateDisplay();
-    })
-    .catch(function(err) {
-      console.error('[AMH] photos.json fetch failed:', err);
-      updateDisplay();
-    });
-
-  var musicReady = fetch('music.json')
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (!Array.isArray(data) || !data.length) return;
-      playlist = data;
-      bgmLoaded = true;
-      updateMusicDisplay();
-      bgmAudio.volume = document.getElementById('vol-slider').value / 100;
-      bgmAudio.src = playlist[0];
-      bgmAudio.play().catch(function() {
-        document.getElementById('music-status').textContent = 'STATUS: Click anywhere to play';
-        document.addEventListener('click', function startOnClick() {
-          bgmAudio.play();
-          document.removeEventListener('click', startOnClick);
-          document.getElementById('music-status').textContent = 'STATUS: PLAYING';
-        });
-      });
-    })
-    .catch(function() {
-      document.getElementById('music-status').textContent = 'STATUS: music.json not found';
-    });
+/* ---------- Run ---------- */
+let runT=0;
+function scheduleRun(){clearTimeout(runT);runT=setTimeout(run,60)}
+function run(){
+  data=getData();const N=data.close.length;
+  const ev=evaluate(data);const issues=structuralIssues(ev.issues);
+  const bt=backtest(data,ev.vals);
+  R={vals:ev.vals,issues,...bt};
+  if(!pinned||idx>=N)idx=N-1;
+  issueNodes=new Set(issues.filter(x=>x.lvl==='error'&&x.node).map(x=>x.node));
+  document.querySelectorAll('.node').forEach(el=>el.classList.toggle('err',issueNodes.has(+el.dataset.id)));
+  const errs=issues.filter(x=>x.lvl==='error').length,st=$('#status');
+  st.className='status '+(errs?'bad':'ok');st.textContent=errs?`${errs} ${errs>1?'issues':'issue'} to fix`:`Ready · ${bt.trades.length} trades · ${pct(bt.stats.ret)}`;
+  renderStats();renderTrades();renderPython();
+  if(document.activeElement!==$('#jsonTxt'))$('#jsonTxt').value=JSON.stringify({name:S.name,nodes:S.nodes,edges:S.edges},null,2);
+  $('#dataNote').textContent=data.label;
+  if(!sel)renderInspector();
+  applyLive();drawChart();
 }
 
-// ── INIT ──
-initNoise();
-autoLoad();
+/* ---------- Results ---------- */
+function renderStats(){
+  const s=R.stats,c=v=>!isFinite(v)?'':v>0?'pos':v<0?'neg':'';
+  const cells=[['Net return',pct(s.ret),c(s.ret)],['Buy & hold',pct(s.bh),c(s.bh)],['Max drawdown',pct(s.mdd),s.mdd<0?'neg':''],['Trades',s.n,''],
+    ['Win rate',pct(s.win,0,false),''],['Profit factor',isFinite(s.pf)?s.pf.toFixed(2):s.pf===Infinity?'∞':'—',''],['Sharpe (ann.)',isFinite(s.sharpe)?s.sharpe.toFixed(2):'—',c(s.sharpe)],['Time in market',pct(s.expo,0,false),'']];
+  $('#stats').innerHTML=cells.map(([l,v,k])=>`<div class="stat"><span>${l}</span><b class="${k}">${v}</b></div>`).join('');
+}
+function renderReadout(){
+  if(!R||!data)return;const i=idx,D=data;
+  $('#readout').innerHTML=`<span><b>${esc(D.dates[i])}</b> · bar ${i+1}/${D.close.length}</span><span>O ${fmt(D.open[i])} H ${fmt(D.high[i])} L ${fmt(D.low[i])} C <b>${fmt(D.close[i])}</b></span><span>Equity <b>${fmt(R.eq[i],0)}</b></span><span>${R.pos[i]?'<b class="pos">LONG</b>':'FLAT'}</span><span>${pinned?'Pinned · click chart to release':'Hover to step through bars, click to pin'}</span>`;
+}
+function renderTrades(){
+  const t=R.trades,D=data;
+  if(!t.length){$('#tradesWrap').innerHTML=`<p class="empty">No trades yet. ${R.issues.some(x=>x.lvl==='error')?'Fix the issues listed in the right panel first.':'The entry signal never fired on this data. Try loosening a condition.'}</p>`;return}
+  $('#tradesWrap').innerHTML=`<table><thead><tr><th class="l">#</th><th class="l">Entry date</th><th>Entry</th><th class="l">Exit date</th><th>Exit</th><th class="l">Exit reason</th><th>Bars</th><th>Return</th><th>P&amp;L</th></tr></thead><tbody>${
+    t.map((x,i)=>`<tr data-i="${x.ei}"><td>${i+1}</td><td class="l">${esc(D.dates[x.ei])}</td><td>${fmt(x.epx)}</td><td class="l">${esc(D.dates[x.xi])}</td><td>${fmt(x.xpx)}</td><td class="l">${x.reason}</td><td>${x.bars}</td><td class="${x.ret>0?'pos':'neg'}">${pct(x.ret,2)}</td><td class="${x.pnl>0?'pos':'neg'}">${fmt(x.pnl,0)}</td></tr>`).join('')}</tbody></table>`;
+  $('#tradesWrap').querySelectorAll('tbody tr').forEach(tr=>tr.onclick=()=>{pinned=true;setIdx(+tr.dataset.i);switchTab('bt')});
+}
+function exprHTML(src,depth=0){
+  if(!src)return `<div class="cond"><em class="miss">Nothing connected</em></div>`;
+  const [nid,port]=src,n=byId(nid);if(!n)return '';
+  const v=valAt(nid,port),badge=v?'<span class="chip t">TRUE</span>':'<span class="chip f">FALSE</span>';
+  if((n.type==='and'||n.type==='or'||n.type==='not')&&depth<8){
+    const kids=DEFS[n.type].ins.map(([k])=>exprHTML(srcOf(nid,k),depth+1)).join('');
+    return `<div class="grp-box"><div class="gh">${badge}<span>${n.type==='not'?'NOT':n.type==='and'?'ALL OF':'ANY OF'}</span><span class="nid">#${nid}</span></div><div class="gb">${kids}</div></div>`;
+  }
+  if(n.type==='compare'){
+    const term=k=>{const s=srcOf(nid,k);return s?`${esc(describe(s[0],s[1]))} <span class="tv">${fmt(valAt(s[0],s[1]))}</span>`:'<em class="miss">?</em>'};
+    return `<div class="cond link" data-node="${nid}">${badge}<span>${term('a')}</span><span class="op">${esc(n.params.op)}</span><span>${term('b')}</span><span class="nid">#${nid}</span></div>`;
+  }
+  return `<div class="cond link" data-node="${nid}">${badge}<span>${esc(describe(nid,port))}</span></div>`;
+}
+function renderLogic(){
+  if(!R)return;const D=data,risk=S.nodes.find(n=>n.type==='risk'),ents=S.nodes.filter(n=>n.type==='entry'),exs=S.nodes.filter(n=>n.type==='exit');
+  const sec=(title,sub,body)=>`<section class="lsec"><h5>${title}<small>${sub}</small></h5>${body}</section>`;
+  $('#logicPane').innerHTML=`<p class="lnote">Values shown for <b>${esc(D.dates[idx])}</b>. Hover or click the chart in the Backtest tab to move through time.</p>`+
+    (ents.length?ents.map(n=>sec('Enter long',`#${n.id} · buy ${n.params.size}% of equity at the next open when this is true`,exprHTML(srcOf(n.id,'signal')))).join(''):sec('Enter long','',`<div class="cond"><em class="miss">No Enter Long block yet</em></div>`))+
+    (exs.length?exs.map(n=>sec('Exit long',`#${n.id} · sell at the next open when this is true`,exprHTML(srcOf(n.id,'signal')))).join(''):'')+
+    sec('Risk',risk?`#${risk.id}`:'',`<p class="lnote">${risk?`${risk.params.stop>0?`Stop loss ${risk.params.stop}% below entry`:'No stop loss'}. ${risk.params.take>0?`Take profit ${risk.params.take}% above entry`:'No profit target'}. Checked against each bar's low and high; a gap through the level fills at the open.`:'No Stop / Target block. Positions close only on an exit signal.'}</p>`)+
+    sec('Execution','',`<p class="lnote">Long only. Signals are read at the bar close and filled at the next bar open, with ${settings.fee} bps fee per side. One position at a time.</p>`);
+  $('#logicPane').querySelectorAll('.link').forEach(el=>el.onclick=()=>setSel({kind:'node',id:+el.dataset.node}));
+}
+
+/* ---------- Python ---------- */
+function renderPython(){
+  const lines=[],name=s=>{const n=byId(s[0]);return DEFS[n.type].outs.length>1?`n${s[0]}_${s[1]}`:`n${s[0]}`};
+  const ref=(nid,k)=>{const s=srcOf(nid,k);return s?name(s):'MISSING'};
+  let missing=false;
+  for(const id of topo()){
+    const n=byId(id),p=n.params,v=`n${id}`,r=k=>{const x=ref(id,k);if(x==='MISSING')missing=true;return x};
+    const add=s=>lines.push(s);
+    switch(n.type){
+      case 'price':add(`${v} = ${p.field==='hl2'?'(df["high"] + df["low"]) / 2':p.field==='hlc3'?'(df["high"] + df["low"] + df["close"]) / 3':`df["${p.field}"]`}`);break;
+      case 'number':add(`${v} = pd.Series(${+p.value}, index=df.index, dtype=float)`);break;
+      case 'sma':add(`${v} = ${r('src')}.rolling(${p.period}).mean()`);break;
+      case 'ema':add(`${v} = ${r('src')}.ewm(span=${p.period}, adjust=False).mean()`);break;
+      case 'rsi':add(`${v} = rsi(${r('src')}, ${p.period})`);break;
+      case 'macd':add(`${v}_macd, ${v}_signal, ${v}_hist = macd(${r('src')}, ${p.fast}, ${p.slow}, ${p.signal})`);break;
+      case 'bb':add(`${v}_upper, ${v}_mid, ${v}_lower = bbands(${r('src')}, ${p.period}, ${p.mult})`);break;
+      case 'atr':add(`${v} = atr(df, ${p.period})`);break;
+      case 'highest':add(`${v} = ${r('src')}.shift(1).rolling(${p.period}).max()`);break;
+      case 'lowest':add(`${v} = ${r('src')}.shift(1).rolling(${p.period}).min()`);break;
+      case 'math':add(`${v} = ${r('a')} ${p.op} ${p.op==='/'?`${r('b')}.replace(0, np.nan)`:r('b')}`);break;
+      case 'compare':{const a=r('a'),b=r('b');add(`${v} = ${p.op==='crosses above'?`cross_above(${a}, ${b})`:p.op==='crosses below'?`cross_below(${a}, ${b})`:`${a} ${p.op} ${b}`}`);break}
+      case 'and':add(`${v} = ${r('a')} & ${r('b')}`);break;
+      case 'or':add(`${v} = ${r('a')} | ${r('b')}`);break;
+      case 'not':add(`${v} = ~${r('a')}`);break;
+    }
+  }
+  const sigs=t=>S.nodes.filter(n=>n.type===t).map(n=>{const s=srcOf(n.id,'signal');if(!s)missing=true;return s?name(s):'MISSING'});
+  const en=sigs('entry'),ex=sigs('exit'),risk=S.nodes.find(n=>n.type==='risk');
+  const fb='pd.Series(False, index=df.index)';
+  const sz=((S.nodes.find(n=>n.type==='entry')||{params:{size:100}}).params.size/100);
+  const code=`# ${S.name||'Untitled strategy'}
+# Generated by Strategy Loom. Signals are read at the bar close and filled at the next bar open.${missing?'\n# WARNING: some inputs are not connected (marked MISSING). Wire them up before running.':''}
+import numpy as np
+import pandas as pd
+
+# df: chronological DataFrame with columns open, high, low, close
+df = pd.read_csv("prices.csv", parse_dates=["date"], index_col="date")
+df.columns = [c.lower() for c in df.columns]
+
+def rsi(s, n):
+    d = s.diff()
+    up = d.clip(lower=0).ewm(alpha=1 / n, adjust=False).mean()
+    dn = (-d.clip(upper=0)).ewm(alpha=1 / n, adjust=False).mean()
+    return 100 - 100 / (1 + up / dn)
+
+def macd(s, fast, slow, signal):
+    m = s.ewm(span=fast, adjust=False).mean() - s.ewm(span=slow, adjust=False).mean()
+    sig = m.ewm(span=signal, adjust=False).mean()
+    return m, sig, m - sig
+
+def bbands(s, n, k):
+    mid = s.rolling(n).mean()
+    sd = s.rolling(n).std(ddof=0)
+    return mid + k * sd, mid, mid - k * sd
+
+def atr(df, n):
+    pc = df["close"].shift(1)
+    tr = pd.concat([df["high"] - df["low"], (df["high"] - pc).abs(), (df["low"] - pc).abs()], axis=1).max(axis=1)
+    return tr.ewm(alpha=1 / n, adjust=False).mean()
+
+def cross_above(a, b):
+    return (a > b) & (a.shift(1) <= b.shift(1))
+
+def cross_below(a, b):
+    return (a < b) & (a.shift(1) >= b.shift(1))
+
+# --- Signal graph (one line per block) ---
+${lines.join('\n')}
+
+entry_long = (${en.length?en.join(' | '):fb}).fillna(False)
+exit_long = (${ex.length?ex.join(' | '):fb}).fillna(False)
+
+# --- Backtest: long only, one position at a time ---
+CAPITAL = ${+settings.capital||100000}
+FEE = ${+settings.fee||0} / 10_000      # per side
+SIZE = ${sz}                # fraction of equity per entry
+STOP, TAKE = ${risk?(+risk.params.stop||0)/100:0}, ${risk?(+risk.params.take||0)/100:0}   # 0 turns either off
+
+cash, qty, entry_px = float(CAPITAL), 0.0, 0.0
+want_in = want_out = False
+equity, trades = [], []
+bars = df[["open", "high", "low", "close"]].itertuples(index=False)
+for i, (o, h, l, c) in enumerate(bars):
+    if want_in and qty == 0:
+        entry_px = o * (1 + FEE)
+        qty = cash * SIZE / entry_px
+        cash -= qty * entry_px
+    elif want_out and qty > 0:
+        px = o * (1 - FEE); cash += qty * px; trades.append(px / entry_px - 1); qty = 0.0
+    want_in = want_out = False
+    if qty > 0 and STOP and l <= entry_px * (1 - STOP):
+        px = min(o, entry_px * (1 - STOP)) * (1 - FEE); cash += qty * px; trades.append(px / entry_px - 1); qty = 0.0
+    if qty > 0 and TAKE and h >= entry_px * (1 + TAKE):
+        px = max(o, entry_px * (1 + TAKE)) * (1 - FEE); cash += qty * px; trades.append(px / entry_px - 1); qty = 0.0
+    if qty == 0 and entry_long.iat[i] and i < len(df) - 1:
+        want_in = True
+    elif qty > 0 and exit_long.iat[i]:
+        want_out = True
+    equity.append(cash + qty * c)
+
+equity = pd.Series(equity, index=df.index)
+dd = (equity / equity.cummax() - 1).min()
+wins = sum(t > 0 for t in trades)
+print(f"Net return {equity.iat[-1] / CAPITAL - 1:+.2%} | max drawdown {dd:.2%} | trades {len(trades)} | win rate {wins / max(len(trades), 1):.0%}")
+`;
+  $('#pyCode').innerHTML=highlightPy(code);$('#pyCode').dataset.raw=code;
+}
+function highlightPy(src){
+  return src.split('\n').map(line=>{
+    const h=line.indexOf('#');let codePart=h>=0&&!/["'][^"']*#/.test(line.slice(0,h+1))?line.slice(0,h):line,cm=codePart===line?'':line.slice(codePart.length);
+    let s=esc(codePart).replace(/(&quot;[^&]*?&quot;|f&quot;.*?&quot;)/g,'<span class="st">$1</span>')
+      .replace(/\b(import|as|def|return|for|in|if|elif|else|and|or|not|True|False|None)\b(?![^<]*<\/span>)/g,'<span class="kw">$1</span>')
+      .replace(/(?<![\w#])(\d[\d_]*\.?\d*)(?![^<]*<\/span>)/g,'<span class="nu">$1</span>');
+    return s+(cm?`<span class="cm">${esc(cm)}</span>`:'');
+  }).join('\n');
+}
+
+/* ---------- Chart ---------- */
+function tok(){const cs=getComputedStyle(document.documentElement),g=k=>cs.getPropertyValue(k).trim();
+  return {ink:g('--ink'),muted:g('--muted'),line:g('--line'),dot:g('--dot'),accent:g('--accent'),pos:g('--pos'),neg:g('--neg'),bool:g('--bool'),panel:g('--panel'),ind:g('--c-ind'),cond:g('--c-cond'),logic:g('--c-logic'),data:g('--c-data'),mono:g('--f-mono')}}
+function ticks(mn,mx,n){let st=Math.pow(10,Math.floor(Math.log10((mx-mn)/n)));const e=(mx-mn)/n/st;if(e>=7.5)st*=10;else if(e>=3.5)st*=5;else if(e>=1.5)st*=2;const o=[];for(let t=Math.ceil(mn/st)*st;t<=mx+1e-9;t+=st)o.push(+t.toFixed(10));return o}
+function oscNode(){
+  if(sel&&sel.kind==='node'){const n=byId(sel.id);if(n){const d=DEFS[n.type];if(d.outs.some(o=>o[1]==='num')&&!d.overlay&&n.type!=='price')return n}}
+  return S.nodes.find(n=>n.type==='rsi'||n.type==='macd')||null;
+}
+let chartGeo=null;
+function drawChart(){
+  const cv=$('#chart'),box=cv.parentElement;
+  if(!R||!data||box.offsetParent===null)return;
+  const w=box.clientWidth,h=box.clientHeight;if(w<20||h<40)return;
+  const dpr=window.devicePixelRatio||1;cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);
+  const c=cv.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,h);
+  const T=tok(),D=data,N=D.close.length,L=8,Rr=60,top=8,bot=22,pw=w-L-Rr,X=i=>L+i*pw/(N-1);
+  chartGeo={L,pw,N};
+  const osc=oscNode(),gap=16,avail=h-top-bot;
+  const panes=osc?[['price',.52],['osc',.2],['eq',.28]]:[['price',.64],['eq',.36]];
+  const a=avail-gap*(panes.length-1);let y=top;const G={};for(const [k,f] of panes){G[k]={y,h:a*f};y+=a*f+gap}
+  c.font=`10px ${T.mono}`;c.textBaseline='middle';
+  const pane=(g,series,opt={})=>{
+    let mn=opt.min??Infinity,mx=opt.max??-Infinity;
+    if(opt.min==null)for(const s of series)for(const v of s.a)if(isFinite(v)){mn=Math.min(mn,v);mx=Math.max(mx,v)}
+    if(!isFinite(mn)){mn=0;mx=1}if(mn===mx){mn-=1;mx+=1}
+    if(opt.min==null){const p=(mx-mn)*.06;mn-=p;mx+=p}
+    const Y=v=>g.y+g.h-(v-mn)/(mx-mn)*g.h;
+    c.strokeStyle=T.line;c.lineWidth=1;c.setLineDash([]);
+    for(const t of ticks(mn,mx,g.h>90?4:2)){const yy=Math.round(Y(t))+.5;c.globalAlpha=.6;c.beginPath();c.moveTo(L,yy);c.lineTo(L+pw,yy);c.stroke();c.globalAlpha=1;c.fillStyle=T.muted;c.textAlign='left';c.fillText(opt.fmt?opt.fmt(t):fmt(t),L+pw+6,yy)}
+    c.strokeStyle=T.line;c.strokeRect(L+.5,g.y+.5,pw,g.h);
+    return Y;
+  };
+  const line=(arr,Y,color,lw=1.2,dash=[],alpha=1)=>{c.strokeStyle=color;c.lineWidth=lw;c.setLineDash(dash);c.globalAlpha=alpha;c.beginPath();let on=false;for(let i=0;i<N;i++){const v=arr[i];if(!isFinite(v)){on=false;continue}const xx=X(i),yy=Y(v);on?c.lineTo(xx,yy):c.moveTo(xx,yy);on=true}c.stroke();c.setLineDash([]);c.globalAlpha=1};
+  const label=(g,txt)=>{c.textAlign='left';c.fillStyle=T.panel;const tw=c.measureText(txt).width;c.fillRect(L+4,g.y+4,tw+8,15);c.fillStyle=T.muted;c.fillText(txt,L+8,g.y+12)};
+
+  // price pane
+  const gp=G.price;
+  const overlays=[];const cols=[T.ind,T.cond,T.logic,T.data];let ci=0;
+  for(const n of S.nodes){const d=DEFS[n.type];if(!d.overlay||!R.vals[n.id])continue;const isSel=sel&&sel.kind==='node'&&sel.id===n.id;const col=cols[ci++%cols.length];for(const [k] of d.outs)overlays.push({a:R.vals[n.id][k],color:col,w:isSel?2.2:1.1,alpha:isSel?1:.75,dash:k==='mid'?[4,3]:[]})}
+  const Yp=pane(gp,[{a:D.close},{a:D.low},{a:D.high}]);
+  c.fillStyle=T.accent;c.globalAlpha=.08;for(const t of R.trades)c.fillRect(X(t.ei),gp.y,Math.max(X(t.xi)-X(t.ei),1),gp.h);c.globalAlpha=1;
+  line(D.close,Yp,T.ink,1.25);
+  for(const o of overlays)line(o.a,Yp,o.color,o.w,o.dash,o.alpha);
+  const tri=(x,y,up,col)=>{c.fillStyle=col;c.beginPath();if(up){c.moveTo(x,y);c.lineTo(x-4.5,y+7);c.lineTo(x+4.5,y+7)}else{c.moveTo(x,y);c.lineTo(x-4.5,y-7);c.lineTo(x+4.5,y-7)}c.closePath();c.fill()};
+  for(const t of R.trades){tri(X(t.ei),Math.min(Yp(D.low[t.ei])+4,gp.y+gp.h-8),true,T.pos);if(t.reason!=='Still open')tri(X(t.xi),Math.max(Yp(D.high[t.xi])-4,gp.y+8),false,t.ret>0?T.pos:T.neg)}
+  label(gp,'PRICE · '+(overlays.length?'with indicator overlays · ':'')+'▲ entry ▼ exit');
+
+  if(osc){const g=G.osc,d=DEFS[osc.type],v=R.vals[osc.id];
+    if(osc.type==='rsi'){const Y=pane(g,[],{min:0,max:100,fmt:t=>t.toFixed(0)});for(const lv of [30,70]){c.strokeStyle=T.muted;c.setLineDash([3,3]);c.beginPath();c.moveTo(L,Y(lv)+.5);c.lineTo(L+pw,Y(lv)+.5);c.stroke();c.setLineDash([])}line(v.value,Y,T.ind,1.3)}
+    else if(osc.type==='macd'){const Y=pane(g,[{a:v.macd},{a:v.signal},{a:v.hist}]);const z=Y(0),bw=Math.max(pw/N*.7,1);for(let i=0;i<N;i++){const hv=v.hist[i];if(!isFinite(hv))continue;c.fillStyle=hv>=0?T.pos:T.neg;c.globalAlpha=.45;c.fillRect(X(i)-bw/2,Math.min(z,Y(hv)),bw,Math.abs(Y(hv)-z))}c.globalAlpha=1;line(v.macd,Y,T.ind,1.2);line(v.signal,Y,T.cond,1.2)}
+    else{const series=d.outs.filter(o=>o[1]==='num').map((o,i)=>({a:v[o[0]],color:cols[i%cols.length]}));const Y=pane(g,series);for(const s of series)line(s.a,Y,s.color,1.3)}
+    label(g,`${d.label.toUpperCase()} #${osc.id}${sel&&sel.kind==='node'&&sel.id===osc.id?'':' · select a block to plot it here'}`);
+  }
+  const ge=G.eq,bh=D.close.map(v=>R.cap*v/D.close[0]);
+  const Ye=pane(ge,[{a:R.eq},{a:bh}],{fmt:t=>Math.abs(t)>=1e6?(t/1e6).toFixed(1)+'M':Math.abs(t)>=1e3?(t/1e3).toFixed(0)+'k':t.toFixed(0)});
+  line(bh,Ye,T.muted,1.1,[4,3]);line(R.eq,Ye,T.accent,1.7);
+  label(ge,'EQUITY · strategy (solid) vs buy & hold (dashed)');
+
+  c.fillStyle=T.muted;c.textAlign='center';
+  for(let k=0;k<=5;k++){const i=Math.round(k*(N-1)/5);c.textAlign=k===0?'left':k===5?'right':'center';c.fillText(D.dates[i],X(i),h-9)}
+  const cx=Math.round(X(idx))+.5;c.strokeStyle=T.ink;c.globalAlpha=.45;c.setLineDash([2,3]);c.beginPath();c.moveTo(cx,top);c.lineTo(cx,h-bot);c.stroke();c.setLineDash([]);c.globalAlpha=1;
+  c.fillStyle=T.ink;c.beginPath();c.arc(X(idx),Yp(D.close[idx]),3,0,Math.PI*2);c.fill();
+  c.fillStyle=T.accent;c.beginPath();c.arc(X(idx),Ye(R.eq[idx]),3,0,Math.PI*2);c.fill();
+}
+function initChart(){
+  const cv=$('#chart');
+  const iAt=e=>{if(!chartGeo)return idx;const r=cv.getBoundingClientRect();return Math.round((e.clientX-r.left-chartGeo.L)/chartGeo.pw*(chartGeo.N-1))};
+  cv.addEventListener('pointermove',e=>{if(!pinned)setIdx(iAt(e))});
+  cv.addEventListener('pointerleave',()=>{if(!pinned&&data)setIdx(data.close.length-1)});
+  cv.addEventListener('click',e=>{pinned=!pinned;setIdx(iAt(e))});
+  new ResizeObserver(()=>drawChart()).observe(cv.parentElement);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',drawChart);
+  new MutationObserver(drawChart).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme','class','style']});
+}
+
+/* ---------- Misc UI ---------- */
+let toastT=0;
+function toast(msg,withUndo){const t=$('#toast');t.innerHTML=`<span>${esc(msg)}</span>${withUndo?'<button id="tUndo">Undo</button>':''}`;t.hidden=false;if(withUndo)$('#tUndo').onclick=()=>{doUndo();t.hidden=true};clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,3600)}
+function switchTab(k){document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===k));document.querySelectorAll('[data-pane]').forEach(p=>p.hidden=p.dataset.pane!==k);if(k==='bt')requestAnimationFrame(drawChart);if(k==='logic')renderLogic()}
+async function copyText(txt,el){try{await navigator.clipboard.writeText(txt);toast('Copied to clipboard.')}catch(_){if(el.select){el.focus();el.select()}else{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)}toast('Copy was blocked here. The text is selected, press Ctrl+C or ⌘C.')}}
+function save(){try{localStorage.setItem('strategy-loom-v1',JSON.stringify({S,settings}))}catch(_){}}
+function loadSaved(){try{const raw=localStorage.getItem('strategy-loom-v1');if(!raw)return false;const o=JSON.parse(raw);if(!o.S||!Array.isArray(o.S.nodes)||o.S.nodes.some(n=>!DEFS[n.type]))return false;S=o.S;settings={...settings,...o.settings};if(settings.dataset==='csv')settings.dataset='trend';return true}catch(_){return false}}
+function loadState(o){
+  if(!o||!Array.isArray(o.nodes)||!Array.isArray(o.edges))throw new Error('Expected an object with "nodes" and "edges" arrays.');
+  for(const n of o.nodes){if(!DEFS[n.type])throw new Error(`Unknown block type "${n.type}".`);n.params={...DEFS[n.type].p,...(n.params||{})};n.x=+n.x||0;n.y=+n.y||0}
+  const ids=new Set(o.nodes.map(n=>n.id));
+  const edges=o.edges.filter(e=>ids.has(e.from[0])&&ids.has(e.to[0])).map((e,i)=>({id:i+1,from:e.from,to:e.to}));
+  S={name:o.name||'Imported strategy',nodes:o.nodes,edges,nextId:Math.max(0,...o.nodes.map(n=>n.id))+1,nextE:edges.length+1};
+}
+
+function init(){
+  renderPalette();initCanvas();initChart();
+  if(!loadSaved())S=TEMPLATES.ema();
+  $('#stratName').value=S.name;
+  $('#stratName').addEventListener('focus',pushHistory);
+  $('#stratName').addEventListener('input',e=>{S.name=e.target.value;save();scheduleRun()});
+  $('#tplSel').addEventListener('change',e=>{const k=e.target.value;if(!k)return;pushHistory();S=TEMPLATES[k]();sel=null;pinned=false;$('#stratName').value=S.name;e.target.value='';commit();requestAnimationFrame(fit);toast(`Loaded "${S.name}".`,true)});
+  $('#undoBtn').onclick=doUndo;
+  document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>switchTab(b.dataset.tab));
+  $('#dataSel').value=settings.dataset;$('#capIn').value=settings.capital;$('#feeIn').value=settings.fee;
+  $('#dataSel').onchange=e=>{settings.dataset=e.target.value;pinned=false;save();run()};
+  $('#reseed').onclick=()=>{if(settings.dataset==='csv'){settings.dataset='trend';$('#dataSel').value='trend'}settings.seed++;pinned=false;save();run()};
+  $('#capIn').oninput=e=>{const v=parseFloat(e.target.value);if(v>0){settings.capital=v;save();scheduleRun()}};
+  $('#feeIn').oninput=e=>{const v=parseFloat(e.target.value);if(v>=0){settings.fee=v;save();scheduleRun()}};
+  $('#csvBtn').onclick=()=>$('#csvFile').click();
+  $('#csvFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{csvData=parseCSV(String(rd.result),f.name);let o=$('#dataSel').querySelector('option[value=csv]');if(!o){o=document.createElement('option');o.value='csv';$('#dataSel').appendChild(o)}o.textContent='CSV · '+f.name;settings.dataset='csv';$('#dataSel').value='csv';pinned=false;run();toast(`Loaded ${csvData.close.length} bars from ${f.name}.`)}catch(err){toast(err.message)}e.target.value=''};rd.readAsText(f)};
+  $('#copyPy').onclick=()=>copyText($('#pyCode').dataset.raw,$('#pyCode'));
+  $('#copyJson').onclick=()=>copyText($('#jsonTxt').value,$('#jsonTxt'));
+  $('#applyJson').onclick=()=>{try{const o=JSON.parse($('#jsonTxt').value);pushHistory();loadState(o);sel=null;$('#stratName').value=S.name;commit();requestAnimationFrame(fit);toast('Strategy loaded from JSON.',true)}catch(err){undo.pop&&0;toast('Could not read that JSON. '+err.message)}};
+  document.addEventListener('keydown',e=>{
+    const tg=e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA'||tg==='SELECT')return;
+    if((e.key==='Delete'||e.key==='Backspace')&&sel){e.preventDefault();deleteSel()}
+    else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){e.preventDefault();doUndo()}
+    else if(e.key==='Escape')setSel(null);
+  });
+  renderGraph();renderInspector();run();
+  requestAnimationFrame(()=>{fit();drawChart()});
+}
+init();
 </script>
-</body>
-</html>
+
+</body></html>
